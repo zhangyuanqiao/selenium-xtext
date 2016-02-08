@@ -1,0 +1,80 @@
+grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
+
+generate myDsl "http://www.xtext.org/example/mydsl/MyDsl"
+
+
+
+//GROUP TYPES
+Main : 
+	'File' fileName=STRING 'with' 'browser' browserName=STRING ':'
+	orders+=(Action|Structure)*
+;
+
+Action : Navigate|Click|Fill|SetCheckBox|Refresh|Alert|Store;
+
+Structure : If | Loop |DoAll ;
+
+Condition : IsIn|Not;
+
+
+
+
+//OBJECTS
+
+Object : HTMLTYPE typeName=STRING;
+
+HTMLTYPE : 'class'|'id'|'name';
+
+Collection : obj+=Object*;
+
+
+
+//ACTIONS
+
+Alert: 'Alert' text=STRING;
+
+Refresh: 'Refresh';
+	
+Navigate : 'Navigate' url=STRING;
+
+Store : 'Store' obj=Object 'as' objName=STRING;	
+
+Click : 'Click' innerhtml=STRING;
+	
+Fill : 'Fill' nametag=STRING;
+	
+SetCheckBox : 'SetCheckBox' nametag=STRING;
+
+
+
+
+
+//CONDITION
+	
+IsIn : 'Is' text=STRING 'in' (title=STRING|obj=Object) '?';
+
+Not : 'Not' cond=Condition;
+
+
+
+
+//STRUCTURES
+
+
+If : 
+	'If' ':' cond=Condition
+	'Then' ':' '{' actionThen=Action* '}'
+	('Else' ':' '{' actionElse = Action* '}')?	
+;
+	
+Loop : 
+	'Loop' ':'
+	'Condition' ':' cond=Condition
+	'Interval' ':' milliseconds=INT
+	'Do' ':' '{' actions=Action* '}'
+;
+
+DoAll : 
+	'For' 'all' 'in' coll=Collection 'do' ':' todo=(Action|Structure)
+;
+
