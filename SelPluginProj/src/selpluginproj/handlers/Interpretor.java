@@ -12,14 +12,14 @@ import org.xtext.example.mydsl.myDsl.Object;
 
 
 public class Interpretor {
-	
+
 	private static  WebDriver SEL_DRIVER = null;
 
 	public Interpretor(){}
-	
+
 	public void execute(Main main){		
 		System.out.println("Let's execute "+main.getFileName()+" !!! ");
-		
+
 		//which browser should we use ?
 		switch (main.getBrowserName()) {
 		case "Firefox":
@@ -29,12 +29,15 @@ public class Interpretor {
 			SEL_DRIVER = new FirefoxDriver();
 			break;
 		}
-		
+
 		//execute all orders
 		for(EObject e : main.getOrders()){this.execute(e);}		
 	}
-	
-	// switch case for ALL orders  TODO : implement all orders
+
+	/**
+	 *  switch case for ALL orders  TODO : implement all orders
+	 * @param e the EObject which is an unknown 
+	 */
 	private void execute(EObject e) {
 		if(e instanceof Navigate){
 			String url = ((Navigate)e).getUrl();
@@ -52,40 +55,59 @@ public class Interpretor {
 		else if(e instanceof Click){
 			click(((Click)e).getName());
 		}
-			
+
 	}
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
 	/////////////////////////////////  ACTIONS  /////////////////////////////////////
-	
+
 	private static void click(String name) {fineElementFinder(name).click();}
-	
+
 
 	private static void navigateTo(String url){SEL_DRIVER.get(url);}
-	
-	
+
+
 	private static void fillWith(String field,String value){ fineElementFinder(field).sendKeys(value);}
-	
-	
-	
-	
+
+
+
+
 	/////////////////////////////////////  UTILITIES  /////////////////////////////////////////
-	
-	
+
+
 	private static WebElement fineElementFinder(String clue){
 		WebElement ret = null;
-		try{ // Keep adding some if function is not powerful enough !
+		try{ //TODO Keep adding some if function is not powerful enough !
 			ret = SEL_DRIVER.findElement(By.name(clue));   //find element using tag 'name'
-		}catch(Exception e){
-			ret = SEL_DRIVER.findElement(By.xpath("[text()[contains(.,'"+clue+"')]")); //find element by text 	
+		}catch(Exception e0){
+			try{ ret = SEL_DRIVER.findElement(By.linkText(clue)); }
+			catch(Exception e1){
+				try{ret = SEL_DRIVER.findElement(By.partialLinkText(clue)); }
+				catch(Exception e2){
+					try{ret = SEL_DRIVER.findElement(By.className(clue)); }
+					catch(Exception e3){
+						try{ret = SEL_DRIVER.findElement(By.cssSelector("value='"+clue+"'")); }
+						catch(Exception e4){
+							try{ret = SEL_DRIVER.findElement(By.xpath("[text()[contains(.,'"+clue+"')]"));} //find element by text
+							catch(Exception e5){
+								try{ret = SEL_DRIVER.findElement(By.xpath("//table[regx:match(@value, '"+clue+"')]"));}
+								catch(Exception e6){
+									System.out.println("NOTHING WAS FOUND by the fine element finder using clue : '"+clue+"' ! ");
+								}
+							}
+
+						}
+					}
+				}
+			}
 		} 		
 		return ret;
 	}
-	
+
 
 }
