@@ -82,21 +82,22 @@ public class Interpretor {
 
 	private static WebElement fineElementFinder(String clue){
 		WebElement ret = null;
+		Exception e = null;
 		try{ //TODO Keep adding some if function is not powerful enough !
 			ret = SEL_DRIVER.findElement(By.name(clue));   //find element using tag 'name'
-		}catch(Exception e0){
+		}catch(Exception e0){e = e0;
 			try{ ret = SEL_DRIVER.findElement(By.linkText(clue)); }
-			catch(Exception e1){
+			catch(Exception e1){ e = e1;
 				try{ret = SEL_DRIVER.findElement(By.partialLinkText(clue)); }
-				catch(Exception e2){
+				catch(Exception e2){ e = e2;
 					try{ret = SEL_DRIVER.findElement(By.className(clue)); }
-					catch(Exception e3){
-						try{ret = SEL_DRIVER.findElement(By.cssSelector("value='"+clue+"'")); }
-						catch(Exception e4){
+					catch(Exception e3){ e = e3;
+						try{ret = SEL_DRIVER.findElement(By.cssSelector("value$='"+clue+"'")); }
+						catch(Exception e4){ e = e4;
 							try{ret = SEL_DRIVER.findElement(By.xpath("[text()[contains(.,'"+clue+"')]"));} //find element by text
-							catch(Exception e5){
+							catch(Exception e5){ e = e5;
 								try{ret = SEL_DRIVER.findElement(By.xpath("//table[regx:match(@value, '"+clue+"')]"));}
-								catch(Exception e6){
+								catch(Exception e6){ e = e6;
 									System.out.println("NOTHING WAS FOUND by the fine element finder using clue : '"+clue+"' ! ");
 								}
 							}
@@ -105,7 +106,12 @@ public class Interpretor {
 					}
 				}
 			}
-		} 		
+		} 
+		if(e!=null){
+			System.out.println("===== Last Exception Encountered while searching for \""+clue+"\" =====");
+			System.out.println(e.getCause());
+			System.out.println(" = Moving on ! = ");
+		}
 		return ret;
 	}
 
