@@ -17,6 +17,7 @@ import org.xtext.example.mydsl.myDsl.Click;
 import org.xtext.example.mydsl.myDsl.Collection;
 import org.xtext.example.mydsl.myDsl.Condition;
 import org.xtext.example.mydsl.myDsl.DoAll;
+import org.xtext.example.mydsl.myDsl.DoWait;
 import org.xtext.example.mydsl.myDsl.Fill;
 import org.xtext.example.mydsl.myDsl.If;
 import org.xtext.example.mydsl.myDsl.IsIn;
@@ -26,6 +27,8 @@ import org.xtext.example.mydsl.myDsl.MyDslFactory;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Navigate;
 import org.xtext.example.mydsl.myDsl.Not;
+import org.xtext.example.mydsl.myDsl.Refresh;
+import org.xtext.example.mydsl.myDsl.Rickroll;
 import org.xtext.example.mydsl.myDsl.SetCheckBox;
 import org.xtext.example.mydsl.myDsl.Store;
 import org.xtext.example.mydsl.myDsl.Structure;
@@ -89,11 +92,14 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.OBJECT: return createObject();
       case MyDslPackage.COLLECTION: return createCollection();
       case MyDslPackage.ALERT: return createAlert();
+      case MyDslPackage.REFRESH: return createRefresh();
       case MyDslPackage.NAVIGATE: return createNavigate();
       case MyDslPackage.STORE: return createStore();
       case MyDslPackage.CLICK: return createClick();
       case MyDslPackage.FILL: return createFill();
       case MyDslPackage.SET_CHECK_BOX: return createSetCheckBox();
+      case MyDslPackage.RICKROLL: return createRickroll();
+      case MyDslPackage.DO_WAIT: return createDoWait();
       case MyDslPackage.IS_IN: return createIsIn();
       case MyDslPackage.NOT: return createNot();
       case MyDslPackage.IF: return createIf();
@@ -186,6 +192,17 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Refresh createRefresh()
+  {
+    RefreshImpl refresh = new RefreshImpl();
+    return refresh;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Navigate createNavigate()
   {
     NavigateImpl navigate = new NavigateImpl();
@@ -234,6 +251,28 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     SetCheckBoxImpl setCheckBox = new SetCheckBoxImpl();
     return setCheckBox;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Rickroll createRickroll()
+  {
+    RickrollImpl rickroll = new RickrollImpl();
+    return rickroll;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DoWait createDoWait()
+  {
+    DoWaitImpl doWait = new DoWaitImpl();
+    return doWait;
   }
 
   /**

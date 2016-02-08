@@ -21,6 +21,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.FillImpl#getNametag <em>Nametag</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.FillImpl#getContent <em>Content</em>}</li>
  * </ul>
  *
  * @generated
@@ -46,6 +47,26 @@ public class FillImpl extends ActionImpl implements Fill
    * @ordered
    */
   protected String nametag = NAMETAG_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getContent() <em>Content</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getContent()
+   * @generated
+   * @ordered
+   */
+  protected static final String CONTENT_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getContent() <em>Content</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getContent()
+   * @generated
+   * @ordered
+   */
+  protected String content = CONTENT_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -96,6 +117,29 @@ public class FillImpl extends ActionImpl implements Fill
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getContent()
+  {
+    return content;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setContent(String newContent)
+  {
+    String oldContent = content;
+    content = newContent;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.FILL__CONTENT, oldContent, content));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -103,6 +147,8 @@ public class FillImpl extends ActionImpl implements Fill
     {
       case MyDslPackage.FILL__NAMETAG:
         return getNametag();
+      case MyDslPackage.FILL__CONTENT:
+        return getContent();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,6 +165,9 @@ public class FillImpl extends ActionImpl implements Fill
     {
       case MyDslPackage.FILL__NAMETAG:
         setNametag((String)newValue);
+        return;
+      case MyDslPackage.FILL__CONTENT:
+        setContent((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,6 +186,9 @@ public class FillImpl extends ActionImpl implements Fill
       case MyDslPackage.FILL__NAMETAG:
         setNametag(NAMETAG_EDEFAULT);
         return;
+      case MyDslPackage.FILL__CONTENT:
+        setContent(CONTENT_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -153,6 +205,8 @@ public class FillImpl extends ActionImpl implements Fill
     {
       case MyDslPackage.FILL__NAMETAG:
         return NAMETAG_EDEFAULT == null ? nametag != null : !NAMETAG_EDEFAULT.equals(nametag);
+      case MyDslPackage.FILL__CONTENT:
+        return CONTENT_EDEFAULT == null ? content != null : !CONTENT_EDEFAULT.equals(content);
     }
     return super.eIsSet(featureID);
   }
@@ -170,6 +224,8 @@ public class FillImpl extends ActionImpl implements Fill
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (nametag: ");
     result.append(nametag);
+    result.append(", content: ");
+    result.append(content);
     result.append(')');
     return result.toString();
   }

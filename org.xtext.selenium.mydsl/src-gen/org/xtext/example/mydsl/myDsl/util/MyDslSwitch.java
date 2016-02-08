@@ -14,6 +14,7 @@ import org.xtext.example.mydsl.myDsl.Click;
 import org.xtext.example.mydsl.myDsl.Collection;
 import org.xtext.example.mydsl.myDsl.Condition;
 import org.xtext.example.mydsl.myDsl.DoAll;
+import org.xtext.example.mydsl.myDsl.DoWait;
 import org.xtext.example.mydsl.myDsl.Fill;
 import org.xtext.example.mydsl.myDsl.If;
 import org.xtext.example.mydsl.myDsl.IsIn;
@@ -22,6 +23,8 @@ import org.xtext.example.mydsl.myDsl.Main;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Navigate;
 import org.xtext.example.mydsl.myDsl.Not;
+import org.xtext.example.mydsl.myDsl.Refresh;
+import org.xtext.example.mydsl.myDsl.Rickroll;
 import org.xtext.example.mydsl.myDsl.SetCheckBox;
 import org.xtext.example.mydsl.myDsl.Store;
 import org.xtext.example.mydsl.myDsl.Structure;
@@ -139,6 +142,14 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MyDslPackage.REFRESH:
+      {
+        Refresh refresh = (Refresh)theEObject;
+        T result = caseRefresh(refresh);
+        if (result == null) result = caseAction(refresh);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MyDslPackage.NAVIGATE:
       {
         Navigate navigate = (Navigate)theEObject;
@@ -176,6 +187,22 @@ public class MyDslSwitch<T> extends Switch<T>
         SetCheckBox setCheckBox = (SetCheckBox)theEObject;
         T result = caseSetCheckBox(setCheckBox);
         if (result == null) result = caseAction(setCheckBox);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.RICKROLL:
+      {
+        Rickroll rickroll = (Rickroll)theEObject;
+        T result = caseRickroll(rickroll);
+        if (result == null) result = caseAction(rickroll);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.DO_WAIT:
+      {
+        DoWait doWait = (DoWait)theEObject;
+        T result = caseDoWait(doWait);
+        if (result == null) result = caseAction(doWait);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -336,6 +363,22 @@ public class MyDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Refresh</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Refresh</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRefresh(Refresh object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Navigate</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -411,6 +454,38 @@ public class MyDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSetCheckBox(SetCheckBox object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Rickroll</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Rickroll</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRickroll(Rickroll object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Do Wait</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Do Wait</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDoWait(DoWait object)
   {
     return null;
   }

@@ -13,7 +13,7 @@ package org.xtext.example.mydsl.myDsl;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Click#getInnerhtml <em>Innerhtml</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Click#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getClick()
@@ -23,29 +23,29 @@ package org.xtext.example.mydsl.myDsl;
 public interface Click extends Action
 {
   /**
-   * Returns the value of the '<em><b>Innerhtml</b></em>' attribute.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Innerhtml</em>' attribute isn't clear,
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Innerhtml</em>' attribute.
-   * @see #setInnerhtml(String)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getClick_Innerhtml()
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getClick_Name()
    * @model
    * @generated
    */
-  String getInnerhtml();
+  String getName();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Click#getInnerhtml <em>Innerhtml</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Click#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Innerhtml</em>' attribute.
-   * @see #getInnerhtml()
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
    * @generated
    */
-  void setInnerhtml(String value);
+  void setName(String value);
 
 } // Click

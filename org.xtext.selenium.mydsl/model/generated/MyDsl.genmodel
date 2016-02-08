@@ -15,6 +15,7 @@
     <genClasses ecoreClass="MyDsl.ecore#//Structure"/>
     <genClasses ecoreClass="MyDsl.ecore#//Condition"/>
     <genClasses ecoreClass="MyDsl.ecore#//Object">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Object/htmltype"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Object/objectName"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Collection">
@@ -23,6 +24,7 @@
     <genClasses ecoreClass="MyDsl.ecore#//Alert">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Alert/text"/>
     </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Refresh"/>
     <genClasses ecoreClass="MyDsl.ecore#//Navigate">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Navigate/url"/>
     </genClasses>
@@ -31,13 +33,18 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Store/objName"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Click">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Click/innerhtml"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Click/name"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Fill">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Fill/nametag"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Fill/content"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//SetCheckBox">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//SetCheckBox/nametag"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Rickroll"/>
+    <genClasses ecoreClass="MyDsl.ecore#//DoWait">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//DoWait/millisec"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//IsIn">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//IsIn/text"/>

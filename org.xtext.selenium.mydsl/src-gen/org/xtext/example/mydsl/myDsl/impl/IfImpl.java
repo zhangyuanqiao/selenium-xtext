@@ -3,13 +3,20 @@
  */
 package org.xtext.example.mydsl.myDsl.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.mydsl.myDsl.Action;
 import org.xtext.example.mydsl.myDsl.Condition;
@@ -44,24 +51,24 @@ public class IfImpl extends StructureImpl implements If
   protected Condition cond;
 
   /**
-   * The cached value of the '{@link #getActionThen() <em>Action Then</em>}' containment reference.
+   * The cached value of the '{@link #getActionThen() <em>Action Then</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getActionThen()
    * @generated
    * @ordered
    */
-  protected Action actionThen;
+  protected EList<Action> actionThen;
 
   /**
-   * The cached value of the '{@link #getActionElse() <em>Action Else</em>}' containment reference.
+   * The cached value of the '{@link #getActionElse() <em>Action Else</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getActionElse()
    * @generated
    * @ordered
    */
-  protected Action actionElse;
+  protected EList<Action> actionElse;
 
   /**
    * <!-- begin-user-doc -->
@@ -137,8 +144,12 @@ public class IfImpl extends StructureImpl implements If
    * <!-- end-user-doc -->
    * @generated
    */
-  public Action getActionThen()
+  public EList<Action> getActionThen()
   {
+    if (actionThen == null)
+    {
+      actionThen = new EObjectContainmentEList<Action>(Action.class, this, MyDslPackage.IF__ACTION_THEN);
+    }
     return actionThen;
   }
 
@@ -147,85 +158,13 @@ public class IfImpl extends StructureImpl implements If
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetActionThen(Action newActionThen, NotificationChain msgs)
+  public EList<Action> getActionElse()
   {
-    Action oldActionThen = actionThen;
-    actionThen = newActionThen;
-    if (eNotificationRequired())
+    if (actionElse == null)
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.IF__ACTION_THEN, oldActionThen, newActionThen);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
+      actionElse = new EObjectContainmentEList<Action>(Action.class, this, MyDslPackage.IF__ACTION_ELSE);
     }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setActionThen(Action newActionThen)
-  {
-    if (newActionThen != actionThen)
-    {
-      NotificationChain msgs = null;
-      if (actionThen != null)
-        msgs = ((InternalEObject)actionThen).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.IF__ACTION_THEN, null, msgs);
-      if (newActionThen != null)
-        msgs = ((InternalEObject)newActionThen).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.IF__ACTION_THEN, null, msgs);
-      msgs = basicSetActionThen(newActionThen, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.IF__ACTION_THEN, newActionThen, newActionThen));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Action getActionElse()
-  {
     return actionElse;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetActionElse(Action newActionElse, NotificationChain msgs)
-  {
-    Action oldActionElse = actionElse;
-    actionElse = newActionElse;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.IF__ACTION_ELSE, oldActionElse, newActionElse);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setActionElse(Action newActionElse)
-  {
-    if (newActionElse != actionElse)
-    {
-      NotificationChain msgs = null;
-      if (actionElse != null)
-        msgs = ((InternalEObject)actionElse).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.IF__ACTION_ELSE, null, msgs);
-      if (newActionElse != null)
-        msgs = ((InternalEObject)newActionElse).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.IF__ACTION_ELSE, null, msgs);
-      msgs = basicSetActionElse(newActionElse, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.IF__ACTION_ELSE, newActionElse, newActionElse));
   }
 
   /**
@@ -241,9 +180,9 @@ public class IfImpl extends StructureImpl implements If
       case MyDslPackage.IF__COND:
         return basicSetCond(null, msgs);
       case MyDslPackage.IF__ACTION_THEN:
-        return basicSetActionThen(null, msgs);
+        return ((InternalEList<?>)getActionThen()).basicRemove(otherEnd, msgs);
       case MyDslPackage.IF__ACTION_ELSE:
-        return basicSetActionElse(null, msgs);
+        return ((InternalEList<?>)getActionElse()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -273,6 +212,7 @@ public class IfImpl extends StructureImpl implements If
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -282,10 +222,12 @@ public class IfImpl extends StructureImpl implements If
         setCond((Condition)newValue);
         return;
       case MyDslPackage.IF__ACTION_THEN:
-        setActionThen((Action)newValue);
+        getActionThen().clear();
+        getActionThen().addAll((Collection<? extends Action>)newValue);
         return;
       case MyDslPackage.IF__ACTION_ELSE:
-        setActionElse((Action)newValue);
+        getActionElse().clear();
+        getActionElse().addAll((Collection<? extends Action>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -305,10 +247,10 @@ public class IfImpl extends StructureImpl implements If
         setCond((Condition)null);
         return;
       case MyDslPackage.IF__ACTION_THEN:
-        setActionThen((Action)null);
+        getActionThen().clear();
         return;
       case MyDslPackage.IF__ACTION_ELSE:
-        setActionElse((Action)null);
+        getActionElse().clear();
         return;
     }
     super.eUnset(featureID);
@@ -327,9 +269,9 @@ public class IfImpl extends StructureImpl implements If
       case MyDslPackage.IF__COND:
         return cond != null;
       case MyDslPackage.IF__ACTION_THEN:
-        return actionThen != null;
+        return actionThen != null && !actionThen.isEmpty();
       case MyDslPackage.IF__ACTION_ELSE:
-        return actionElse != null;
+        return actionElse != null && !actionElse.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -3,6 +3,7 @@
  */
 package org.xtext.example.mydsl.myDsl;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,55 +52,35 @@ public interface If extends Structure
   void setCond(Condition value);
 
   /**
-   * Returns the value of the '<em><b>Action Then</b></em>' containment reference.
+   * Returns the value of the '<em><b>Action Then</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.mydsl.myDsl.Action}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Action Then</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Action Then</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Action Then</em>' containment reference.
-   * @see #setActionThen(Action)
+   * @return the value of the '<em>Action Then</em>' containment reference list.
    * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getIf_ActionThen()
    * @model containment="true"
    * @generated
    */
-  Action getActionThen();
+  EList<Action> getActionThen();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.If#getActionThen <em>Action Then</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Action Then</em>' containment reference.
-   * @see #getActionThen()
-   * @generated
-   */
-  void setActionThen(Action value);
-
-  /**
-   * Returns the value of the '<em><b>Action Else</b></em>' containment reference.
+   * Returns the value of the '<em><b>Action Else</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.mydsl.myDsl.Action}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Action Else</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Action Else</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Action Else</em>' containment reference.
-   * @see #setActionElse(Action)
+   * @return the value of the '<em>Action Else</em>' containment reference list.
    * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getIf_ActionElse()
    * @model containment="true"
    * @generated
    */
-  Action getActionElse();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.If#getActionElse <em>Action Else</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Action Else</em>' containment reference.
-   * @see #getActionElse()
-   * @generated
-   */
-  void setActionElse(Action value);
+  EList<Action> getActionElse();
 
 } // If

@@ -16,6 +16,7 @@ import org.xtext.example.mydsl.myDsl.Click;
 import org.xtext.example.mydsl.myDsl.Collection;
 import org.xtext.example.mydsl.myDsl.Condition;
 import org.xtext.example.mydsl.myDsl.DoAll;
+import org.xtext.example.mydsl.myDsl.DoWait;
 import org.xtext.example.mydsl.myDsl.Fill;
 import org.xtext.example.mydsl.myDsl.If;
 import org.xtext.example.mydsl.myDsl.IsIn;
@@ -24,6 +25,8 @@ import org.xtext.example.mydsl.myDsl.Main;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Navigate;
 import org.xtext.example.mydsl.myDsl.Not;
+import org.xtext.example.mydsl.myDsl.Refresh;
+import org.xtext.example.mydsl.myDsl.Rickroll;
 import org.xtext.example.mydsl.myDsl.SetCheckBox;
 import org.xtext.example.mydsl.myDsl.Store;
 import org.xtext.example.mydsl.myDsl.Structure;
@@ -127,6 +130,11 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createAlertAdapter();
       }
       @Override
+      public Adapter caseRefresh(Refresh object)
+      {
+        return createRefreshAdapter();
+      }
+      @Override
       public Adapter caseNavigate(Navigate object)
       {
         return createNavigateAdapter();
@@ -150,6 +158,16 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseSetCheckBox(SetCheckBox object)
       {
         return createSetCheckBoxAdapter();
+      }
+      @Override
+      public Adapter caseRickroll(Rickroll object)
+      {
+        return createRickrollAdapter();
+      }
+      @Override
+      public Adapter caseDoWait(DoWait object)
+      {
+        return createDoWaitAdapter();
       }
       @Override
       public Adapter caseIsIn(IsIn object)
@@ -304,6 +322,21 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Refresh <em>Refresh</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.Refresh
+   * @generated
+   */
+  public Adapter createRefreshAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Navigate <em>Navigate</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -374,6 +407,36 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSetCheckBoxAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Rickroll <em>Rickroll</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.Rickroll
+   * @generated
+   */
+  public Adapter createRickrollAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.DoWait <em>Do Wait</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.DoWait
+   * @generated
+   */
+  public Adapter createDoWaitAdapter()
   {
     return null;
   }

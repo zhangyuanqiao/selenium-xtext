@@ -6,6 +6,7 @@ package org.xtext.example.mydsl.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
+import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.Grammar;
@@ -93,12 +94,14 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRefreshParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cAlertParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		private final RuleCall cStoreParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cRickrollParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cDoWaitParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
 		
 		//Action:
-		//	Navigate | Click | Fill | SetCheckBox | Refresh | Alert | Store;
+		//	Navigate | Click | Fill | SetCheckBox | Refresh | Alert | Store | Rickroll | DoWait;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Navigate | Click | Fill | SetCheckBox | Refresh | Alert | Store
+		//Navigate | Click | Fill | SetCheckBox | Refresh | Alert | Store | Rickroll | DoWait
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Navigate
@@ -121,6 +124,12 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Store
 		public RuleCall getStoreParserRuleCall_6() { return cStoreParserRuleCall_6; }
+		
+		//Rickroll
+		public RuleCall getRickrollParserRuleCall_7() { return cRickrollParserRuleCall_7; }
+		
+		//DoWait
+		public RuleCall getDoWaitParserRuleCall_8() { return cDoWaitParserRuleCall_8; }
 	}
 	public class StructureElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Structure");
@@ -167,20 +176,24 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class ObjectElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Object");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cHTMLTYPEParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cHtmltypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cHtmltypeHTMLTYPEParserRuleCall_0_0 = (RuleCall)cHtmltypeAssignment_0.eContents().get(0);
 		private final Assignment cObjectNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cObjectNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cObjectNameAssignment_1.eContents().get(0);
 		
 		////OBJECTS
 		//Object:
-		//	HTMLTYPE objectName=STRING;
+		//	htmltype=HTMLTYPE objectName=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//HTMLTYPE objectName=STRING
+		//htmltype=HTMLTYPE objectName=STRING
 		public Group getGroup() { return cGroup; }
 		
+		//htmltype=HTMLTYPE
+		public Assignment getHtmltypeAssignment_0() { return cHtmltypeAssignment_0; }
+		
 		//HTMLTYPE
-		public RuleCall getHTMLTYPEParserRuleCall_0() { return cHTMLTYPEParserRuleCall_0; }
+		public RuleCall getHtmltypeHTMLTYPEParserRuleCall_0_0() { return cHtmltypeHTMLTYPEParserRuleCall_0_0; }
 		
 		//objectName=STRING
 		public Assignment getObjectNameAssignment_1() { return cObjectNameAssignment_1; }
@@ -252,14 +265,22 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class RefreshElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Refresh");
-		private final Keyword cRefreshKeyword = (Keyword)rule.eContents().get(1);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cRefreshAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cRefreshKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
 		//Refresh:
-		//	'Refresh';
+		//	{Refresh} 'Refresh';
 		@Override public ParserRule getRule() { return rule; }
 		
+		//{Refresh} 'Refresh'
+		public Group getGroup() { return cGroup; }
+		
+		//{Refresh}
+		public Action getRefreshAction_0() { return cRefreshAction_0; }
+		
 		//'Refresh'
-		public Keyword getRefreshKeyword() { return cRefreshKeyword; }
+		public Keyword getRefreshKeyword_1() { return cRefreshKeyword_1; }
 	}
 	public class NavigateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Navigate");
@@ -323,24 +344,24 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Click");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cClickKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cInnerhtmlAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cInnerhtmlSTRINGTerminalRuleCall_1_0 = (RuleCall)cInnerhtmlAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
 		//Click:
-		//	'Click' innerhtml=STRING;
+		//	'Click' name=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Click' innerhtml=STRING
+		//'Click' name=STRING
 		public Group getGroup() { return cGroup; }
 		
 		//'Click'
 		public Keyword getClickKeyword_0() { return cClickKeyword_0; }
 		
-		//innerhtml=STRING
-		public Assignment getInnerhtmlAssignment_1() { return cInnerhtmlAssignment_1; }
+		//name=STRING
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//STRING
-		public RuleCall getInnerhtmlSTRINGTerminalRuleCall_1_0() { return cInnerhtmlSTRINGTerminalRuleCall_1_0; }
+		public RuleCall getNameSTRINGTerminalRuleCall_1_0() { return cNameSTRINGTerminalRuleCall_1_0; }
 	}
 	public class FillElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Fill");
@@ -348,12 +369,15 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cFillKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNametagAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNametagSTRINGTerminalRuleCall_1_0 = (RuleCall)cNametagAssignment_1.eContents().get(0);
+		private final Keyword cWithKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cContentAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cContentSTRINGTerminalRuleCall_3_0 = (RuleCall)cContentAssignment_3.eContents().get(0);
 		
 		//Fill:
-		//	'Fill' nametag=STRING;
+		//	'Fill' nametag=STRING 'with' content=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Fill' nametag=STRING
+		//'Fill' nametag=STRING 'with' content=STRING
 		public Group getGroup() { return cGroup; }
 		
 		//'Fill'
@@ -364,6 +388,15 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//STRING
 		public RuleCall getNametagSTRINGTerminalRuleCall_1_0() { return cNametagSTRINGTerminalRuleCall_1_0; }
+		
+		//'with'
+		public Keyword getWithKeyword_2() { return cWithKeyword_2; }
+		
+		//content=STRING
+		public Assignment getContentAssignment_3() { return cContentAssignment_3; }
+		
+		//STRING
+		public RuleCall getContentSTRINGTerminalRuleCall_3_0() { return cContentSTRINGTerminalRuleCall_3_0; }
 	}
 	public class SetCheckBoxElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.SetCheckBox");
@@ -387,6 +420,56 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//STRING
 		public RuleCall getNametagSTRINGTerminalRuleCall_1_0() { return cNametagSTRINGTerminalRuleCall_1_0; }
+	}
+	public class RickrollElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Rickroll");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cRickrollAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cRickRollKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//Rickroll:
+		//	{Rickroll} 'RickRoll';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Rickroll} 'RickRoll'
+		public Group getGroup() { return cGroup; }
+		
+		//{Rickroll}
+		public Action getRickrollAction_0() { return cRickrollAction_0; }
+		
+		//'RickRoll'
+		public Keyword getRickRollKeyword_1() { return cRickRollKeyword_1; }
+	}
+	public class DoWaitElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.DoWait");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cWaitKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cForKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cMillisecAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cMillisecINTTerminalRuleCall_2_0 = (RuleCall)cMillisecAssignment_2.eContents().get(0);
+		private final Keyword cMillisecsKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//DoWait:
+		//	'Wait' 'for' millisec=INT 'millisecs';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Wait' 'for' millisec=INT 'millisecs'
+		public Group getGroup() { return cGroup; }
+		
+		//'Wait'
+		public Keyword getWaitKeyword_0() { return cWaitKeyword_0; }
+		
+		//'for'
+		public Keyword getForKeyword_1() { return cForKeyword_1; }
+		
+		//millisec=INT
+		public Assignment getMillisecAssignment_2() { return cMillisecAssignment_2; }
+		
+		//INT
+		public RuleCall getMillisecINTTerminalRuleCall_2_0() { return cMillisecINTTerminalRuleCall_2_0; }
+		
+		//'millisecs'
+		public Keyword getMillisecsKeyword_3() { return cMillisecsKeyword_3; }
 	}
 	public class IsInElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.IsIn");
@@ -487,10 +570,10 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		////STRUCTURES
 		//If:
 		//	'If' ':' cond=Condition
-		//	'Then' ':' '{' actionThen=Action* '}' ('Else' ':' '{' actionElse=Action* '}')?;
+		//	'Then' ':' '{' actionThen+=Action '}' ('Else' ':' '{' actionElse+=Action '}')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'If' ':' cond=Condition 'Then' ':' '{' actionThen=Action* '}' ('Else' ':' '{' actionElse=Action* '}')?
+		//'If' ':' cond=Condition 'Then' ':' '{' actionThen+=Action '}' ('Else' ':' '{' actionElse+=Action '}')?
 		public Group getGroup() { return cGroup; }
 		
 		//'If'
@@ -514,7 +597,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
 		
-		//actionThen=Action*
+		//actionThen+=Action
 		public Assignment getActionThenAssignment_6() { return cActionThenAssignment_6; }
 		
 		//Action
@@ -523,7 +606,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 		
-		//('Else' ':' '{' actionElse=Action* '}')?
+		//('Else' ':' '{' actionElse+=Action '}')?
 		public Group getGroup_8() { return cGroup_8; }
 		
 		//'Else'
@@ -535,7 +618,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_8_2() { return cLeftCurlyBracketKeyword_8_2; }
 		
-		//actionElse=Action*
+		//actionElse+=Action
 		public Assignment getActionElseAssignment_8_3() { return cActionElseAssignment_8_3; }
 		
 		//Action
@@ -568,10 +651,10 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//	'Loop' ':'
 		//	'Condition' ':' cond=Condition
 		//	'Interval' ':' milliseconds=INT
-		//	'Do' ':' '{' actions=Action* '}';
+		//	'Do' ':' '{' actions+=Action '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Loop' ':' 'Condition' ':' cond=Condition 'Interval' ':' milliseconds=INT 'Do' ':' '{' actions=Action* '}'
+		//'Loop' ':' 'Condition' ':' cond=Condition 'Interval' ':' milliseconds=INT 'Do' ':' '{' actions+=Action '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'Loop'
@@ -613,7 +696,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_10() { return cLeftCurlyBracketKeyword_10; }
 		
-		//actions=Action*
+		//actions+=Action
 		public Assignment getActionsAssignment_11() { return cActionsAssignment_11; }
 		
 		//Action
@@ -693,6 +776,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final ClickElements pClick;
 	private final FillElements pFill;
 	private final SetCheckBoxElements pSetCheckBox;
+	private final RickrollElements pRickroll;
+	private final DoWaitElements pDoWait;
 	private final IsInElements pIsIn;
 	private final NotElements pNot;
 	private final IfElements pIf;
@@ -722,6 +807,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pClick = new ClickElements();
 		this.pFill = new FillElements();
 		this.pSetCheckBox = new SetCheckBoxElements();
+		this.pRickroll = new RickrollElements();
+		this.pDoWait = new DoWaitElements();
 		this.pIsIn = new IsInElements();
 		this.pNot = new NotElements();
 		this.pIf = new IfElements();
@@ -769,7 +856,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Action:
-	//	Navigate | Click | Fill | SetCheckBox | Refresh | Alert | Store;
+	//	Navigate | Click | Fill | SetCheckBox | Refresh | Alert | Store | Rickroll | DoWait;
 	public ActionElements getActionAccess() {
 		return pAction;
 	}
@@ -800,7 +887,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	////OBJECTS
 	//Object:
-	//	HTMLTYPE objectName=STRING;
+	//	htmltype=HTMLTYPE objectName=STRING;
 	public ObjectElements getObjectAccess() {
 		return pObject;
 	}
@@ -841,7 +928,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Refresh:
-	//	'Refresh';
+	//	{Refresh} 'Refresh';
 	public RefreshElements getRefreshAccess() {
 		return pRefresh;
 	}
@@ -871,7 +958,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Click:
-	//	'Click' innerhtml=STRING;
+	//	'Click' name=STRING;
 	public ClickElements getClickAccess() {
 		return pClick;
 	}
@@ -881,7 +968,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Fill:
-	//	'Fill' nametag=STRING;
+	//	'Fill' nametag=STRING 'with' content=STRING;
 	public FillElements getFillAccess() {
 		return pFill;
 	}
@@ -898,6 +985,26 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getSetCheckBoxRule() {
 		return getSetCheckBoxAccess().getRule();
+	}
+	
+	//Rickroll:
+	//	{Rickroll} 'RickRoll';
+	public RickrollElements getRickrollAccess() {
+		return pRickroll;
+	}
+	
+	public ParserRule getRickrollRule() {
+		return getRickrollAccess().getRule();
+	}
+	
+	//DoWait:
+	//	'Wait' 'for' millisec=INT 'millisecs';
+	public DoWaitElements getDoWaitAccess() {
+		return pDoWait;
+	}
+	
+	public ParserRule getDoWaitRule() {
+		return getDoWaitAccess().getRule();
 	}
 	
 	////CONDITION
@@ -924,7 +1031,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	////STRUCTURES
 	//If:
 	//	'If' ':' cond=Condition
-	//	'Then' ':' '{' actionThen=Action* '}' ('Else' ':' '{' actionElse=Action* '}')?;
+	//	'Then' ':' '{' actionThen+=Action '}' ('Else' ':' '{' actionElse+=Action '}')?;
 	public IfElements getIfAccess() {
 		return pIf;
 	}
@@ -937,7 +1044,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	'Loop' ':'
 	//	'Condition' ':' cond=Condition
 	//	'Interval' ':' milliseconds=INT
-	//	'Do' ':' '{' actions=Action* '}';
+	//	'Do' ':' '{' actions+=Action '}';
 	public LoopElements getLoopAccess() {
 		return pLoop;
 	}

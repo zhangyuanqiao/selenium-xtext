@@ -18,6 +18,8 @@ Export-Package: com.gargoylesoftware.htmlunit.httpclient,
  org.bouncycastle.jce.provider,
  org.eclipse.jetty.server,
  org.jboss.netty.channel.socket.nio,
+ org.openqa.selenium,
+ org.openqa.selenium.firefox,
  org.seleniumhq.jetty9.servlets,
  org.yaml.snakeyaml.extensions.compactnotation
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

@@ -20,7 +20,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ClickImpl#getInnerhtml <em>Innerhtml</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ClickImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -28,24 +28,24 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
 public class ClickImpl extends ActionImpl implements Click
 {
   /**
-   * The default value of the '{@link #getInnerhtml() <em>Innerhtml</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getInnerhtml()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String INNERHTML_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getInnerhtml() <em>Innerhtml</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getInnerhtml()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String innerhtml = INNERHTML_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,9 +73,9 @@ public class ClickImpl extends ActionImpl implements Click
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getInnerhtml()
+  public String getName()
   {
-    return innerhtml;
+    return name;
   }
 
   /**
@@ -83,12 +83,12 @@ public class ClickImpl extends ActionImpl implements Click
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setInnerhtml(String newInnerhtml)
+  public void setName(String newName)
   {
-    String oldInnerhtml = innerhtml;
-    innerhtml = newInnerhtml;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.CLICK__INNERHTML, oldInnerhtml, innerhtml));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.CLICK__NAME, oldName, name));
   }
 
   /**
@@ -101,8 +101,8 @@ public class ClickImpl extends ActionImpl implements Click
   {
     switch (featureID)
     {
-      case MyDslPackage.CLICK__INNERHTML:
-        return getInnerhtml();
+      case MyDslPackage.CLICK__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,8 +117,8 @@ public class ClickImpl extends ActionImpl implements Click
   {
     switch (featureID)
     {
-      case MyDslPackage.CLICK__INNERHTML:
-        setInnerhtml((String)newValue);
+      case MyDslPackage.CLICK__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +134,8 @@ public class ClickImpl extends ActionImpl implements Click
   {
     switch (featureID)
     {
-      case MyDslPackage.CLICK__INNERHTML:
-        setInnerhtml(INNERHTML_EDEFAULT);
+      case MyDslPackage.CLICK__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -151,8 +151,8 @@ public class ClickImpl extends ActionImpl implements Click
   {
     switch (featureID)
     {
-      case MyDslPackage.CLICK__INNERHTML:
-        return INNERHTML_EDEFAULT == null ? innerhtml != null : !INNERHTML_EDEFAULT.equals(innerhtml);
+      case MyDslPackage.CLICK__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
   }
@@ -168,8 +168,8 @@ public class ClickImpl extends ActionImpl implements Click
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (innerhtml: ");
-    result.append(innerhtml);
+    result.append(" (name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }

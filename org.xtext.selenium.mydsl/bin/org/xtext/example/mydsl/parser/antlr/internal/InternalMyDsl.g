@@ -223,8 +223,9 @@ ruleAction returns [EObject current=null]
 		{
 			newCompositeNode(grammarAccess.getActionAccess().getRefreshParserRuleCall_4());
 		}
-		ruleRefresh
+		this_Refresh_4=ruleRefresh
 		{
+			$current = $this_Refresh_4.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -243,6 +244,24 @@ ruleAction returns [EObject current=null]
 		this_Store_6=ruleStore
 		{
 			$current = $this_Store_6.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getActionAccess().getRickrollParserRuleCall_7());
+		}
+		this_Rickroll_7=ruleRickroll
+		{
+			$current = $this_Rickroll_7.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getActionAccess().getDoWaitParserRuleCall_8());
+		}
+		this_DoWait_8=ruleDoWait
+		{
+			$current = $this_DoWait_8.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -345,13 +364,25 @@ ruleObject returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		{
-			newCompositeNode(grammarAccess.getObjectAccess().getHTMLTYPEParserRuleCall_0());
-		}
-		ruleHTMLTYPE
-		{
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getObjectAccess().getHtmltypeHTMLTYPEParserRuleCall_0_0());
+				}
+				lv_htmltype_0_0=ruleHTMLTYPE
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getObjectRule());
+					}
+					set(
+						$current,
+						"htmltype",
+						lv_htmltype_0_0,
+						"org.xtext.example.mydsl.MyDsl.HTMLTYPE");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		(
 			(
 				lv_objectName_1_0=RULE_STRING
@@ -487,25 +518,33 @@ ruleAlert returns [EObject current=null]
 ;
 
 // Entry rule entryRuleRefresh
-entryRuleRefresh returns [String current=null]:
+entryRuleRefresh returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getRefreshRule()); }
 	iv_ruleRefresh=ruleRefresh
-	{ $current=$iv_ruleRefresh.current.getText(); }
+	{ $current=$iv_ruleRefresh.current; }
 	EOF;
 
 // Rule Refresh
-ruleRefresh returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+ruleRefresh returns [EObject current=null]
 @init {
 	enterRule();
 }
 @after {
 	leaveRule();
 }:
-	kw='Refresh'
-	{
-		$current.merge(kw);
-		newLeafNode(kw, grammarAccess.getRefreshAccess().getRefreshKeyword());
-	}
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getRefreshAccess().getRefreshAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='Refresh'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getRefreshAccess().getRefreshKeyword_1());
+		}
+	)
 ;
 
 // Entry rule entryRuleNavigate
@@ -635,9 +674,9 @@ ruleClick returns [EObject current=null]
 		}
 		(
 			(
-				lv_innerhtml_1_0=RULE_STRING
+				lv_name_1_0=RULE_STRING
 				{
-					newLeafNode(lv_innerhtml_1_0, grammarAccess.getClickAccess().getInnerhtmlSTRINGTerminalRuleCall_1_0());
+					newLeafNode(lv_name_1_0, grammarAccess.getClickAccess().getNameSTRINGTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -645,8 +684,8 @@ ruleClick returns [EObject current=null]
 					}
 					setWithLastConsumed(
 						$current,
-						"innerhtml",
-						lv_innerhtml_1_0,
+						"name",
+						lv_name_1_0,
 						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
@@ -692,6 +731,28 @@ ruleFill returns [EObject current=null]
 				}
 			)
 		)
+		otherlv_2='with'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getFillAccess().getWithKeyword_2());
+		}
+		(
+			(
+				lv_content_3_0=RULE_STRING
+				{
+					newLeafNode(lv_content_3_0, grammarAccess.getFillAccess().getContentSTRINGTerminalRuleCall_3_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getFillRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"content",
+						lv_content_3_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
 	)
 ;
 
@@ -733,6 +794,85 @@ ruleSetCheckBox returns [EObject current=null]
 				}
 			)
 		)
+	)
+;
+
+// Entry rule entryRuleRickroll
+entryRuleRickroll returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getRickrollRule()); }
+	iv_ruleRickroll=ruleRickroll
+	{ $current=$iv_ruleRickroll.current; }
+	EOF;
+
+// Rule Rickroll
+ruleRickroll returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getRickrollAccess().getRickrollAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='RickRoll'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getRickrollAccess().getRickRollKeyword_1());
+		}
+	)
+;
+
+// Entry rule entryRuleDoWait
+entryRuleDoWait returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDoWaitRule()); }
+	iv_ruleDoWait=ruleDoWait
+	{ $current=$iv_ruleDoWait.current; }
+	EOF;
+
+// Rule DoWait
+ruleDoWait returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='Wait'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getDoWaitAccess().getWaitKeyword_0());
+		}
+		otherlv_1='for'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getDoWaitAccess().getForKeyword_1());
+		}
+		(
+			(
+				lv_millisec_2_0=RULE_INT
+				{
+					newLeafNode(lv_millisec_2_0, grammarAccess.getDoWaitAccess().getMillisecINTTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDoWaitRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"millisec",
+						lv_millisec_2_0,
+						"org.eclipse.xtext.common.Terminals.INT");
+				}
+			)
+		)
+		otherlv_3='millisecs'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getDoWaitAccess().getMillisecsKeyword_3());
+		}
 	)
 ;
 
@@ -932,7 +1072,7 @@ ruleIf returns [EObject current=null]
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getIfRule());
 					}
-					set(
+					add(
 						$current,
 						"actionThen",
 						lv_actionThen_6_0,
@@ -940,7 +1080,7 @@ ruleIf returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)*
+		)
 		otherlv_7='}'
 		{
 			newLeafNode(otherlv_7, grammarAccess.getIfAccess().getRightCurlyBracketKeyword_7());
@@ -968,7 +1108,7 @@ ruleIf returns [EObject current=null]
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getIfRule());
 						}
-						set(
+						add(
 							$current,
 							"actionElse",
 							lv_actionElse_11_0,
@@ -976,7 +1116,7 @@ ruleIf returns [EObject current=null]
 						afterParserOrEnumRuleCall();
 					}
 				)
-			)*
+			)
 			otherlv_12='}'
 			{
 				newLeafNode(otherlv_12, grammarAccess.getIfAccess().getRightCurlyBracketKeyword_8_4());
@@ -1084,7 +1224,7 @@ ruleLoop returns [EObject current=null]
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getLoopRule());
 					}
-					set(
+					add(
 						$current,
 						"actions",
 						lv_actions_11_0,
@@ -1092,7 +1232,7 @@ ruleLoop returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)*
+		)
 		otherlv_12='}'
 		{
 			newLeafNode(otherlv_12, grammarAccess.getLoopAccess().getRightCurlyBracketKeyword_12());

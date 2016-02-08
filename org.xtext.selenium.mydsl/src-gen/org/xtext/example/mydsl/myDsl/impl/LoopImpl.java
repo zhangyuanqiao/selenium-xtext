@@ -3,13 +3,20 @@
  */
 package org.xtext.example.mydsl.myDsl.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.mydsl.myDsl.Action;
 import org.xtext.example.mydsl.myDsl.Condition;
@@ -64,14 +71,14 @@ public class LoopImpl extends StructureImpl implements Loop
   protected int milliseconds = MILLISECONDS_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference.
+   * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getActions()
    * @generated
    * @ordered
    */
-  protected Action actions;
+  protected EList<Action> actions;
 
   /**
    * <!-- begin-user-doc -->
@@ -170,47 +177,13 @@ public class LoopImpl extends StructureImpl implements Loop
    * <!-- end-user-doc -->
    * @generated
    */
-  public Action getActions()
+  public EList<Action> getActions()
   {
+    if (actions == null)
+    {
+      actions = new EObjectContainmentEList<Action>(Action.class, this, MyDslPackage.LOOP__ACTIONS);
+    }
     return actions;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetActions(Action newActions, NotificationChain msgs)
-  {
-    Action oldActions = actions;
-    actions = newActions;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.LOOP__ACTIONS, oldActions, newActions);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setActions(Action newActions)
-  {
-    if (newActions != actions)
-    {
-      NotificationChain msgs = null;
-      if (actions != null)
-        msgs = ((InternalEObject)actions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.LOOP__ACTIONS, null, msgs);
-      if (newActions != null)
-        msgs = ((InternalEObject)newActions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.LOOP__ACTIONS, null, msgs);
-      msgs = basicSetActions(newActions, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.LOOP__ACTIONS, newActions, newActions));
   }
 
   /**
@@ -226,7 +199,7 @@ public class LoopImpl extends StructureImpl implements Loop
       case MyDslPackage.LOOP__COND:
         return basicSetCond(null, msgs);
       case MyDslPackage.LOOP__ACTIONS:
-        return basicSetActions(null, msgs);
+        return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -256,6 +229,7 @@ public class LoopImpl extends StructureImpl implements Loop
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -268,7 +242,8 @@ public class LoopImpl extends StructureImpl implements Loop
         setMilliseconds((Integer)newValue);
         return;
       case MyDslPackage.LOOP__ACTIONS:
-        setActions((Action)newValue);
+        getActions().clear();
+        getActions().addAll((Collection<? extends Action>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -291,7 +266,7 @@ public class LoopImpl extends StructureImpl implements Loop
         setMilliseconds(MILLISECONDS_EDEFAULT);
         return;
       case MyDslPackage.LOOP__ACTIONS:
-        setActions((Action)null);
+        getActions().clear();
         return;
     }
     super.eUnset(featureID);
@@ -312,7 +287,7 @@ public class LoopImpl extends StructureImpl implements Loop
       case MyDslPackage.LOOP__MILLISECONDS:
         return milliseconds != MILLISECONDS_EDEFAULT;
       case MyDslPackage.LOOP__ACTIONS:
-        return actions != null;
+        return actions != null && !actions.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -10,7 +10,7 @@ Main :
 	orders+=(Action|Structure)*
 ;
 
-Action : Navigate|Click|Fill|SetCheckBox|Refresh|Alert|Store;
+Action : Navigate|Click|Fill|SetCheckBox|Refresh|Alert|Store|Rickroll|DoWait;
 
 Structure : If | Loop |DoAll ;
 
@@ -21,7 +21,7 @@ Condition : IsIn|Not;
 
 //OBJECTS
 
-Object : HTMLTYPE objectName=STRING;
+Object : htmltype=HTMLTYPE objectName=STRING;
 
 HTMLTYPE : 'class'|'id'|'name';
 
@@ -33,18 +33,21 @@ Collection : obj+=Object*;
 
 Alert: 'Alert' text=STRING;
 
-Refresh: 'Refresh';
+Refresh: {Refresh}'Refresh';
 	
 Navigate : 'Navigate' url=STRING;
 
 Store : 'Store' obj=Object 'as' objName=STRING;	
 
-Click : 'Click' innerhtml=STRING;
+Click : 'Click' name=STRING;
 	
-Fill : 'Fill' nametag=STRING;
+Fill : 'Fill' nametag=STRING 'with' content=STRING;
 	
 SetCheckBox : 'SetCheckBox' nametag=STRING;
 
+Rickroll : {Rickroll}'RickRoll' ;
+
+DoWait : 'Wait' 'for' millisec=INT 'millisecs';
 
 
 
@@ -63,18 +66,20 @@ Not : 'Not' cond=Condition;
 
 If : 
 	'If' ':' cond=Condition
-	'Then' ':' '{' actionThen=Action* '}'
-	('Else' ':' '{' actionElse = Action* '}')?	
+	'Then' ':' '{' actionThen+=Action '}'
+	('Else' ':' '{' actionElse+= Action '}')?	
 ;
 	
 Loop : 
 	'Loop' ':'
 	'Condition' ':' cond=Condition
 	'Interval' ':' milliseconds=INT
-	'Do' ':' '{' actions=Action* '}'
+	'Do' ':' '{' actions+=Action '}'
 ;
+
 
 DoAll : 
 	'For' 'all' 'in' coll=Collection 'do' ':' todo=(Action|Structure)
+	
 ;
 

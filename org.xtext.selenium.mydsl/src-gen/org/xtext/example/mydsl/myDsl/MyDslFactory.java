@@ -87,6 +87,15 @@ public interface MyDslFactory extends EFactory
   Alert createAlert();
 
   /**
+   * Returns a new object of class '<em>Refresh</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Refresh</em>'.
+   * @generated
+   */
+  Refresh createRefresh();
+
+  /**
    * Returns a new object of class '<em>Navigate</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -130,6 +139,24 @@ public interface MyDslFactory extends EFactory
    * @generated
    */
   SetCheckBox createSetCheckBox();
+
+  /**
+   * Returns a new object of class '<em>Rickroll</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Rickroll</em>'.
+   * @generated
+   */
+  Rickroll createRickroll();
+
+  /**
+   * Returns a new object of class '<em>Do Wait</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Do Wait</em>'.
+   * @generated
+   */
+  DoWait createDoWait();
 
   /**
    * Returns a new object of class '<em>Is In</em>'.
