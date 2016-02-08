@@ -171,13 +171,13 @@ public interface MyDslPackage extends EPackage
   int OBJECT = 4;
 
   /**
-   * The feature id for the '<em><b>Type Name</b></em>' attribute.
+   * The feature id for the '<em><b>Object Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OBJECT__TYPE_NAME = 0;
+  int OBJECT__OBJECT_NAME = 0;
 
   /**
    * The number of structural features of the '<em>Object</em>' class.
@@ -681,15 +681,15 @@ public interface MyDslPackage extends EPackage
   EClass getObject();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Object#getTypeName <em>Type Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Object#getObjectName <em>Object Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type Name</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Object#getTypeName()
+   * @return the meta object for the attribute '<em>Object Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Object#getObjectName()
    * @see #getObject()
    * @generated
    */
-  EAttribute getObject_TypeName();
+  EAttribute getObject_ObjectName();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Collection <em>Collection</em>}'.
@@ -1129,12 +1129,12 @@ public interface MyDslPackage extends EPackage
     EClass OBJECT = eINSTANCE.getObject();
 
     /**
-     * The meta object literal for the '<em><b>Type Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Object Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute OBJECT__TYPE_NAME = eINSTANCE.getObject_TypeName();
+    EAttribute OBJECT__OBJECT_NAME = eINSTANCE.getObject_ObjectName();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.CollectionImpl <em>Collection</em>}' class.

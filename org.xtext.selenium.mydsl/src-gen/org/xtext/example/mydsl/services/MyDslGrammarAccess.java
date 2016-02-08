@@ -168,25 +168,25 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Object");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cHTMLTYPEParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Assignment cTypeNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cTypeNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cTypeNameAssignment_1.eContents().get(0);
+		private final Assignment cObjectNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cObjectNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cObjectNameAssignment_1.eContents().get(0);
 		
 		////OBJECTS
 		//Object:
-		//	HTMLTYPE typeName=STRING;
+		//	HTMLTYPE objectName=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//HTMLTYPE typeName=STRING
+		//HTMLTYPE objectName=STRING
 		public Group getGroup() { return cGroup; }
 		
 		//HTMLTYPE
 		public RuleCall getHTMLTYPEParserRuleCall_0() { return cHTMLTYPEParserRuleCall_0; }
 		
-		//typeName=STRING
-		public Assignment getTypeNameAssignment_1() { return cTypeNameAssignment_1; }
+		//objectName=STRING
+		public Assignment getObjectNameAssignment_1() { return cObjectNameAssignment_1; }
 		
 		//STRING
-		public RuleCall getTypeNameSTRINGTerminalRuleCall_1_0() { return cTypeNameSTRINGTerminalRuleCall_1_0; }
+		public RuleCall getObjectNameSTRINGTerminalRuleCall_1_0() { return cObjectNameSTRINGTerminalRuleCall_1_0; }
 	}
 	public class HTMLTYPEElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.HTMLTYPE");
@@ -800,7 +800,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	////OBJECTS
 	//Object:
-	//	HTMLTYPE typeName=STRING;
+	//	HTMLTYPE objectName=STRING;
 	public ObjectElements getObjectAccess() {
 		return pObject;
 	}

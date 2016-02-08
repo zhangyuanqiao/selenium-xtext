@@ -930,21 +930,21 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleObject"
-    // InternalMyDsl.g:340:1: ruleObject returns [EObject current=null] : ( ruleHTMLTYPE ( (lv_typeName_1_0= RULE_STRING ) ) ) ;
+    // InternalMyDsl.g:340:1: ruleObject returns [EObject current=null] : ( ruleHTMLTYPE ( (lv_objectName_1_0= RULE_STRING ) ) ) ;
     public final EObject ruleObject() throws RecognitionException {
         EObject current = null;
 
-        Token lv_typeName_1_0=null;
+        Token lv_objectName_1_0=null;
 
 
         	enterRule();
 
         try {
-            // InternalMyDsl.g:346:2: ( ( ruleHTMLTYPE ( (lv_typeName_1_0= RULE_STRING ) ) ) )
-            // InternalMyDsl.g:347:2: ( ruleHTMLTYPE ( (lv_typeName_1_0= RULE_STRING ) ) )
+            // InternalMyDsl.g:346:2: ( ( ruleHTMLTYPE ( (lv_objectName_1_0= RULE_STRING ) ) ) )
+            // InternalMyDsl.g:347:2: ( ruleHTMLTYPE ( (lv_objectName_1_0= RULE_STRING ) ) )
             {
-            // InternalMyDsl.g:347:2: ( ruleHTMLTYPE ( (lv_typeName_1_0= RULE_STRING ) ) )
-            // InternalMyDsl.g:348:3: ruleHTMLTYPE ( (lv_typeName_1_0= RULE_STRING ) )
+            // InternalMyDsl.g:347:2: ( ruleHTMLTYPE ( (lv_objectName_1_0= RULE_STRING ) ) )
+            // InternalMyDsl.g:348:3: ruleHTMLTYPE ( (lv_objectName_1_0= RULE_STRING ) )
             {
 
             			newCompositeNode(grammarAccess.getObjectAccess().getHTMLTYPEParserRuleCall_0());
@@ -957,15 +957,15 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             			afterParserOrEnumRuleCall();
             		
-            // InternalMyDsl.g:355:3: ( (lv_typeName_1_0= RULE_STRING ) )
-            // InternalMyDsl.g:356:4: (lv_typeName_1_0= RULE_STRING )
+            // InternalMyDsl.g:355:3: ( (lv_objectName_1_0= RULE_STRING ) )
+            // InternalMyDsl.g:356:4: (lv_objectName_1_0= RULE_STRING )
             {
-            // InternalMyDsl.g:356:4: (lv_typeName_1_0= RULE_STRING )
-            // InternalMyDsl.g:357:5: lv_typeName_1_0= RULE_STRING
+            // InternalMyDsl.g:356:4: (lv_objectName_1_0= RULE_STRING )
+            // InternalMyDsl.g:357:5: lv_objectName_1_0= RULE_STRING
             {
-            lv_typeName_1_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
+            lv_objectName_1_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
-            					newLeafNode(lv_typeName_1_0, grammarAccess.getObjectAccess().getTypeNameSTRINGTerminalRuleCall_1_0());
+            					newLeafNode(lv_objectName_1_0, grammarAccess.getObjectAccess().getObjectNameSTRINGTerminalRuleCall_1_0());
             				
 
             					if (current==null) {
@@ -973,8 +973,8 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
             					}
             					setWithLastConsumed(
             						current,
-            						"typeName",
-            						lv_typeName_1_0,
+            						"objectName",
+            						lv_objectName_1_0,
             						"org.eclipse.xtext.common.Terminals.STRING");
             				
 

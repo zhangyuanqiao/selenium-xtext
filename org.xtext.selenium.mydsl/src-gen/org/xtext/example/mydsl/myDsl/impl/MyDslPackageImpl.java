@@ -304,7 +304,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getObject_TypeName()
+  public EAttribute getObject_ObjectName()
   {
     return (EAttribute)objectEClass.getEStructuralFeatures().get(0);
   }
@@ -671,7 +671,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     conditionEClass = createEClass(CONDITION);
 
     objectEClass = createEClass(OBJECT);
-    createEAttribute(objectEClass, OBJECT__TYPE_NAME);
+    createEAttribute(objectEClass, OBJECT__OBJECT_NAME);
 
     collectionEClass = createEClass(COLLECTION);
     createEReference(collectionEClass, COLLECTION__OBJ);
@@ -772,7 +772,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(objectEClass, org.xtext.example.mydsl.myDsl.Object.class, "Object", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getObject_TypeName(), ecorePackage.getEString(), "typeName", null, 0, 1, org.xtext.example.mydsl.myDsl.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getObject_ObjectName(), ecorePackage.getEString(), "objectName", null, 0, 1, org.xtext.example.mydsl.myDsl.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(collectionEClass, Collection.class, "Collection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCollection_Obj(), this.getObject(), null, "obj", null, 0, -1, Collection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

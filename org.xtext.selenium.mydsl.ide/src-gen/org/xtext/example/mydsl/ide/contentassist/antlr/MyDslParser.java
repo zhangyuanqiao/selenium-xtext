@@ -59,7 +59,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMainAccess().getFileNameAssignment_1(), "rule__Main__FileNameAssignment_1");
 					put(grammarAccess.getMainAccess().getBrowserNameAssignment_4(), "rule__Main__BrowserNameAssignment_4");
 					put(grammarAccess.getMainAccess().getOrdersAssignment_6(), "rule__Main__OrdersAssignment_6");
-					put(grammarAccess.getObjectAccess().getTypeNameAssignment_1(), "rule__Object__TypeNameAssignment_1");
+					put(grammarAccess.getObjectAccess().getObjectNameAssignment_1(), "rule__Object__ObjectNameAssignment_1");
 					put(grammarAccess.getCollectionAccess().getObjAssignment(), "rule__Collection__ObjAssignment");
 					put(grammarAccess.getAlertAccess().getTextAssignment_1(), "rule__Alert__TextAssignment_1");
 					put(grammarAccess.getNavigateAccess().getUrlAssignment_1(), "rule__Navigate__UrlAssignment_1");

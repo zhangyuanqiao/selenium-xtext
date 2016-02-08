@@ -2984,31 +2984,31 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Object__Group__1__Impl"
-    // InternalMyDsl.g:943:1: rule__Object__Group__1__Impl : ( ( rule__Object__TypeNameAssignment_1 ) ) ;
+    // InternalMyDsl.g:943:1: rule__Object__Group__1__Impl : ( ( rule__Object__ObjectNameAssignment_1 ) ) ;
     public final void rule__Object__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyDsl.g:947:1: ( ( ( rule__Object__TypeNameAssignment_1 ) ) )
-            // InternalMyDsl.g:948:1: ( ( rule__Object__TypeNameAssignment_1 ) )
+            // InternalMyDsl.g:947:1: ( ( ( rule__Object__ObjectNameAssignment_1 ) ) )
+            // InternalMyDsl.g:948:1: ( ( rule__Object__ObjectNameAssignment_1 ) )
             {
-            // InternalMyDsl.g:948:1: ( ( rule__Object__TypeNameAssignment_1 ) )
-            // InternalMyDsl.g:949:2: ( rule__Object__TypeNameAssignment_1 )
+            // InternalMyDsl.g:948:1: ( ( rule__Object__ObjectNameAssignment_1 ) )
+            // InternalMyDsl.g:949:2: ( rule__Object__ObjectNameAssignment_1 )
             {
-             before(grammarAccess.getObjectAccess().getTypeNameAssignment_1()); 
-            // InternalMyDsl.g:950:2: ( rule__Object__TypeNameAssignment_1 )
-            // InternalMyDsl.g:950:3: rule__Object__TypeNameAssignment_1
+             before(grammarAccess.getObjectAccess().getObjectNameAssignment_1()); 
+            // InternalMyDsl.g:950:2: ( rule__Object__ObjectNameAssignment_1 )
+            // InternalMyDsl.g:950:3: rule__Object__ObjectNameAssignment_1
             {
             pushFollow(FOLLOW_2);
-            rule__Object__TypeNameAssignment_1();
+            rule__Object__ObjectNameAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getObjectAccess().getTypeNameAssignment_1()); 
+             after(grammarAccess.getObjectAccess().getObjectNameAssignment_1()); 
 
             }
 
@@ -7471,9 +7471,9 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Main__OrdersAssignment_6"
 
 
-    // $ANTLR start "rule__Object__TypeNameAssignment_1"
-    // InternalMyDsl.g:2489:1: rule__Object__TypeNameAssignment_1 : ( RULE_STRING ) ;
-    public final void rule__Object__TypeNameAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__Object__ObjectNameAssignment_1"
+    // InternalMyDsl.g:2489:1: rule__Object__ObjectNameAssignment_1 : ( RULE_STRING ) ;
+    public final void rule__Object__ObjectNameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -7484,9 +7484,9 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
             // InternalMyDsl.g:2494:2: ( RULE_STRING )
             // InternalMyDsl.g:2495:3: RULE_STRING
             {
-             before(grammarAccess.getObjectAccess().getTypeNameSTRINGTerminalRuleCall_1_0()); 
+             before(grammarAccess.getObjectAccess().getObjectNameSTRINGTerminalRuleCall_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
-             after(grammarAccess.getObjectAccess().getTypeNameSTRINGTerminalRuleCall_1_0()); 
+             after(grammarAccess.getObjectAccess().getObjectNameSTRINGTerminalRuleCall_1_0()); 
 
             }
 
@@ -7505,7 +7505,7 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Object__TypeNameAssignment_1"
+    // $ANTLR end "rule__Object__ObjectNameAssignment_1"
 
 
     // $ANTLR start "rule__Collection__ObjAssignment"

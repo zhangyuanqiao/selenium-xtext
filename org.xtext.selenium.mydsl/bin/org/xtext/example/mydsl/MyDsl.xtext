@@ -21,7 +21,7 @@ Condition : IsIn|Not;
 
 //OBJECTS
 
-Object : HTMLTYPE typeName=STRING;
+Object : HTMLTYPE objectName=STRING;
 
 HTMLTYPE : 'class'|'id'|'name';
 

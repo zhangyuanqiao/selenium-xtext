@@ -267,15 +267,15 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Object returns Object
 	 *
 	 * Constraint:
-	 *     typeName=STRING
+	 *     objectName=STRING
 	 */
 	protected void sequence_Object(ISerializationContext context, org.xtext.example.mydsl.myDsl.Object semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.OBJECT__TYPE_NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.OBJECT__TYPE_NAME));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.OBJECT__OBJECT_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.OBJECT__OBJECT_NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getObjectAccess().getTypeNameSTRINGTerminalRuleCall_1_0(), semanticObject.getTypeName());
+		feeder.accept(grammarAccess.getObjectAccess().getObjectNameSTRINGTerminalRuleCall_1_0(), semanticObject.getObjectName());
 		feeder.finish();
 	}
 	

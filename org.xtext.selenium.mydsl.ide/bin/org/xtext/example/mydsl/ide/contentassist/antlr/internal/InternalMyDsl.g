@@ -946,9 +946,9 @@ rule__Object__Group__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getObjectAccess().getTypeNameAssignment_1()); }
-	(rule__Object__TypeNameAssignment_1)
-	{ after(grammarAccess.getObjectAccess().getTypeNameAssignment_1()); }
+	{ before(grammarAccess.getObjectAccess().getObjectNameAssignment_1()); }
+	(rule__Object__ObjectNameAssignment_1)
+	{ after(grammarAccess.getObjectAccess().getObjectNameAssignment_1()); }
 )
 ;
 finally {
@@ -2486,15 +2486,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Object__TypeNameAssignment_1
+rule__Object__ObjectNameAssignment_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getObjectAccess().getTypeNameSTRINGTerminalRuleCall_1_0()); }
+		{ before(grammarAccess.getObjectAccess().getObjectNameSTRINGTerminalRuleCall_1_0()); }
 		RULE_STRING
-		{ after(grammarAccess.getObjectAccess().getTypeNameSTRINGTerminalRuleCall_1_0()); }
+		{ after(grammarAccess.getObjectAccess().getObjectNameSTRINGTerminalRuleCall_1_0()); }
 	)
 ;
 finally {

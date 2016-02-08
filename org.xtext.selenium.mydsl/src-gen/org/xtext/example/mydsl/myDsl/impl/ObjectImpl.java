@@ -20,7 +20,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ObjectImpl#getTypeName <em>Type Name</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ObjectImpl#getObjectName <em>Object Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -28,24 +28,24 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
 public class ObjectImpl extends MinimalEObjectImpl.Container implements org.xtext.example.mydsl.myDsl.Object
 {
   /**
-   * The default value of the '{@link #getTypeName() <em>Type Name</em>}' attribute.
+   * The default value of the '{@link #getObjectName() <em>Object Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTypeName()
+   * @see #getObjectName()
    * @generated
    * @ordered
    */
-  protected static final String TYPE_NAME_EDEFAULT = null;
+  protected static final String OBJECT_NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getTypeName() <em>Type Name</em>}' attribute.
+   * The cached value of the '{@link #getObjectName() <em>Object Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTypeName()
+   * @see #getObjectName()
    * @generated
    * @ordered
    */
-  protected String typeName = TYPE_NAME_EDEFAULT;
+  protected String objectName = OBJECT_NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,9 +73,9 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements org.xtex
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getTypeName()
+  public String getObjectName()
   {
-    return typeName;
+    return objectName;
   }
 
   /**
@@ -83,12 +83,12 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements org.xtex
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTypeName(String newTypeName)
+  public void setObjectName(String newObjectName)
   {
-    String oldTypeName = typeName;
-    typeName = newTypeName;
+    String oldObjectName = objectName;
+    objectName = newObjectName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.OBJECT__TYPE_NAME, oldTypeName, typeName));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.OBJECT__OBJECT_NAME, oldObjectName, objectName));
   }
 
   /**
@@ -101,8 +101,8 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements org.xtex
   {
     switch (featureID)
     {
-      case MyDslPackage.OBJECT__TYPE_NAME:
-        return getTypeName();
+      case MyDslPackage.OBJECT__OBJECT_NAME:
+        return getObjectName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,8 +117,8 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements org.xtex
   {
     switch (featureID)
     {
-      case MyDslPackage.OBJECT__TYPE_NAME:
-        setTypeName((String)newValue);
+      case MyDslPackage.OBJECT__OBJECT_NAME:
+        setObjectName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +134,8 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements org.xtex
   {
     switch (featureID)
     {
-      case MyDslPackage.OBJECT__TYPE_NAME:
-        setTypeName(TYPE_NAME_EDEFAULT);
+      case MyDslPackage.OBJECT__OBJECT_NAME:
+        setObjectName(OBJECT_NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -151,8 +151,8 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements org.xtex
   {
     switch (featureID)
     {
-      case MyDslPackage.OBJECT__TYPE_NAME:
-        return TYPE_NAME_EDEFAULT == null ? typeName != null : !TYPE_NAME_EDEFAULT.equals(typeName);
+      case MyDslPackage.OBJECT__OBJECT_NAME:
+        return OBJECT_NAME_EDEFAULT == null ? objectName != null : !OBJECT_NAME_EDEFAULT.equals(objectName);
     }
     return super.eIsSet(featureID);
   }
@@ -168,8 +168,8 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements org.xtex
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (typeName: ");
-    result.append(typeName);
+    result.append(" (objectName: ");
+    result.append(objectName);
     result.append(')');
     return result.toString();
   }

@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Object#getTypeName <em>Type Name</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Object#getObjectName <em>Object Name</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getObject()
@@ -24,29 +24,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface Object extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Type Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Object Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Type Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Object Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type Name</em>' attribute.
-   * @see #setTypeName(String)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getObject_TypeName()
+   * @return the value of the '<em>Object Name</em>' attribute.
+   * @see #setObjectName(String)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getObject_ObjectName()
    * @model
    * @generated
    */
-  String getTypeName();
+  String getObjectName();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Object#getTypeName <em>Type Name</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Object#getObjectName <em>Object Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type Name</em>' attribute.
-   * @see #getTypeName()
+   * @param value the new value of the '<em>Object Name</em>' attribute.
+   * @see #getObjectName()
    * @generated
    */
-  void setTypeName(String value);
+  void setObjectName(String value);
 
 } // Object

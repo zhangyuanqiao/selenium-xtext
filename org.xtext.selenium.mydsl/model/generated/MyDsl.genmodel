@@ -15,7 +15,7 @@
     <genClasses ecoreClass="MyDsl.ecore#//Structure"/>
     <genClasses ecoreClass="MyDsl.ecore#//Condition"/>
     <genClasses ecoreClass="MyDsl.ecore#//Object">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Object/typeName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Object/objectName"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Collection">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Collection/obj"/>
