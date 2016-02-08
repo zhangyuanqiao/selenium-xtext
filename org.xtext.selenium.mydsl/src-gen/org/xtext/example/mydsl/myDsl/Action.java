@@ -17,6 +17,4 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Action extends EObject
 {
-
-
 } // Action
