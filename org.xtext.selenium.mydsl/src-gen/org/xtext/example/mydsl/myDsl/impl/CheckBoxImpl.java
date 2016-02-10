@@ -9,23 +9,24 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.xtext.example.mydsl.myDsl.CheckBox;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
-import org.xtext.example.mydsl.myDsl.SetCheckBox;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Set Check Box</b></em>'.
+ * An implementation of the model object '<em><b>Check Box</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.SetCheckBoxImpl#getNametag <em>Nametag</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CheckBoxImpl#getNametag <em>Nametag</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CheckBoxImpl#getNewValue <em>New Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SetCheckBoxImpl extends ActionImpl implements SetCheckBox
+public class CheckBoxImpl extends ActionImpl implements CheckBox
 {
   /**
    * The default value of the '{@link #getNametag() <em>Nametag</em>}' attribute.
@@ -48,11 +49,31 @@ public class SetCheckBoxImpl extends ActionImpl implements SetCheckBox
   protected String nametag = NAMETAG_EDEFAULT;
 
   /**
+   * The default value of the '{@link #getNewValue() <em>New Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNewValue()
+   * @generated
+   * @ordered
+   */
+  protected static final String NEW_VALUE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getNewValue() <em>New Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNewValue()
+   * @generated
+   * @ordered
+   */
+  protected String newValue = NEW_VALUE_EDEFAULT;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected SetCheckBoxImpl()
+  protected CheckBoxImpl()
   {
     super();
   }
@@ -65,7 +86,7 @@ public class SetCheckBoxImpl extends ActionImpl implements SetCheckBox
   @Override
   protected EClass eStaticClass()
   {
-    return MyDslPackage.Literals.SET_CHECK_BOX;
+    return MyDslPackage.Literals.CHECK_BOX;
   }
 
   /**
@@ -88,7 +109,30 @@ public class SetCheckBoxImpl extends ActionImpl implements SetCheckBox
     String oldNametag = nametag;
     nametag = newNametag;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.SET_CHECK_BOX__NAMETAG, oldNametag, nametag));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.CHECK_BOX__NAMETAG, oldNametag, nametag));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getNewValue()
+  {
+    return newValue;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNewValue(String newNewValue)
+  {
+    String oldNewValue = newValue;
+    newValue = newNewValue;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.CHECK_BOX__NEW_VALUE, oldNewValue, newValue));
   }
 
   /**
@@ -101,8 +145,10 @@ public class SetCheckBoxImpl extends ActionImpl implements SetCheckBox
   {
     switch (featureID)
     {
-      case MyDslPackage.SET_CHECK_BOX__NAMETAG:
+      case MyDslPackage.CHECK_BOX__NAMETAG:
         return getNametag();
+      case MyDslPackage.CHECK_BOX__NEW_VALUE:
+        return getNewValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,8 +163,11 @@ public class SetCheckBoxImpl extends ActionImpl implements SetCheckBox
   {
     switch (featureID)
     {
-      case MyDslPackage.SET_CHECK_BOX__NAMETAG:
+      case MyDslPackage.CHECK_BOX__NAMETAG:
         setNametag((String)newValue);
+        return;
+      case MyDslPackage.CHECK_BOX__NEW_VALUE:
+        setNewValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +183,11 @@ public class SetCheckBoxImpl extends ActionImpl implements SetCheckBox
   {
     switch (featureID)
     {
-      case MyDslPackage.SET_CHECK_BOX__NAMETAG:
+      case MyDslPackage.CHECK_BOX__NAMETAG:
         setNametag(NAMETAG_EDEFAULT);
+        return;
+      case MyDslPackage.CHECK_BOX__NEW_VALUE:
+        setNewValue(NEW_VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -151,8 +203,10 @@ public class SetCheckBoxImpl extends ActionImpl implements SetCheckBox
   {
     switch (featureID)
     {
-      case MyDslPackage.SET_CHECK_BOX__NAMETAG:
+      case MyDslPackage.CHECK_BOX__NAMETAG:
         return NAMETAG_EDEFAULT == null ? nametag != null : !NAMETAG_EDEFAULT.equals(nametag);
+      case MyDslPackage.CHECK_BOX__NEW_VALUE:
+        return NEW_VALUE_EDEFAULT == null ? newValue != null : !NEW_VALUE_EDEFAULT.equals(newValue);
     }
     return super.eIsSet(featureID);
   }
@@ -170,8 +224,10 @@ public class SetCheckBoxImpl extends ActionImpl implements SetCheckBox
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (nametag: ");
     result.append(nametag);
+    result.append(", newValue: ");
+    result.append(newValue);
     result.append(')');
     return result.toString();
   }
 
-} //SetCheckBoxImpl
+} //CheckBoxImpl

@@ -12,13 +12,16 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import org.xtext.example.mydsl.myDsl.Action;
+import org.xtext.example.mydsl.myDsl.ActionSelect;
 import org.xtext.example.mydsl.myDsl.Alert;
+import org.xtext.example.mydsl.myDsl.CheckBox;
 import org.xtext.example.mydsl.myDsl.Click;
 import org.xtext.example.mydsl.myDsl.Collection;
 import org.xtext.example.mydsl.myDsl.Condition;
 import org.xtext.example.mydsl.myDsl.DoAll;
 import org.xtext.example.mydsl.myDsl.DoWait;
 import org.xtext.example.mydsl.myDsl.Fill;
+import org.xtext.example.mydsl.myDsl.HTMLTYPE;
 import org.xtext.example.mydsl.myDsl.If;
 import org.xtext.example.mydsl.myDsl.IsIn;
 import org.xtext.example.mydsl.myDsl.Loop;
@@ -29,7 +32,6 @@ import org.xtext.example.mydsl.myDsl.Navigate;
 import org.xtext.example.mydsl.myDsl.Not;
 import org.xtext.example.mydsl.myDsl.Refresh;
 import org.xtext.example.mydsl.myDsl.Rickroll;
-import org.xtext.example.mydsl.myDsl.SetCheckBox;
 import org.xtext.example.mydsl.myDsl.Store;
 import org.xtext.example.mydsl.myDsl.Structure;
 
@@ -90,14 +92,16 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.STRUCTURE: return createStructure();
       case MyDslPackage.CONDITION: return createCondition();
       case MyDslPackage.OBJECT: return createObject();
+      case MyDslPackage.HTMLTYPE: return createHTMLTYPE();
       case MyDslPackage.COLLECTION: return createCollection();
       case MyDslPackage.ALERT: return createAlert();
       case MyDslPackage.REFRESH: return createRefresh();
       case MyDslPackage.NAVIGATE: return createNavigate();
       case MyDslPackage.STORE: return createStore();
+      case MyDslPackage.ACTION_SELECT: return createActionSelect();
       case MyDslPackage.CLICK: return createClick();
       case MyDslPackage.FILL: return createFill();
-      case MyDslPackage.SET_CHECK_BOX: return createSetCheckBox();
+      case MyDslPackage.CHECK_BOX: return createCheckBox();
       case MyDslPackage.RICKROLL: return createRickroll();
       case MyDslPackage.DO_WAIT: return createDoWait();
       case MyDslPackage.IS_IN: return createIsIn();
@@ -170,6 +174,17 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public HTMLTYPE createHTMLTYPE()
+  {
+    HTMLTYPEImpl htmltype = new HTMLTYPEImpl();
+    return htmltype;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Collection createCollection()
   {
     CollectionImpl collection = new CollectionImpl();
@@ -225,6 +240,17 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public ActionSelect createActionSelect()
+  {
+    ActionSelectImpl actionSelect = new ActionSelectImpl();
+    return actionSelect;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Click createClick()
   {
     ClickImpl click = new ClickImpl();
@@ -247,10 +273,10 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public SetCheckBox createSetCheckBox()
+  public CheckBox createCheckBox()
   {
-    SetCheckBoxImpl setCheckBox = new SetCheckBoxImpl();
-    return setCheckBox;
+    CheckBoxImpl checkBox = new CheckBoxImpl();
+    return checkBox;
   }
 
   /**

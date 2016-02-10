@@ -15,8 +15,12 @@
     <genClasses ecoreClass="MyDsl.ecore#//Structure"/>
     <genClasses ecoreClass="MyDsl.ecore#//Condition"/>
     <genClasses ecoreClass="MyDsl.ecore#//Object">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Object/htmltype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Object/body"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Object/htmltype"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Object/objectName"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//HTMLTYPE">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//HTMLTYPE/type"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Collection">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Collection/obj"/>
@@ -32,6 +36,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Store/obj"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Store/objName"/>
     </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ActionSelect">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ActionSelect/option"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ActionSelect/xpath"/>
+    </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Click">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Click/name"/>
     </genClasses>
@@ -39,17 +47,17 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Fill/nametag"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Fill/content"/>
     </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//SetCheckBox">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//SetCheckBox/nametag"/>
+    <genClasses ecoreClass="MyDsl.ecore#//CheckBox">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//CheckBox/nametag"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//CheckBox/newValue"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Rickroll"/>
     <genClasses ecoreClass="MyDsl.ecore#//DoWait">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//DoWait/millisec"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//IsIn">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//IsIn/text"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//IsIn/title"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//IsIn/obj"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//IsIn/text"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Not">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Not/cond"/>

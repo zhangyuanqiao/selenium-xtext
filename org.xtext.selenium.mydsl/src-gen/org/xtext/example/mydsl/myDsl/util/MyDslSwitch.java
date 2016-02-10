@@ -9,13 +9,16 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 import org.xtext.example.mydsl.myDsl.Action;
+import org.xtext.example.mydsl.myDsl.ActionSelect;
 import org.xtext.example.mydsl.myDsl.Alert;
+import org.xtext.example.mydsl.myDsl.CheckBox;
 import org.xtext.example.mydsl.myDsl.Click;
 import org.xtext.example.mydsl.myDsl.Collection;
 import org.xtext.example.mydsl.myDsl.Condition;
 import org.xtext.example.mydsl.myDsl.DoAll;
 import org.xtext.example.mydsl.myDsl.DoWait;
 import org.xtext.example.mydsl.myDsl.Fill;
+import org.xtext.example.mydsl.myDsl.HTMLTYPE;
 import org.xtext.example.mydsl.myDsl.If;
 import org.xtext.example.mydsl.myDsl.IsIn;
 import org.xtext.example.mydsl.myDsl.Loop;
@@ -25,7 +28,6 @@ import org.xtext.example.mydsl.myDsl.Navigate;
 import org.xtext.example.mydsl.myDsl.Not;
 import org.xtext.example.mydsl.myDsl.Refresh;
 import org.xtext.example.mydsl.myDsl.Rickroll;
-import org.xtext.example.mydsl.myDsl.SetCheckBox;
 import org.xtext.example.mydsl.myDsl.Store;
 import org.xtext.example.mydsl.myDsl.Structure;
 
@@ -127,6 +129,13 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MyDslPackage.HTMLTYPE:
+      {
+        HTMLTYPE htmltype = (HTMLTYPE)theEObject;
+        T result = caseHTMLTYPE(htmltype);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MyDslPackage.COLLECTION:
       {
         Collection collection = (Collection)theEObject;
@@ -166,6 +175,14 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MyDslPackage.ACTION_SELECT:
+      {
+        ActionSelect actionSelect = (ActionSelect)theEObject;
+        T result = caseActionSelect(actionSelect);
+        if (result == null) result = caseAction(actionSelect);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MyDslPackage.CLICK:
       {
         Click click = (Click)theEObject;
@@ -182,11 +199,11 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyDslPackage.SET_CHECK_BOX:
+      case MyDslPackage.CHECK_BOX:
       {
-        SetCheckBox setCheckBox = (SetCheckBox)theEObject;
-        T result = caseSetCheckBox(setCheckBox);
-        if (result == null) result = caseAction(setCheckBox);
+        CheckBox checkBox = (CheckBox)theEObject;
+        T result = caseCheckBox(checkBox);
+        if (result == null) result = caseAction(checkBox);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -331,6 +348,22 @@ public class MyDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>HTMLTYPE</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>HTMLTYPE</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseHTMLTYPE(HTMLTYPE object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Collection</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -411,6 +444,22 @@ public class MyDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Action Select</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Action Select</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseActionSelect(ActionSelect object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Click</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -443,17 +492,17 @@ public class MyDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Set Check Box</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Check Box</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Set Check Box</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Check Box</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSetCheckBox(SetCheckBox object)
+  public T caseCheckBox(CheckBox object)
   {
     return null;
   }

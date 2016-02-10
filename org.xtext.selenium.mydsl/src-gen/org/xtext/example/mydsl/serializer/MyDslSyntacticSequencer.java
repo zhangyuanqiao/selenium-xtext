@@ -10,6 +10,9 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 import org.xtext.example.mydsl.services.MyDslGrammarAccess;
@@ -18,10 +21,12 @@ import org.xtext.example.mydsl.services.MyDslGrammarAccess;
 public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected MyDslGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_If___ElseKeyword_8_0_ColonKeyword_8_1_LeftCurlyBracketKeyword_8_2_RightCurlyBracketKeyword_8_4__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (MyDslGrammarAccess) access;
+		match_If___ElseKeyword_8_0_ColonKeyword_8_1_LeftCurlyBracketKeyword_8_2_RightCurlyBracketKeyword_8_4__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getIfAccess().getElseKeyword_8_0()), new TokenAlias(false, false, grammarAccess.getIfAccess().getColonKeyword_8_1()), new TokenAlias(false, false, grammarAccess.getIfAccess().getLeftCurlyBracketKeyword_8_2()), new TokenAlias(false, false, grammarAccess.getIfAccess().getRightCurlyBracketKeyword_8_4()));
 	}
 	
 	@Override
@@ -36,8 +41,22 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if (match_If___ElseKeyword_8_0_ColonKeyword_8_1_LeftCurlyBracketKeyword_8_2_RightCurlyBracketKeyword_8_4__q.equals(syntax))
+				emit_If___ElseKeyword_8_0_ColonKeyword_8_1_LeftCurlyBracketKeyword_8_2_RightCurlyBracketKeyword_8_4__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     ('Else' ':' '{' '}')?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     actionThen+=Action '}' (ambiguity) (rule end)
+	 *     cond=Condition 'Then' ':' '{' '}' (ambiguity) (rule end)
+	 */
+	protected void emit_If___ElseKeyword_8_0_ColonKeyword_8_1_LeftCurlyBracketKeyword_8_2_RightCurlyBracketKeyword_8_4__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

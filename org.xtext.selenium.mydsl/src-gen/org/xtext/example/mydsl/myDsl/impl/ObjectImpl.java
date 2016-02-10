@@ -4,12 +4,15 @@
 package org.xtext.example.mydsl.myDsl.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.xtext.example.mydsl.myDsl.HTMLTYPE;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 
 /**
@@ -20,6 +23,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ObjectImpl#getBody <em>Body</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ObjectImpl#getHtmltype <em>Htmltype</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ObjectImpl#getObjectName <em>Object Name</em>}</li>
  * </ul>
@@ -29,24 +33,34 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
 public class ObjectImpl extends MinimalEObjectImpl.Container implements org.xtext.example.mydsl.myDsl.Object
 {
   /**
-   * The default value of the '{@link #getHtmltype() <em>Htmltype</em>}' attribute.
+   * The default value of the '{@link #getBody() <em>Body</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getHtmltype()
+   * @see #getBody()
    * @generated
    * @ordered
    */
-  protected static final String HTMLTYPE_EDEFAULT = null;
+  protected static final String BODY_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getHtmltype() <em>Htmltype</em>}' attribute.
+   * The cached value of the '{@link #getBody() <em>Body</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBody()
+   * @generated
+   * @ordered
+   */
+  protected String body = BODY_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getHtmltype() <em>Htmltype</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getHtmltype()
    * @generated
    * @ordered
    */
-  protected String htmltype = HTMLTYPE_EDEFAULT;
+  protected HTMLTYPE htmltype;
 
   /**
    * The default value of the '{@link #getObjectName() <em>Object Name</em>}' attribute.
@@ -94,7 +108,30 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements org.xtex
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getHtmltype()
+  public String getBody()
+  {
+    return body;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBody(String newBody)
+  {
+    String oldBody = body;
+    body = newBody;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.OBJECT__BODY, oldBody, body));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public HTMLTYPE getHtmltype()
   {
     return htmltype;
   }
@@ -104,12 +141,37 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements org.xtex
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setHtmltype(String newHtmltype)
+  public NotificationChain basicSetHtmltype(HTMLTYPE newHtmltype, NotificationChain msgs)
   {
-    String oldHtmltype = htmltype;
+    HTMLTYPE oldHtmltype = htmltype;
     htmltype = newHtmltype;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.OBJECT__HTMLTYPE, oldHtmltype, htmltype));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.OBJECT__HTMLTYPE, oldHtmltype, newHtmltype);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setHtmltype(HTMLTYPE newHtmltype)
+  {
+    if (newHtmltype != htmltype)
+    {
+      NotificationChain msgs = null;
+      if (htmltype != null)
+        msgs = ((InternalEObject)htmltype).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.OBJECT__HTMLTYPE, null, msgs);
+      if (newHtmltype != null)
+        msgs = ((InternalEObject)newHtmltype).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.OBJECT__HTMLTYPE, null, msgs);
+      msgs = basicSetHtmltype(newHtmltype, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.OBJECT__HTMLTYPE, newHtmltype, newHtmltype));
   }
 
   /**
@@ -141,10 +203,28 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements org.xtex
    * @generated
    */
   @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case MyDslPackage.OBJECT__HTMLTYPE:
+        return basicSetHtmltype(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
+      case MyDslPackage.OBJECT__BODY:
+        return getBody();
       case MyDslPackage.OBJECT__HTMLTYPE:
         return getHtmltype();
       case MyDslPackage.OBJECT__OBJECT_NAME:
@@ -163,8 +243,11 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements org.xtex
   {
     switch (featureID)
     {
+      case MyDslPackage.OBJECT__BODY:
+        setBody((String)newValue);
+        return;
       case MyDslPackage.OBJECT__HTMLTYPE:
-        setHtmltype((String)newValue);
+        setHtmltype((HTMLTYPE)newValue);
         return;
       case MyDslPackage.OBJECT__OBJECT_NAME:
         setObjectName((String)newValue);
@@ -183,8 +266,11 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements org.xtex
   {
     switch (featureID)
     {
+      case MyDslPackage.OBJECT__BODY:
+        setBody(BODY_EDEFAULT);
+        return;
       case MyDslPackage.OBJECT__HTMLTYPE:
-        setHtmltype(HTMLTYPE_EDEFAULT);
+        setHtmltype((HTMLTYPE)null);
         return;
       case MyDslPackage.OBJECT__OBJECT_NAME:
         setObjectName(OBJECT_NAME_EDEFAULT);
@@ -203,8 +289,10 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements org.xtex
   {
     switch (featureID)
     {
+      case MyDslPackage.OBJECT__BODY:
+        return BODY_EDEFAULT == null ? body != null : !BODY_EDEFAULT.equals(body);
       case MyDslPackage.OBJECT__HTMLTYPE:
-        return HTMLTYPE_EDEFAULT == null ? htmltype != null : !HTMLTYPE_EDEFAULT.equals(htmltype);
+        return htmltype != null;
       case MyDslPackage.OBJECT__OBJECT_NAME:
         return OBJECT_NAME_EDEFAULT == null ? objectName != null : !OBJECT_NAME_EDEFAULT.equals(objectName);
     }
@@ -222,8 +310,8 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements org.xtex
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (htmltype: ");
-    result.append(htmltype);
+    result.append(" (body: ");
+    result.append(body);
     result.append(", objectName: ");
     result.append(objectName);
     result.append(')');

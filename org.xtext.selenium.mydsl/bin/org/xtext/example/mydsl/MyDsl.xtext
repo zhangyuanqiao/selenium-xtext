@@ -10,24 +10,22 @@ Main :
 	orders+=(Action|Structure)*
 ;
 
-Action : Navigate|Click|Fill|SetCheckBox|Refresh|Alert|Store|Rickroll|DoWait;
+Action : Navigate|Click|Fill|CheckBox|Refresh|Alert|ActionSelect|Store|Rickroll|DoWait;
 
 Structure : If | Loop |DoAll ;
 
-Condition : IsIn|Not;
+Condition : (IsIn|Not) ;
 
 
 
 
 //OBJECTS
 
-Object : htmltype=HTMLTYPE objectName=STRING;
+Object : (body='body')| '['(htmltype=HTMLTYPE objectName=STRING) ']';
 
-HTMLTYPE : 'class'|'id'|'name';
+HTMLTYPE : type=('title'|'class'|'id'|'name'|'CSS Selector'|'XPath');
 
-Collection : obj+=Object*;
-
-
+Collection : obj+=Object;
 
 //ACTIONS
 
@@ -37,24 +35,26 @@ Refresh: {Refresh}'Refresh';
 	
 Navigate : 'Navigate' url=STRING;
 
-Store : 'Store' obj=Object 'as' objName=STRING;	
+Store : 'Store : ' obj=Object 'as' objName=STRING;	
+
+ActionSelect : 'Select' option=STRING 'from' xpath=STRING;
 
 Click : 'Click' name=STRING;
 	
 Fill : 'Fill' nametag=STRING 'with' content=STRING;
 	
-SetCheckBox : 'SetCheckBox' nametag=STRING;
+CheckBox : 'CheckBox' nametag=STRING ('to' newValue=('true'|'false'))?;
 
 Rickroll : {Rickroll}'RickRoll' ;
 
-DoWait : 'Wait' 'for' millisec=INT 'millisecs';
+DoWait : 'Wait' 'for' millisec=INT 'milliseconds';
 
 
 
 
 //CONDITION
 	
-IsIn : 'Is' text=STRING 'in' (title=STRING|obj=Object) '?';
+IsIn :  obj=Object 'contains' text=STRING ;
 
 Not : 'Not' cond=Condition;
 
@@ -66,8 +66,8 @@ Not : 'Not' cond=Condition;
 
 If : 
 	'If' ':' cond=Condition
-	'Then' ':' '{' actionThen+=Action '}'
-	('Else' ':' '{' actionElse+= Action '}')?	
+	'Then' ':' '{' actionThen+=Action* '}'
+	('Else' ':' '{' actionElse+= Action* '}')?	
 ;
 	
 Loop : 

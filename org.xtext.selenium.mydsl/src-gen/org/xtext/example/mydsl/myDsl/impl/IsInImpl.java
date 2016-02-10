@@ -22,15 +22,24 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.IsInImpl#getText <em>Text</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.IsInImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.IsInImpl#getObj <em>Obj</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.IsInImpl#getText <em>Text</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class IsInImpl extends ConditionImpl implements IsIn
 {
+  /**
+   * The cached value of the '{@link #getObj() <em>Obj</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getObj()
+   * @generated
+   * @ordered
+   */
+  protected org.xtext.example.mydsl.myDsl.Object obj;
+
   /**
    * The default value of the '{@link #getText() <em>Text</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -52,36 +61,6 @@ public class IsInImpl extends ConditionImpl implements IsIn
   protected String text = TEXT_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTitle()
-   * @generated
-   * @ordered
-   */
-  protected static final String TITLE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTitle()
-   * @generated
-   * @ordered
-   */
-  protected String title = TITLE_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getObj() <em>Obj</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getObj()
-   * @generated
-   * @ordered
-   */
-  protected org.xtext.example.mydsl.myDsl.Object obj;
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -100,52 +79,6 @@ public class IsInImpl extends ConditionImpl implements IsIn
   protected EClass eStaticClass()
   {
     return MyDslPackage.Literals.IS_IN;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getText()
-  {
-    return text;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setText(String newText)
-  {
-    String oldText = text;
-    text = newText;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.IS_IN__TEXT, oldText, text));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getTitle()
-  {
-    return title;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setTitle(String newTitle)
-  {
-    String oldTitle = title;
-    title = newTitle;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.IS_IN__TITLE, oldTitle, title));
   }
 
   /**
@@ -201,6 +134,29 @@ public class IsInImpl extends ConditionImpl implements IsIn
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getText()
+  {
+    return text;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setText(String newText)
+  {
+    String oldText = text;
+    text = newText;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.IS_IN__TEXT, oldText, text));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -222,12 +178,10 @@ public class IsInImpl extends ConditionImpl implements IsIn
   {
     switch (featureID)
     {
-      case MyDslPackage.IS_IN__TEXT:
-        return getText();
-      case MyDslPackage.IS_IN__TITLE:
-        return getTitle();
       case MyDslPackage.IS_IN__OBJ:
         return getObj();
+      case MyDslPackage.IS_IN__TEXT:
+        return getText();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -242,14 +196,11 @@ public class IsInImpl extends ConditionImpl implements IsIn
   {
     switch (featureID)
     {
-      case MyDslPackage.IS_IN__TEXT:
-        setText((String)newValue);
-        return;
-      case MyDslPackage.IS_IN__TITLE:
-        setTitle((String)newValue);
-        return;
       case MyDslPackage.IS_IN__OBJ:
         setObj((org.xtext.example.mydsl.myDsl.Object)newValue);
+        return;
+      case MyDslPackage.IS_IN__TEXT:
+        setText((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -265,14 +216,11 @@ public class IsInImpl extends ConditionImpl implements IsIn
   {
     switch (featureID)
     {
-      case MyDslPackage.IS_IN__TEXT:
-        setText(TEXT_EDEFAULT);
-        return;
-      case MyDslPackage.IS_IN__TITLE:
-        setTitle(TITLE_EDEFAULT);
-        return;
       case MyDslPackage.IS_IN__OBJ:
         setObj((org.xtext.example.mydsl.myDsl.Object)null);
+        return;
+      case MyDslPackage.IS_IN__TEXT:
+        setText(TEXT_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -288,12 +236,10 @@ public class IsInImpl extends ConditionImpl implements IsIn
   {
     switch (featureID)
     {
-      case MyDslPackage.IS_IN__TEXT:
-        return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
-      case MyDslPackage.IS_IN__TITLE:
-        return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
       case MyDslPackage.IS_IN__OBJ:
         return obj != null;
+      case MyDslPackage.IS_IN__TEXT:
+        return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
     }
     return super.eIsSet(featureID);
   }
@@ -311,8 +257,6 @@ public class IsInImpl extends ConditionImpl implements IsIn
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (text: ");
     result.append(text);
-    result.append(", title: ");
-    result.append(title);
     result.append(')');
     return result.toString();
   }

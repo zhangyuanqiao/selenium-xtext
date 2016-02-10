@@ -11,13 +11,16 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import org.xtext.example.mydsl.myDsl.Action;
+import org.xtext.example.mydsl.myDsl.ActionSelect;
 import org.xtext.example.mydsl.myDsl.Alert;
+import org.xtext.example.mydsl.myDsl.CheckBox;
 import org.xtext.example.mydsl.myDsl.Click;
 import org.xtext.example.mydsl.myDsl.Collection;
 import org.xtext.example.mydsl.myDsl.Condition;
 import org.xtext.example.mydsl.myDsl.DoAll;
 import org.xtext.example.mydsl.myDsl.DoWait;
 import org.xtext.example.mydsl.myDsl.Fill;
+import org.xtext.example.mydsl.myDsl.HTMLTYPE;
 import org.xtext.example.mydsl.myDsl.If;
 import org.xtext.example.mydsl.myDsl.IsIn;
 import org.xtext.example.mydsl.myDsl.Loop;
@@ -27,7 +30,6 @@ import org.xtext.example.mydsl.myDsl.Navigate;
 import org.xtext.example.mydsl.myDsl.Not;
 import org.xtext.example.mydsl.myDsl.Refresh;
 import org.xtext.example.mydsl.myDsl.Rickroll;
-import org.xtext.example.mydsl.myDsl.SetCheckBox;
 import org.xtext.example.mydsl.myDsl.Store;
 import org.xtext.example.mydsl.myDsl.Structure;
 
@@ -120,6 +122,11 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createObjectAdapter();
       }
       @Override
+      public Adapter caseHTMLTYPE(HTMLTYPE object)
+      {
+        return createHTMLTYPEAdapter();
+      }
+      @Override
       public Adapter caseCollection(Collection object)
       {
         return createCollectionAdapter();
@@ -145,6 +152,11 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createStoreAdapter();
       }
       @Override
+      public Adapter caseActionSelect(ActionSelect object)
+      {
+        return createActionSelectAdapter();
+      }
+      @Override
       public Adapter caseClick(Click object)
       {
         return createClickAdapter();
@@ -155,9 +167,9 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createFillAdapter();
       }
       @Override
-      public Adapter caseSetCheckBox(SetCheckBox object)
+      public Adapter caseCheckBox(CheckBox object)
       {
-        return createSetCheckBoxAdapter();
+        return createCheckBoxAdapter();
       }
       @Override
       public Adapter caseRickroll(Rickroll object)
@@ -292,6 +304,21 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.HTMLTYPE <em>HTMLTYPE</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.HTMLTYPE
+   * @generated
+   */
+  public Adapter createHTMLTYPEAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Collection <em>Collection</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -367,6 +394,21 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.ActionSelect <em>Action Select</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.ActionSelect
+   * @generated
+   */
+  public Adapter createActionSelectAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Click <em>Click</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -397,16 +439,16 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.SetCheckBox <em>Set Check Box</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.CheckBox <em>Check Box</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.SetCheckBox
+   * @see org.xtext.example.mydsl.myDsl.CheckBox
    * @generated
    */
-  public Adapter createSetCheckBoxAdapter()
+  public Adapter createCheckBoxAdapter()
   {
     return null;
   }

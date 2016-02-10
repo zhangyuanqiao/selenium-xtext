@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Object#getBody <em>Body</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Object#getHtmltype <em>Htmltype</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Object#getObjectName <em>Object Name</em>}</li>
  * </ul>
@@ -25,30 +26,56 @@ import org.eclipse.emf.ecore.EObject;
 public interface Object extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Htmltype</b></em>' attribute.
+   * Returns the value of the '<em><b>Body</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Htmltype</em>' attribute isn't clear,
+   * If the meaning of the '<em>Body</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Htmltype</em>' attribute.
-   * @see #setHtmltype(String)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getObject_Htmltype()
+   * @return the value of the '<em>Body</em>' attribute.
+   * @see #setBody(String)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getObject_Body()
    * @model
    * @generated
    */
-  String getHtmltype();
+  String getBody();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Object#getHtmltype <em>Htmltype</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Object#getBody <em>Body</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Htmltype</em>' attribute.
+   * @param value the new value of the '<em>Body</em>' attribute.
+   * @see #getBody()
+   * @generated
+   */
+  void setBody(String value);
+
+  /**
+   * Returns the value of the '<em><b>Htmltype</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Htmltype</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Htmltype</em>' containment reference.
+   * @see #setHtmltype(HTMLTYPE)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getObject_Htmltype()
+   * @model containment="true"
+   * @generated
+   */
+  HTMLTYPE getHtmltype();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Object#getHtmltype <em>Htmltype</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Htmltype</em>' containment reference.
    * @see #getHtmltype()
    * @generated
    */
-  void setHtmltype(String value);
+  void setHtmltype(HTMLTYPE value);
 
   /**
    * Returns the value of the '<em><b>Object Name</b></em>' attribute.

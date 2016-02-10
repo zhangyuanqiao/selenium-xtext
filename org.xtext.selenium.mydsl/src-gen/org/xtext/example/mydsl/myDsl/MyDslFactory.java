@@ -69,6 +69,15 @@ public interface MyDslFactory extends EFactory
   Object createObject();
 
   /**
+   * Returns a new object of class '<em>HTMLTYPE</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>HTMLTYPE</em>'.
+   * @generated
+   */
+  HTMLTYPE createHTMLTYPE();
+
+  /**
    * Returns a new object of class '<em>Collection</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -114,6 +123,15 @@ public interface MyDslFactory extends EFactory
   Store createStore();
 
   /**
+   * Returns a new object of class '<em>Action Select</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Action Select</em>'.
+   * @generated
+   */
+  ActionSelect createActionSelect();
+
+  /**
    * Returns a new object of class '<em>Click</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -132,13 +150,13 @@ public interface MyDslFactory extends EFactory
   Fill createFill();
 
   /**
-   * Returns a new object of class '<em>Set Check Box</em>'.
+   * Returns a new object of class '<em>Check Box</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Set Check Box</em>'.
+   * @return a new object of class '<em>Check Box</em>'.
    * @generated
    */
-  SetCheckBox createSetCheckBox();
+  CheckBox createCheckBox();
 
   /**
    * Returns a new object of class '<em>Rickroll</em>'.
