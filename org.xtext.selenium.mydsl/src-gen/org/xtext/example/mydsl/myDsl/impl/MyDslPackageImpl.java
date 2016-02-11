@@ -16,8 +16,10 @@ import org.xtext.example.mydsl.myDsl.CheckBox;
 import org.xtext.example.mydsl.myDsl.Click;
 import org.xtext.example.mydsl.myDsl.Collection;
 import org.xtext.example.mydsl.myDsl.Condition;
+import org.xtext.example.mydsl.myDsl.Delete;
 import org.xtext.example.mydsl.myDsl.DoAll;
 import org.xtext.example.mydsl.myDsl.DoWait;
+import org.xtext.example.mydsl.myDsl.Execute;
 import org.xtext.example.mydsl.myDsl.Fill;
 import org.xtext.example.mydsl.myDsl.If;
 import org.xtext.example.mydsl.myDsl.IsIn;
@@ -27,10 +29,12 @@ import org.xtext.example.mydsl.myDsl.MyDslFactory;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Navigate;
 import org.xtext.example.mydsl.myDsl.Not;
+import org.xtext.example.mydsl.myDsl.ReDefine;
 import org.xtext.example.mydsl.myDsl.Refresh;
 import org.xtext.example.mydsl.myDsl.Rickroll;
 import org.xtext.example.mydsl.myDsl.Store;
 import org.xtext.example.mydsl.myDsl.Structure;
+import org.xtext.example.mydsl.myDsl.SubProcedure;
 
 /**
  * <!-- begin-user-doc -->
@@ -94,6 +98,13 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass subProcedureEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass refreshEClass = null;
 
   /**
@@ -109,6 +120,20 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   private EClass storeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass reDefineEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass deleteEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -186,6 +211,13 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   private EClass doAllEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass executeEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -405,6 +437,26 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getSubProcedure()
+  {
+    return subProcedureEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSubProcedure_Actions()
+  {
+    return (EReference)subProcedureEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getRefresh()
   {
     return refreshEClass;
@@ -445,9 +497,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getStore_Obj()
+  public EAttribute getStore_ObjName()
   {
-    return (EReference)storeEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)storeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -455,9 +507,59 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getStore_ObjName()
+  public EReference getStore_Obj()
   {
-    return (EAttribute)storeEClass.getEStructuralFeatures().get(1);
+    return (EReference)storeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getReDefine()
+  {
+    return reDefineEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getReDefine_ObjName()
+  {
+    return (EAttribute)reDefineEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getReDefine_Obj()
+  {
+    return (EReference)reDefineEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDelete()
+  {
+    return deleteEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDelete_ObjName()
+  {
+    return (EAttribute)deleteEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -765,6 +867,26 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getExecute()
+  {
+    return executeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getExecute_SubProcedureName()
+  {
+    return (EAttribute)executeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public MyDslFactory getMyDslFactory()
   {
     return (MyDslFactory)getEFactoryInstance();
@@ -812,14 +934,24 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     collectionEClass = createEClass(COLLECTION);
     createEReference(collectionEClass, COLLECTION__OBJ);
 
+    subProcedureEClass = createEClass(SUB_PROCEDURE);
+    createEReference(subProcedureEClass, SUB_PROCEDURE__ACTIONS);
+
     refreshEClass = createEClass(REFRESH);
 
     navigateEClass = createEClass(NAVIGATE);
     createEAttribute(navigateEClass, NAVIGATE__URL);
 
     storeEClass = createEClass(STORE);
-    createEReference(storeEClass, STORE__OBJ);
     createEAttribute(storeEClass, STORE__OBJ_NAME);
+    createEReference(storeEClass, STORE__OBJ);
+
+    reDefineEClass = createEClass(RE_DEFINE);
+    createEAttribute(reDefineEClass, RE_DEFINE__OBJ_NAME);
+    createEReference(reDefineEClass, RE_DEFINE__OBJ);
+
+    deleteEClass = createEClass(DELETE);
+    createEAttribute(deleteEClass, DELETE__OBJ_NAME);
 
     actionSelectEClass = createEClass(ACTION_SELECT);
     createEAttribute(actionSelectEClass, ACTION_SELECT__OPTION);
@@ -861,6 +993,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     doAllEClass = createEClass(DO_ALL);
     createEReference(doAllEClass, DO_ALL__COLL);
     createEReference(doAllEClass, DO_ALL__TODO);
+
+    executeEClass = createEClass(EXECUTE);
+    createEAttribute(executeEClass, EXECUTE__SUB_PROCEDURE_NAME);
   }
 
   /**
@@ -892,6 +1027,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    subProcedureEClass.getESuperTypes().add(this.getObject());
     refreshEClass.getESuperTypes().add(this.getAction());
     navigateEClass.getESuperTypes().add(this.getAction());
     storeEClass.getESuperTypes().add(this.getAction());
@@ -906,6 +1042,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     ifEClass.getESuperTypes().add(this.getStructure());
     loopEClass.getESuperTypes().add(this.getStructure());
     doAllEClass.getESuperTypes().add(this.getStructure());
+    executeEClass.getESuperTypes().add(this.getStructure());
 
     // Initialize classes and features; add operations and parameters
     initEClass(mainEClass, Main.class, "Main", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -930,14 +1067,24 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEClass(collectionEClass, Collection.class, "Collection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCollection_Obj(), this.getObject(), null, "obj", null, 0, -1, Collection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(subProcedureEClass, SubProcedure.class, "SubProcedure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSubProcedure_Actions(), ecorePackage.getEObject(), null, "actions", null, 0, -1, SubProcedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(refreshEClass, Refresh.class, "Refresh", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(navigateEClass, Navigate.class, "Navigate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNavigate_Url(), ecorePackage.getEString(), "url", null, 0, 1, Navigate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(storeEClass, Store.class, "Store", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getStore_Obj(), this.getObject(), null, "obj", null, 0, 1, Store.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getStore_ObjName(), ecorePackage.getEString(), "objName", null, 0, 1, Store.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStore_Obj(), this.getObject(), null, "obj", null, 0, 1, Store.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(reDefineEClass, ReDefine.class, "ReDefine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getReDefine_ObjName(), ecorePackage.getEString(), "objName", null, 0, 1, ReDefine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getReDefine_Obj(), this.getObject(), null, "obj", null, 0, 1, ReDefine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(deleteEClass, Delete.class, "Delete", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDelete_ObjName(), ecorePackage.getEString(), "objName", null, 0, 1, Delete.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(actionSelectEClass, ActionSelect.class, "ActionSelect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getActionSelect_Option(), ecorePackage.getEString(), "option", null, 0, 1, ActionSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -979,6 +1126,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEClass(doAllEClass, DoAll.class, "DoAll", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDoAll_Coll(), this.getCollection(), null, "coll", null, 0, 1, DoAll.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDoAll_Todo(), ecorePackage.getEObject(), null, "todo", null, 0, -1, DoAll.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(executeEClass, Execute.class, "Execute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getExecute_SubProcedureName(), ecorePackage.getEString(), "subProcedureName", null, 0, 1, Execute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

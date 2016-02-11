@@ -18,8 +18,10 @@ import org.xtext.example.mydsl.myDsl.ActionSelect;
 import org.xtext.example.mydsl.myDsl.CheckBox;
 import org.xtext.example.mydsl.myDsl.Click;
 import org.xtext.example.mydsl.myDsl.Collection;
+import org.xtext.example.mydsl.myDsl.Delete;
 import org.xtext.example.mydsl.myDsl.DoAll;
 import org.xtext.example.mydsl.myDsl.DoWait;
+import org.xtext.example.mydsl.myDsl.Execute;
 import org.xtext.example.mydsl.myDsl.Fill;
 import org.xtext.example.mydsl.myDsl.HTMLTYPE;
 import org.xtext.example.mydsl.myDsl.If;
@@ -29,9 +31,11 @@ import org.xtext.example.mydsl.myDsl.Main;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Navigate;
 import org.xtext.example.mydsl.myDsl.Not;
+import org.xtext.example.mydsl.myDsl.ReDefine;
 import org.xtext.example.mydsl.myDsl.Refresh;
 import org.xtext.example.mydsl.myDsl.Rickroll;
 import org.xtext.example.mydsl.myDsl.Store;
+import org.xtext.example.mydsl.myDsl.SubProcedure;
 import org.xtext.example.mydsl.services.MyDslGrammarAccess;
 
 @SuppressWarnings("all")
@@ -60,11 +64,17 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.COLLECTION:
 				sequence_Collection(context, (Collection) semanticObject); 
 				return; 
+			case MyDslPackage.DELETE:
+				sequence_Delete(context, (Delete) semanticObject); 
+				return; 
 			case MyDslPackage.DO_ALL:
 				sequence_DoAll(context, (DoAll) semanticObject); 
 				return; 
 			case MyDslPackage.DO_WAIT:
 				sequence_DoWait(context, (DoWait) semanticObject); 
+				return; 
+			case MyDslPackage.EXECUTE:
+				sequence_Execute(context, (Execute) semanticObject); 
 				return; 
 			case MyDslPackage.FILL:
 				sequence_Fill(context, (Fill) semanticObject); 
@@ -93,6 +103,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.OBJECT:
 				sequence_Object(context, (org.xtext.example.mydsl.myDsl.Object) semanticObject); 
 				return; 
+			case MyDslPackage.RE_DEFINE:
+				sequence_ReDefine(context, (ReDefine) semanticObject); 
+				return; 
 			case MyDslPackage.REFRESH:
 				sequence_Refresh(context, (Refresh) semanticObject); 
 				return; 
@@ -101,6 +114,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case MyDslPackage.STORE:
 				sequence_Store(context, (Store) semanticObject); 
+				return; 
+			case MyDslPackage.SUB_PROCEDURE:
+				sequence_SubProcedure(context, (SubProcedure) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -175,6 +191,24 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Delete returns Delete
+	 *
+	 * Constraint:
+	 *     objName=STRING
+	 */
+	protected void sequence_Delete(ISerializationContext context, Delete semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.DELETE__OBJ_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.DELETE__OBJ_NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDeleteAccess().getObjNameSTRINGTerminalRuleCall_1_0(), semanticObject.getObjName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Structure returns DoAll
 	 *     DoAll returns DoAll
 	 *
@@ -201,6 +235,25 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getDoWaitAccess().getMillisecINTTerminalRuleCall_2_0(), semanticObject.getMillisec());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Structure returns Execute
+	 *     Execute returns Execute
+	 *
+	 * Constraint:
+	 *     subProcedureName=STRING
+	 */
+	protected void sequence_Execute(ISerializationContext context, Execute semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.EXECUTE__SUB_PROCEDURE_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.EXECUTE__SUB_PROCEDURE_NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExecuteAccess().getSubProcedureNameSTRINGTerminalRuleCall_1_0(), semanticObject.getSubProcedureName());
 		feeder.finish();
 	}
 	
@@ -358,6 +411,27 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     ReDefine returns ReDefine
+	 *
+	 * Constraint:
+	 *     (objName=STRING obj=Object)
+	 */
+	protected void sequence_ReDefine(ISerializationContext context, ReDefine semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.RE_DEFINE__OBJ_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.RE_DEFINE__OBJ_NAME));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.RE_DEFINE__OBJ) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.RE_DEFINE__OBJ));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getReDefineAccess().getObjNameSTRINGTerminalRuleCall_1_0(), semanticObject.getObjName());
+		feeder.accept(grammarAccess.getReDefineAccess().getObjObjectParserRuleCall_3_0(), semanticObject.getObj());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Action returns Refresh
 	 *     Refresh returns Refresh
 	 *
@@ -388,19 +462,32 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Store returns Store
 	 *
 	 * Constraint:
-	 *     (obj=Object objName=STRING)
+	 *     (objName=STRING obj=Object)
 	 */
 	protected void sequence_Store(ISerializationContext context, Store semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.STORE__OBJ) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.STORE__OBJ));
 			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.STORE__OBJ_NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.STORE__OBJ_NAME));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.STORE__OBJ) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.STORE__OBJ));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getStoreAccess().getObjObjectParserRuleCall_1_0(), semanticObject.getObj());
-		feeder.accept(grammarAccess.getStoreAccess().getObjNameSTRINGTerminalRuleCall_3_0(), semanticObject.getObjName());
+		feeder.accept(grammarAccess.getStoreAccess().getObjNameSTRINGTerminalRuleCall_1_0(), semanticObject.getObjName());
+		feeder.accept(grammarAccess.getStoreAccess().getObjObjectParserRuleCall_3_0(), semanticObject.getObj());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Object returns SubProcedure
+	 *     SubProcedure returns SubProcedure
+	 *
+	 * Constraint:
+	 *     (actions+=Action | actions+=Structure)+
+	 */
+	protected void sequence_SubProcedure(ISerializationContext context, SubProcedure semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

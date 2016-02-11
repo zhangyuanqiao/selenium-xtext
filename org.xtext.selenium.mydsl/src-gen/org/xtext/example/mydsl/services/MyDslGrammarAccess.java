@@ -137,12 +137,13 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cIfParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cLoopParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cDoAllParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cExecuteParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//Structure:
-		//	If | Loop | DoAll;
+		//	If | Loop | DoAll | Execute;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//If | Loop | DoAll
+		//If | Loop | DoAll | Execute
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//If
@@ -153,6 +154,9 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//DoAll
 		public RuleCall getDoAllParserRuleCall_2() { return cDoAllParserRuleCall_2; }
+		
+		//Execute
+		public RuleCall getExecuteParserRuleCall_3() { return cExecuteParserRuleCall_3; }
 	}
 	public class ConditionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Condition");
@@ -176,54 +180,58 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class ObjectElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Object");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cBodyAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final Keyword cBodyBodyKeyword_0_0 = (Keyword)cBodyAssignment_0.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cLeftSquareBracketKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
-		private final Assignment cHtmltypeAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
-		private final RuleCall cHtmltypeHTMLTYPEParserRuleCall_1_1_0_0 = (RuleCall)cHtmltypeAssignment_1_1_0.eContents().get(0);
-		private final Assignment cObjectNameAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
-		private final RuleCall cObjectNameSTRINGTerminalRuleCall_1_1_1_0 = (RuleCall)cObjectNameAssignment_1_1_1.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final RuleCall cSubProcedureParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final Assignment cBodyAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final Keyword cBodyBodyKeyword_1_0 = (Keyword)cBodyAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Keyword cLeftSquareBracketKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
+		private final Assignment cHtmltypeAssignment_2_1_0 = (Assignment)cGroup_2_1.eContents().get(0);
+		private final RuleCall cHtmltypeHTMLTYPEParserRuleCall_2_1_0_0 = (RuleCall)cHtmltypeAssignment_2_1_0.eContents().get(0);
+		private final Assignment cObjectNameAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final RuleCall cObjectNameSTRINGTerminalRuleCall_2_1_1_0 = (RuleCall)cObjectNameAssignment_2_1_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
 		
 		////OBJECTS
 		//Object:
-		//	body='body' | '[' (htmltype=HTMLTYPE objectName=STRING) ']';
+		//	SubProcedure | body='body' | '[' (htmltype=HTMLTYPE objectName=STRING) ']';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//body='body' | '[' (htmltype=HTMLTYPE objectName=STRING) ']'
+		//SubProcedure | body='body' | '[' (htmltype=HTMLTYPE objectName=STRING) ']'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
+		//SubProcedure
+		public RuleCall getSubProcedureParserRuleCall_0() { return cSubProcedureParserRuleCall_0; }
+		
 		//body='body'
-		public Assignment getBodyAssignment_0() { return cBodyAssignment_0; }
+		public Assignment getBodyAssignment_1() { return cBodyAssignment_1; }
 		
 		//'body'
-		public Keyword getBodyBodyKeyword_0_0() { return cBodyBodyKeyword_0_0; }
+		public Keyword getBodyBodyKeyword_1_0() { return cBodyBodyKeyword_1_0; }
 		
 		//'[' (htmltype=HTMLTYPE objectName=STRING) ']'
-		public Group getGroup_1() { return cGroup_1; }
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//'['
-		public Keyword getLeftSquareBracketKeyword_1_0() { return cLeftSquareBracketKeyword_1_0; }
+		public Keyword getLeftSquareBracketKeyword_2_0() { return cLeftSquareBracketKeyword_2_0; }
 		
 		//(htmltype=HTMLTYPE objectName=STRING)
-		public Group getGroup_1_1() { return cGroup_1_1; }
+		public Group getGroup_2_1() { return cGroup_2_1; }
 		
 		//htmltype=HTMLTYPE
-		public Assignment getHtmltypeAssignment_1_1_0() { return cHtmltypeAssignment_1_1_0; }
+		public Assignment getHtmltypeAssignment_2_1_0() { return cHtmltypeAssignment_2_1_0; }
 		
 		//HTMLTYPE
-		public RuleCall getHtmltypeHTMLTYPEParserRuleCall_1_1_0_0() { return cHtmltypeHTMLTYPEParserRuleCall_1_1_0_0; }
+		public RuleCall getHtmltypeHTMLTYPEParserRuleCall_2_1_0_0() { return cHtmltypeHTMLTYPEParserRuleCall_2_1_0_0; }
 		
 		//objectName=STRING
-		public Assignment getObjectNameAssignment_1_1_1() { return cObjectNameAssignment_1_1_1; }
+		public Assignment getObjectNameAssignment_2_1_1() { return cObjectNameAssignment_2_1_1; }
 		
 		//STRING
-		public RuleCall getObjectNameSTRINGTerminalRuleCall_1_1_1_0() { return cObjectNameSTRINGTerminalRuleCall_1_1_1_0; }
+		public RuleCall getObjectNameSTRINGTerminalRuleCall_2_1_1_0() { return cObjectNameSTRINGTerminalRuleCall_2_1_1_0; }
 		
 		//']'
-		public Keyword getRightSquareBracketKeyword_1_2() { return cRightSquareBracketKeyword_1_2; }
+		public Keyword getRightSquareBracketKeyword_2_2() { return cRightSquareBracketKeyword_2_2; }
 	}
 	public class HTMLTYPEElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.HTMLTYPE");
@@ -279,6 +287,45 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//Object
 		public RuleCall getObjObjectParserRuleCall_0() { return cObjObjectParserRuleCall_0; }
 	}
+	public class SubProcedureElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.SubProcedure");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSubprocedureKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cActionsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final Alternatives cActionsAlternatives_2_0 = (Alternatives)cActionsAssignment_2.eContents().get(0);
+		private final RuleCall cActionsActionParserRuleCall_2_0_0 = (RuleCall)cActionsAlternatives_2_0.eContents().get(0);
+		private final RuleCall cActionsStructureParserRuleCall_2_0_1 = (RuleCall)cActionsAlternatives_2_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//SubProcedure:
+		//	'Subprocedure' '{' actions+=(Action | Structure)* '}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Subprocedure' '{' actions+=(Action | Structure)* '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'Subprocedure'
+		public Keyword getSubprocedureKeyword_0() { return cSubprocedureKeyword_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		
+		//actions+=(Action | Structure)*
+		public Assignment getActionsAssignment_2() { return cActionsAssignment_2; }
+		
+		//(Action | Structure)
+		public Alternatives getActionsAlternatives_2_0() { return cActionsAlternatives_2_0; }
+		
+		//Action
+		public RuleCall getActionsActionParserRuleCall_2_0_0() { return cActionsActionParserRuleCall_2_0_0; }
+		
+		//Structure
+		public RuleCall getActionsStructureParserRuleCall_2_0_1() { return cActionsStructureParserRuleCall_2_0_1; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
+	}
 	public class RefreshElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Refresh");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -325,37 +372,95 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class StoreElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Store");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cStoreKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cObjAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cObjObjectParserRuleCall_1_0 = (RuleCall)cObjAssignment_1.eContents().get(0);
-		private final Keyword cAsKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cObjNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cObjNameSTRINGTerminalRuleCall_3_0 = (RuleCall)cObjNameAssignment_3.eContents().get(0);
+		private final Keyword cVarKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cObjNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cObjNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cObjNameAssignment_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cObjAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cObjObjectParserRuleCall_3_0 = (RuleCall)cObjAssignment_3.eContents().get(0);
 		
 		//Store:
-		//	'Store : ' obj=Object 'as' objName=STRING;
+		//	'var' objName=STRING '=' obj=Object;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Store : ' obj=Object 'as' objName=STRING
+		//'var' objName=STRING '=' obj=Object
 		public Group getGroup() { return cGroup; }
 		
-		//'Store : '
-		public Keyword getStoreKeyword_0() { return cStoreKeyword_0; }
-		
-		//obj=Object
-		public Assignment getObjAssignment_1() { return cObjAssignment_1; }
-		
-		//Object
-		public RuleCall getObjObjectParserRuleCall_1_0() { return cObjObjectParserRuleCall_1_0; }
-		
-		//'as'
-		public Keyword getAsKeyword_2() { return cAsKeyword_2; }
+		//'var'
+		public Keyword getVarKeyword_0() { return cVarKeyword_0; }
 		
 		//objName=STRING
-		public Assignment getObjNameAssignment_3() { return cObjNameAssignment_3; }
+		public Assignment getObjNameAssignment_1() { return cObjNameAssignment_1; }
 		
 		//STRING
-		public RuleCall getObjNameSTRINGTerminalRuleCall_3_0() { return cObjNameSTRINGTerminalRuleCall_3_0; }
+		public RuleCall getObjNameSTRINGTerminalRuleCall_1_0() { return cObjNameSTRINGTerminalRuleCall_1_0; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
+		
+		//obj=Object
+		public Assignment getObjAssignment_3() { return cObjAssignment_3; }
+		
+		//Object
+		public RuleCall getObjObjectParserRuleCall_3_0() { return cObjObjectParserRuleCall_3_0; }
+	}
+	public class ReDefineElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ReDefine");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cRedefineKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cObjNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cObjNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cObjNameAssignment_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cObjAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cObjObjectParserRuleCall_3_0 = (RuleCall)cObjAssignment_3.eContents().get(0);
+		
+		//ReDefine:
+		//	'Redefine' objName=STRING '=' obj=Object;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Redefine' objName=STRING '=' obj=Object
+		public Group getGroup() { return cGroup; }
+		
+		//'Redefine'
+		public Keyword getRedefineKeyword_0() { return cRedefineKeyword_0; }
+		
+		//objName=STRING
+		public Assignment getObjNameAssignment_1() { return cObjNameAssignment_1; }
+		
+		//STRING
+		public RuleCall getObjNameSTRINGTerminalRuleCall_1_0() { return cObjNameSTRINGTerminalRuleCall_1_0; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
+		
+		//obj=Object
+		public Assignment getObjAssignment_3() { return cObjAssignment_3; }
+		
+		//Object
+		public RuleCall getObjObjectParserRuleCall_3_0() { return cObjObjectParserRuleCall_3_0; }
+	}
+	public class DeleteElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Delete");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cDeleteKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cObjNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cObjNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cObjNameAssignment_1.eContents().get(0);
+		
+		//Delete:
+		//	'Delete' objName=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Delete' objName=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//'Delete'
+		public Keyword getDeleteKeyword_0() { return cDeleteKeyword_0; }
+		
+		//objName=STRING
+		public Assignment getObjNameAssignment_1() { return cObjNameAssignment_1; }
+		
+		//STRING
+		public RuleCall getObjNameSTRINGTerminalRuleCall_1_0() { return cObjNameSTRINGTerminalRuleCall_1_0; }
 	}
 	public class ActionSelectElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ActionSelect");
@@ -824,6 +929,29 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
+	public class ExecuteElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Execute");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cExecuteKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cSubProcedureNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cSubProcedureNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cSubProcedureNameAssignment_1.eContents().get(0);
+		
+		//Execute:
+		//	'Execute' subProcedureName=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Execute' subProcedureName=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//'Execute'
+		public Keyword getExecuteKeyword_0() { return cExecuteKeyword_0; }
+		
+		//subProcedureName=STRING
+		public Assignment getSubProcedureNameAssignment_1() { return cSubProcedureNameAssignment_1; }
+		
+		//STRING
+		public RuleCall getSubProcedureNameSTRINGTerminalRuleCall_1_0() { return cSubProcedureNameSTRINGTerminalRuleCall_1_0; }
+	}
 	
 	
 	private final MainElements pMain;
@@ -833,9 +961,12 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final ObjectElements pObject;
 	private final HTMLTYPEElements pHTMLTYPE;
 	private final CollectionElements pCollection;
+	private final SubProcedureElements pSubProcedure;
 	private final RefreshElements pRefresh;
 	private final NavigateElements pNavigate;
 	private final StoreElements pStore;
+	private final ReDefineElements pReDefine;
+	private final DeleteElements pDelete;
 	private final ActionSelectElements pActionSelect;
 	private final ClickElements pClick;
 	private final FillElements pFill;
@@ -847,6 +978,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final IfElements pIf;
 	private final LoopElements pLoop;
 	private final DoAllElements pDoAll;
+	private final ExecuteElements pExecute;
 	
 	private final Grammar grammar;
 	
@@ -864,9 +996,12 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pObject = new ObjectElements();
 		this.pHTMLTYPE = new HTMLTYPEElements();
 		this.pCollection = new CollectionElements();
+		this.pSubProcedure = new SubProcedureElements();
 		this.pRefresh = new RefreshElements();
 		this.pNavigate = new NavigateElements();
 		this.pStore = new StoreElements();
+		this.pReDefine = new ReDefineElements();
+		this.pDelete = new DeleteElements();
 		this.pActionSelect = new ActionSelectElements();
 		this.pClick = new ClickElements();
 		this.pFill = new FillElements();
@@ -878,6 +1013,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pIf = new IfElements();
 		this.pLoop = new LoopElements();
 		this.pDoAll = new DoAllElements();
+		this.pExecute = new ExecuteElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -930,7 +1066,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Structure:
-	//	If | Loop | DoAll;
+	//	If | Loop | DoAll | Execute;
 	public StructureElements getStructureAccess() {
 		return pStructure;
 	}
@@ -951,7 +1087,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	////OBJECTS
 	//Object:
-	//	body='body' | '[' (htmltype=HTMLTYPE objectName=STRING) ']';
+	//	SubProcedure | body='body' | '[' (htmltype=HTMLTYPE objectName=STRING) ']';
 	public ObjectElements getObjectAccess() {
 		return pObject;
 	}
@@ -980,6 +1116,16 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getCollectionAccess().getRule();
 	}
 	
+	//SubProcedure:
+	//	'Subprocedure' '{' actions+=(Action | Structure)* '}';
+	public SubProcedureElements getSubProcedureAccess() {
+		return pSubProcedure;
+	}
+	
+	public ParserRule getSubProcedureRule() {
+		return getSubProcedureAccess().getRule();
+	}
+	
 	////ACTIONS
 	//Refresh:
 	//	{Refresh} 'Refresh';
@@ -1002,13 +1148,33 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Store:
-	//	'Store : ' obj=Object 'as' objName=STRING;
+	//	'var' objName=STRING '=' obj=Object;
 	public StoreElements getStoreAccess() {
 		return pStore;
 	}
 	
 	public ParserRule getStoreRule() {
 		return getStoreAccess().getRule();
+	}
+	
+	//ReDefine:
+	//	'Redefine' objName=STRING '=' obj=Object;
+	public ReDefineElements getReDefineAccess() {
+		return pReDefine;
+	}
+	
+	public ParserRule getReDefineRule() {
+		return getReDefineAccess().getRule();
+	}
+	
+	//Delete:
+	//	'Delete' objName=STRING;
+	public DeleteElements getDeleteAccess() {
+		return pDelete;
+	}
+	
+	public ParserRule getDeleteRule() {
+		return getDeleteAccess().getRule();
 	}
 	
 	//ActionSelect:
@@ -1125,6 +1291,16 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDoAllRule() {
 		return getDoAllAccess().getRule();
+	}
+	
+	//Execute:
+	//	'Execute' subProcedureName=STRING;
+	public ExecuteElements getExecuteAccess() {
+		return pExecute;
+	}
+	
+	public ParserRule getExecuteRule() {
+		return getExecuteAccess().getRule();
 	}
 	
 	//terminal ID:

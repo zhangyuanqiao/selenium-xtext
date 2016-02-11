@@ -10,25 +10,26 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
-import org.xtext.example.mydsl.myDsl.Store;
+import org.xtext.example.mydsl.myDsl.ReDefine;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Store</b></em>'.
+ * An implementation of the model object '<em><b>Re Define</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StoreImpl#getObjName <em>Obj Name</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StoreImpl#getObj <em>Obj</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ReDefineImpl#getObjName <em>Obj Name</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ReDefineImpl#getObj <em>Obj</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class StoreImpl extends ActionImpl implements Store
+public class ReDefineImpl extends MinimalEObjectImpl.Container implements ReDefine
 {
   /**
    * The default value of the '{@link #getObjName() <em>Obj Name</em>}' attribute.
@@ -65,7 +66,7 @@ public class StoreImpl extends ActionImpl implements Store
    * <!-- end-user-doc -->
    * @generated
    */
-  protected StoreImpl()
+  protected ReDefineImpl()
   {
     super();
   }
@@ -78,7 +79,7 @@ public class StoreImpl extends ActionImpl implements Store
   @Override
   protected EClass eStaticClass()
   {
-    return MyDslPackage.Literals.STORE;
+    return MyDslPackage.Literals.RE_DEFINE;
   }
 
   /**
@@ -101,7 +102,7 @@ public class StoreImpl extends ActionImpl implements Store
     String oldObjName = objName;
     objName = newObjName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STORE__OBJ_NAME, oldObjName, objName));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.RE_DEFINE__OBJ_NAME, oldObjName, objName));
   }
 
   /**
@@ -125,7 +126,7 @@ public class StoreImpl extends ActionImpl implements Store
     obj = newObj;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.STORE__OBJ, oldObj, newObj);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.RE_DEFINE__OBJ, oldObj, newObj);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -142,14 +143,14 @@ public class StoreImpl extends ActionImpl implements Store
     {
       NotificationChain msgs = null;
       if (obj != null)
-        msgs = ((InternalEObject)obj).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STORE__OBJ, null, msgs);
+        msgs = ((InternalEObject)obj).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.RE_DEFINE__OBJ, null, msgs);
       if (newObj != null)
-        msgs = ((InternalEObject)newObj).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STORE__OBJ, null, msgs);
+        msgs = ((InternalEObject)newObj).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.RE_DEFINE__OBJ, null, msgs);
       msgs = basicSetObj(newObj, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STORE__OBJ, newObj, newObj));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.RE_DEFINE__OBJ, newObj, newObj));
   }
 
   /**
@@ -162,7 +163,7 @@ public class StoreImpl extends ActionImpl implements Store
   {
     switch (featureID)
     {
-      case MyDslPackage.STORE__OBJ:
+      case MyDslPackage.RE_DEFINE__OBJ:
         return basicSetObj(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -178,9 +179,9 @@ public class StoreImpl extends ActionImpl implements Store
   {
     switch (featureID)
     {
-      case MyDslPackage.STORE__OBJ_NAME:
+      case MyDslPackage.RE_DEFINE__OBJ_NAME:
         return getObjName();
-      case MyDslPackage.STORE__OBJ:
+      case MyDslPackage.RE_DEFINE__OBJ:
         return getObj();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -196,10 +197,10 @@ public class StoreImpl extends ActionImpl implements Store
   {
     switch (featureID)
     {
-      case MyDslPackage.STORE__OBJ_NAME:
+      case MyDslPackage.RE_DEFINE__OBJ_NAME:
         setObjName((String)newValue);
         return;
-      case MyDslPackage.STORE__OBJ:
+      case MyDslPackage.RE_DEFINE__OBJ:
         setObj((org.xtext.example.mydsl.myDsl.Object)newValue);
         return;
     }
@@ -216,10 +217,10 @@ public class StoreImpl extends ActionImpl implements Store
   {
     switch (featureID)
     {
-      case MyDslPackage.STORE__OBJ_NAME:
+      case MyDslPackage.RE_DEFINE__OBJ_NAME:
         setObjName(OBJ_NAME_EDEFAULT);
         return;
-      case MyDslPackage.STORE__OBJ:
+      case MyDslPackage.RE_DEFINE__OBJ:
         setObj((org.xtext.example.mydsl.myDsl.Object)null);
         return;
     }
@@ -236,9 +237,9 @@ public class StoreImpl extends ActionImpl implements Store
   {
     switch (featureID)
     {
-      case MyDslPackage.STORE__OBJ_NAME:
+      case MyDslPackage.RE_DEFINE__OBJ_NAME:
         return OBJ_NAME_EDEFAULT == null ? objName != null : !OBJ_NAME_EDEFAULT.equals(objName);
-      case MyDslPackage.STORE__OBJ:
+      case MyDslPackage.RE_DEFINE__OBJ:
         return obj != null;
     }
     return super.eIsSet(featureID);
@@ -261,4 +262,4 @@ public class StoreImpl extends ActionImpl implements Store
     return result.toString();
   }
 
-} //StoreImpl
+} //ReDefineImpl

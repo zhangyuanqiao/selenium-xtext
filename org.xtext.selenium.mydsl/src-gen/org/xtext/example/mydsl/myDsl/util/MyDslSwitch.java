@@ -14,8 +14,10 @@ import org.xtext.example.mydsl.myDsl.CheckBox;
 import org.xtext.example.mydsl.myDsl.Click;
 import org.xtext.example.mydsl.myDsl.Collection;
 import org.xtext.example.mydsl.myDsl.Condition;
+import org.xtext.example.mydsl.myDsl.Delete;
 import org.xtext.example.mydsl.myDsl.DoAll;
 import org.xtext.example.mydsl.myDsl.DoWait;
+import org.xtext.example.mydsl.myDsl.Execute;
 import org.xtext.example.mydsl.myDsl.Fill;
 import org.xtext.example.mydsl.myDsl.HTMLTYPE;
 import org.xtext.example.mydsl.myDsl.If;
@@ -25,10 +27,12 @@ import org.xtext.example.mydsl.myDsl.Main;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Navigate;
 import org.xtext.example.mydsl.myDsl.Not;
+import org.xtext.example.mydsl.myDsl.ReDefine;
 import org.xtext.example.mydsl.myDsl.Refresh;
 import org.xtext.example.mydsl.myDsl.Rickroll;
 import org.xtext.example.mydsl.myDsl.Store;
 import org.xtext.example.mydsl.myDsl.Structure;
+import org.xtext.example.mydsl.myDsl.SubProcedure;
 
 /**
  * <!-- begin-user-doc -->
@@ -142,6 +146,14 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MyDslPackage.SUB_PROCEDURE:
+      {
+        SubProcedure subProcedure = (SubProcedure)theEObject;
+        T result = caseSubProcedure(subProcedure);
+        if (result == null) result = caseObject(subProcedure);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MyDslPackage.REFRESH:
       {
         Refresh refresh = (Refresh)theEObject;
@@ -163,6 +175,20 @@ public class MyDslSwitch<T> extends Switch<T>
         Store store = (Store)theEObject;
         T result = caseStore(store);
         if (result == null) result = caseAction(store);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.RE_DEFINE:
+      {
+        ReDefine reDefine = (ReDefine)theEObject;
+        T result = caseReDefine(reDefine);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.DELETE:
+      {
+        Delete delete = (Delete)theEObject;
+        T result = caseDelete(delete);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -251,6 +277,14 @@ public class MyDslSwitch<T> extends Switch<T>
         DoAll doAll = (DoAll)theEObject;
         T result = caseDoAll(doAll);
         if (result == null) result = caseStructure(doAll);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.EXECUTE:
+      {
+        Execute execute = (Execute)theEObject;
+        T result = caseExecute(execute);
+        if (result == null) result = caseStructure(execute);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -371,6 +405,22 @@ public class MyDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Sub Procedure</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Sub Procedure</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSubProcedure(SubProcedure object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Refresh</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -414,6 +464,38 @@ public class MyDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseStore(Store object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Re Define</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Re Define</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReDefine(ReDefine object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Delete</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Delete</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDelete(Delete object)
   {
     return null;
   }
@@ -590,6 +672,22 @@ public class MyDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDoAll(DoAll object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Execute</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Execute</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExecute(Execute object)
   {
     return null;
   }

@@ -17,8 +17,10 @@ import org.xtext.example.mydsl.myDsl.CheckBox;
 import org.xtext.example.mydsl.myDsl.Click;
 import org.xtext.example.mydsl.myDsl.Collection;
 import org.xtext.example.mydsl.myDsl.Condition;
+import org.xtext.example.mydsl.myDsl.Delete;
 import org.xtext.example.mydsl.myDsl.DoAll;
 import org.xtext.example.mydsl.myDsl.DoWait;
+import org.xtext.example.mydsl.myDsl.Execute;
 import org.xtext.example.mydsl.myDsl.Fill;
 import org.xtext.example.mydsl.myDsl.HTMLTYPE;
 import org.xtext.example.mydsl.myDsl.If;
@@ -29,10 +31,12 @@ import org.xtext.example.mydsl.myDsl.MyDslFactory;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Navigate;
 import org.xtext.example.mydsl.myDsl.Not;
+import org.xtext.example.mydsl.myDsl.ReDefine;
 import org.xtext.example.mydsl.myDsl.Refresh;
 import org.xtext.example.mydsl.myDsl.Rickroll;
 import org.xtext.example.mydsl.myDsl.Store;
 import org.xtext.example.mydsl.myDsl.Structure;
+import org.xtext.example.mydsl.myDsl.SubProcedure;
 
 /**
  * <!-- begin-user-doc -->
@@ -93,9 +97,12 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.OBJECT: return createObject();
       case MyDslPackage.HTMLTYPE: return createHTMLTYPE();
       case MyDslPackage.COLLECTION: return createCollection();
+      case MyDslPackage.SUB_PROCEDURE: return createSubProcedure();
       case MyDslPackage.REFRESH: return createRefresh();
       case MyDslPackage.NAVIGATE: return createNavigate();
       case MyDslPackage.STORE: return createStore();
+      case MyDslPackage.RE_DEFINE: return createReDefine();
+      case MyDslPackage.DELETE: return createDelete();
       case MyDslPackage.ACTION_SELECT: return createActionSelect();
       case MyDslPackage.CLICK: return createClick();
       case MyDslPackage.FILL: return createFill();
@@ -107,6 +114,7 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.IF: return createIf();
       case MyDslPackage.LOOP: return createLoop();
       case MyDslPackage.DO_ALL: return createDoAll();
+      case MyDslPackage.EXECUTE: return createExecute();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -194,6 +202,17 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public SubProcedure createSubProcedure()
+  {
+    SubProcedureImpl subProcedure = new SubProcedureImpl();
+    return subProcedure;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Refresh createRefresh()
   {
     RefreshImpl refresh = new RefreshImpl();
@@ -220,6 +239,28 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     StoreImpl store = new StoreImpl();
     return store;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ReDefine createReDefine()
+  {
+    ReDefineImpl reDefine = new ReDefineImpl();
+    return reDefine;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Delete createDelete()
+  {
+    DeleteImpl delete = new DeleteImpl();
+    return delete;
   }
 
   /**
@@ -341,6 +382,17 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     DoAllImpl doAll = new DoAllImpl();
     return doAll;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Execute createExecute()
+  {
+    ExecuteImpl execute = new ExecuteImpl();
+    return execute;
   }
 
   /**

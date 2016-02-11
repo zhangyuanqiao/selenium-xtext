@@ -309,6 +309,15 @@ ruleStructure returns [EObject current=null]
 			$current = $this_DoAll_2.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getStructureAccess().getExecuteParserRuleCall_3());
+		}
+		this_Execute_3=ruleExecute
+		{
+			$current = $this_Execute_3.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -364,33 +373,42 @@ ruleObject returns [EObject current=null]
 	leaveRule();
 }:
 	(
+		{
+			newCompositeNode(grammarAccess.getObjectAccess().getSubProcedureParserRuleCall_0());
+		}
+		this_SubProcedure_0=ruleSubProcedure
+		{
+			$current = $this_SubProcedure_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
 		(
 			(
-				lv_body_0_0='body'
+				lv_body_1_0='body'
 				{
-					newLeafNode(lv_body_0_0, grammarAccess.getObjectAccess().getBodyBodyKeyword_0_0());
+					newLeafNode(lv_body_1_0, grammarAccess.getObjectAccess().getBodyBodyKeyword_1_0());
 				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getObjectRule());
 					}
-					setWithLastConsumed($current, "body", lv_body_0_0, "body");
+					setWithLastConsumed($current, "body", lv_body_1_0, "body");
 				}
 			)
 		)
 		    |
 		(
-			otherlv_1='['
+			otherlv_2='['
 			{
-				newLeafNode(otherlv_1, grammarAccess.getObjectAccess().getLeftSquareBracketKeyword_1_0());
+				newLeafNode(otherlv_2, grammarAccess.getObjectAccess().getLeftSquareBracketKeyword_2_0());
 			}
 			(
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getObjectAccess().getHtmltypeHTMLTYPEParserRuleCall_1_1_0_0());
+							newCompositeNode(grammarAccess.getObjectAccess().getHtmltypeHTMLTYPEParserRuleCall_2_1_0_0());
 						}
-						lv_htmltype_2_0=ruleHTMLTYPE
+						lv_htmltype_3_0=ruleHTMLTYPE
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getObjectRule());
@@ -398,7 +416,7 @@ ruleObject returns [EObject current=null]
 							set(
 								$current,
 								"htmltype",
-								lv_htmltype_2_0,
+								lv_htmltype_3_0,
 								"org.xtext.example.mydsl.MyDsl.HTMLTYPE");
 							afterParserOrEnumRuleCall();
 						}
@@ -406,9 +424,9 @@ ruleObject returns [EObject current=null]
 				)
 				(
 					(
-						lv_objectName_3_0=RULE_STRING
+						lv_objectName_4_0=RULE_STRING
 						{
-							newLeafNode(lv_objectName_3_0, grammarAccess.getObjectAccess().getObjectNameSTRINGTerminalRuleCall_1_1_1_0());
+							newLeafNode(lv_objectName_4_0, grammarAccess.getObjectAccess().getObjectNameSTRINGTerminalRuleCall_2_1_1_0());
 						}
 						{
 							if ($current==null) {
@@ -417,15 +435,15 @@ ruleObject returns [EObject current=null]
 							setWithLastConsumed(
 								$current,
 								"objectName",
-								lv_objectName_3_0,
+								lv_objectName_4_0,
 								"org.eclipse.xtext.common.Terminals.STRING");
 						}
 					)
 				)
 			)
-			otherlv_4=']'
+			otherlv_5=']'
 			{
-				newLeafNode(otherlv_4, grammarAccess.getObjectAccess().getRightSquareBracketKeyword_1_2());
+				newLeafNode(otherlv_5, grammarAccess.getObjectAccess().getRightSquareBracketKeyword_2_2());
 			}
 		)
 	)
@@ -555,6 +573,74 @@ ruleCollection returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleSubProcedure
+entryRuleSubProcedure returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSubProcedureRule()); }
+	iv_ruleSubProcedure=ruleSubProcedure
+	{ $current=$iv_ruleSubProcedure.current; }
+	EOF;
+
+// Rule SubProcedure
+ruleSubProcedure returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='Subprocedure'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getSubProcedureAccess().getSubprocedureKeyword_0());
+		}
+		otherlv_1='{'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getSubProcedureAccess().getLeftCurlyBracketKeyword_1());
+		}
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getSubProcedureAccess().getActionsActionParserRuleCall_2_0_0());
+					}
+					lv_actions_2_1=ruleAction
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSubProcedureRule());
+						}
+						add(
+							$current,
+							"actions",
+							lv_actions_2_1,
+							"org.xtext.example.mydsl.MyDsl.Action");
+						afterParserOrEnumRuleCall();
+					}
+					    |
+					{
+						newCompositeNode(grammarAccess.getSubProcedureAccess().getActionsStructureParserRuleCall_2_0_1());
+					}
+					lv_actions_2_2=ruleStructure
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSubProcedureRule());
+						}
+						add(
+							$current,
+							"actions",
+							lv_actions_2_2,
+							"org.xtext.example.mydsl.MyDsl.Structure");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
+		otherlv_3='}'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getSubProcedureAccess().getRightCurlyBracketKeyword_3());
+		}
+	)
+;
+
 // Entry rule entryRuleRefresh
 entryRuleRefresh returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getRefreshRule()); }
@@ -642,38 +728,15 @@ ruleStore returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='Store : '
+		otherlv_0='var'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getStoreAccess().getStoreKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getStoreAccess().getVarKeyword_0());
 		}
 		(
 			(
+				lv_objName_1_0=RULE_STRING
 				{
-					newCompositeNode(grammarAccess.getStoreAccess().getObjObjectParserRuleCall_1_0());
-				}
-				lv_obj_1_0=ruleObject
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getStoreRule());
-					}
-					set(
-						$current,
-						"obj",
-						lv_obj_1_0,
-						"org.xtext.example.mydsl.MyDsl.Object");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_2='as'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getStoreAccess().getAsKeyword_2());
-		}
-		(
-			(
-				lv_objName_3_0=RULE_STRING
-				{
-					newLeafNode(lv_objName_3_0, grammarAccess.getStoreAccess().getObjNameSTRINGTerminalRuleCall_3_0());
+					newLeafNode(lv_objName_1_0, grammarAccess.getStoreAccess().getObjNameSTRINGTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -682,8 +745,31 @@ ruleStore returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"objName",
-						lv_objName_3_0,
+						lv_objName_1_0,
 						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+		otherlv_2='='
+		{
+			newLeafNode(otherlv_2, grammarAccess.getStoreAccess().getEqualsSignKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getStoreAccess().getObjObjectParserRuleCall_3_0());
+				}
+				lv_obj_3_0=ruleObject
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getStoreRule());
+					}
+					set(
+						$current,
+						"obj",
+						lv_obj_3_0,
+						"org.xtext.example.mydsl.MyDsl.Object");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -1445,6 +1531,47 @@ ruleDoAll returns [EObject current=null]
 		{
 			newLeafNode(otherlv_8, grammarAccess.getDoAllAccess().getRightCurlyBracketKeyword_8());
 		}
+	)
+;
+
+// Entry rule entryRuleExecute
+entryRuleExecute returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExecuteRule()); }
+	iv_ruleExecute=ruleExecute
+	{ $current=$iv_ruleExecute.current; }
+	EOF;
+
+// Rule Execute
+ruleExecute returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='Execute'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getExecuteAccess().getExecuteKeyword_0());
+		}
+		(
+			(
+				lv_subProcedureName_1_0=RULE_STRING
+				{
+					newLeafNode(lv_subProcedureName_1_0, grammarAccess.getExecuteAccess().getSubProcedureNameSTRINGTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getExecuteRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"subProcedureName",
+						lv_subProcedureName_1_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
 	)
 ;
 

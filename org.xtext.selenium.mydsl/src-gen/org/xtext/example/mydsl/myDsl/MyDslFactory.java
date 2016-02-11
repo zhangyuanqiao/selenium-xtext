@@ -87,6 +87,15 @@ public interface MyDslFactory extends EFactory
   Collection createCollection();
 
   /**
+   * Returns a new object of class '<em>Sub Procedure</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Sub Procedure</em>'.
+   * @generated
+   */
+  SubProcedure createSubProcedure();
+
+  /**
    * Returns a new object of class '<em>Refresh</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -112,6 +121,24 @@ public interface MyDslFactory extends EFactory
    * @generated
    */
   Store createStore();
+
+  /**
+   * Returns a new object of class '<em>Re Define</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Re Define</em>'.
+   * @generated
+   */
+  ReDefine createReDefine();
+
+  /**
+   * Returns a new object of class '<em>Delete</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Delete</em>'.
+   * @generated
+   */
+  Delete createDelete();
 
   /**
    * Returns a new object of class '<em>Action Select</em>'.
@@ -211,6 +238,15 @@ public interface MyDslFactory extends EFactory
    * @generated
    */
   DoAll createDoAll();
+
+  /**
+   * Returns a new object of class '<em>Execute</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Execute</em>'.
+   * @generated
+   */
+  Execute createExecute();
 
   /**
    * Returns the package supported by this factory.

@@ -41,14 +41,18 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConditionAccess().getAlternatives(), "rule__Condition__Alternatives");
 					put(grammarAccess.getObjectAccess().getAlternatives(), "rule__Object__Alternatives");
 					put(grammarAccess.getHTMLTYPEAccess().getTypeAlternatives_0(), "rule__HTMLTYPE__TypeAlternatives_0");
+					put(grammarAccess.getSubProcedureAccess().getActionsAlternatives_2_0(), "rule__SubProcedure__ActionsAlternatives_2_0");
 					put(grammarAccess.getCheckBoxAccess().getNewValueAlternatives_2_1_0(), "rule__CheckBox__NewValueAlternatives_2_1_0");
 					put(grammarAccess.getDoAllAccess().getTodoAlternatives_7_0(), "rule__DoAll__TodoAlternatives_7_0");
 					put(grammarAccess.getMainAccess().getGroup(), "rule__Main__Group__0");
-					put(grammarAccess.getObjectAccess().getGroup_1(), "rule__Object__Group_1__0");
-					put(grammarAccess.getObjectAccess().getGroup_1_1(), "rule__Object__Group_1_1__0");
+					put(grammarAccess.getObjectAccess().getGroup_2(), "rule__Object__Group_2__0");
+					put(grammarAccess.getObjectAccess().getGroup_2_1(), "rule__Object__Group_2_1__0");
+					put(grammarAccess.getSubProcedureAccess().getGroup(), "rule__SubProcedure__Group__0");
 					put(grammarAccess.getRefreshAccess().getGroup(), "rule__Refresh__Group__0");
 					put(grammarAccess.getNavigateAccess().getGroup(), "rule__Navigate__Group__0");
 					put(grammarAccess.getStoreAccess().getGroup(), "rule__Store__Group__0");
+					put(grammarAccess.getReDefineAccess().getGroup(), "rule__ReDefine__Group__0");
+					put(grammarAccess.getDeleteAccess().getGroup(), "rule__Delete__Group__0");
 					put(grammarAccess.getActionSelectAccess().getGroup(), "rule__ActionSelect__Group__0");
 					put(grammarAccess.getClickAccess().getGroup(), "rule__Click__Group__0");
 					put(grammarAccess.getFillAccess().getGroup(), "rule__Fill__Group__0");
@@ -62,17 +66,22 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIfAccess().getGroup_8(), "rule__If__Group_8__0");
 					put(grammarAccess.getLoopAccess().getGroup(), "rule__Loop__Group__0");
 					put(grammarAccess.getDoAllAccess().getGroup(), "rule__DoAll__Group__0");
+					put(grammarAccess.getExecuteAccess().getGroup(), "rule__Execute__Group__0");
 					put(grammarAccess.getMainAccess().getFileNameAssignment_1(), "rule__Main__FileNameAssignment_1");
 					put(grammarAccess.getMainAccess().getBrowserNameAssignment_4(), "rule__Main__BrowserNameAssignment_4");
 					put(grammarAccess.getMainAccess().getOrdersAssignment_6(), "rule__Main__OrdersAssignment_6");
-					put(grammarAccess.getObjectAccess().getBodyAssignment_0(), "rule__Object__BodyAssignment_0");
-					put(grammarAccess.getObjectAccess().getHtmltypeAssignment_1_1_0(), "rule__Object__HtmltypeAssignment_1_1_0");
-					put(grammarAccess.getObjectAccess().getObjectNameAssignment_1_1_1(), "rule__Object__ObjectNameAssignment_1_1_1");
+					put(grammarAccess.getObjectAccess().getBodyAssignment_1(), "rule__Object__BodyAssignment_1");
+					put(grammarAccess.getObjectAccess().getHtmltypeAssignment_2_1_0(), "rule__Object__HtmltypeAssignment_2_1_0");
+					put(grammarAccess.getObjectAccess().getObjectNameAssignment_2_1_1(), "rule__Object__ObjectNameAssignment_2_1_1");
 					put(grammarAccess.getHTMLTYPEAccess().getTypeAssignment(), "rule__HTMLTYPE__TypeAssignment");
 					put(grammarAccess.getCollectionAccess().getObjAssignment(), "rule__Collection__ObjAssignment");
+					put(grammarAccess.getSubProcedureAccess().getActionsAssignment_2(), "rule__SubProcedure__ActionsAssignment_2");
 					put(grammarAccess.getNavigateAccess().getUrlAssignment_1(), "rule__Navigate__UrlAssignment_1");
-					put(grammarAccess.getStoreAccess().getObjAssignment_1(), "rule__Store__ObjAssignment_1");
-					put(grammarAccess.getStoreAccess().getObjNameAssignment_3(), "rule__Store__ObjNameAssignment_3");
+					put(grammarAccess.getStoreAccess().getObjNameAssignment_1(), "rule__Store__ObjNameAssignment_1");
+					put(grammarAccess.getStoreAccess().getObjAssignment_3(), "rule__Store__ObjAssignment_3");
+					put(grammarAccess.getReDefineAccess().getObjNameAssignment_1(), "rule__ReDefine__ObjNameAssignment_1");
+					put(grammarAccess.getReDefineAccess().getObjAssignment_3(), "rule__ReDefine__ObjAssignment_3");
+					put(grammarAccess.getDeleteAccess().getObjNameAssignment_1(), "rule__Delete__ObjNameAssignment_1");
 					put(grammarAccess.getActionSelectAccess().getOptionAssignment_1(), "rule__ActionSelect__OptionAssignment_1");
 					put(grammarAccess.getActionSelectAccess().getXpathAssignment_3(), "rule__ActionSelect__XpathAssignment_3");
 					put(grammarAccess.getClickAccess().getNameAssignment_1(), "rule__Click__NameAssignment_1");
@@ -92,6 +101,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLoopAccess().getActionsAssignment_11(), "rule__Loop__ActionsAssignment_11");
 					put(grammarAccess.getDoAllAccess().getCollAssignment_3(), "rule__DoAll__CollAssignment_3");
 					put(grammarAccess.getDoAllAccess().getTodoAssignment_7(), "rule__DoAll__TodoAssignment_7");
+					put(grammarAccess.getExecuteAccess().getSubProcedureNameAssignment_1(), "rule__Execute__SubProcedureNameAssignment_1");
 				}
 			};
 		}

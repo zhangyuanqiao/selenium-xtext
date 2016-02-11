@@ -12,7 +12,7 @@ Main :
 
 Action : Navigate|Click|Fill|CheckBox|Refresh|ActionSelect|Store|Rickroll|DoWait;
 
-Structure : If | Loop |DoAll ;
+Structure : If | Loop |DoAll | Execute ;
 
 Condition : (IsIn|Not) ;
 
@@ -21,11 +21,13 @@ Condition : (IsIn|Not) ;
 
 //OBJECTS
 
-Object : (body='body')| '['(htmltype=HTMLTYPE objectName=STRING) ']';
+Object : SubProcedure|(body='body')| '['(htmltype=HTMLTYPE objectName=STRING) ']';
 
 HTMLTYPE : type=('title'|'class'|'id'|'name'|'CSS Selector'|'XPath');
 
 Collection : obj+=Object;
+
+SubProcedure : 'Subprocedure' '{' actions+=(Action|Structure)* '}';
 
 //ACTIONS
 
@@ -33,7 +35,11 @@ Refresh: {Refresh}'Refresh';
 	
 Navigate : 'Navigate' url=STRING;
 
-Store : 'Store : ' obj=Object 'as' objName=STRING;	
+Store : 'var' objName=STRING '=' obj=Object ;
+
+ReDefine : 'Redefine' objName=STRING '=' obj=Object ;	
+
+Delete : 'Delete' objName=STRING;
 
 ActionSelect : 'Select' option=STRING 'from' xpath=STRING;
 
@@ -46,6 +52,7 @@ CheckBox : 'CheckBox' nametag=STRING ('to' newValue=('true'|'false'))?;
 Rickroll : {Rickroll}'RickRoll' ;
 
 DoWait : 'Wait' 'for' millisec=INT 'milliseconds';
+
 
 
 
@@ -77,7 +84,10 @@ Loop :
 
 
 DoAll : 
-	'For' 'all' 'in' coll=Collection 'do' ':' '{' todo+=(Action|Structure)* '}'
-	
+	'For' 'all' 'in' coll=Collection 'do' ':' '{' todo+=(Action|Structure)* '}'	
+;
+
+
+Execute : 'Execute' subProcedureName=STRING
 ;
 

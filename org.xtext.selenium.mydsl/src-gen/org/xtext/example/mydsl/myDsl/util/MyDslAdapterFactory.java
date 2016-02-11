@@ -16,8 +16,10 @@ import org.xtext.example.mydsl.myDsl.CheckBox;
 import org.xtext.example.mydsl.myDsl.Click;
 import org.xtext.example.mydsl.myDsl.Collection;
 import org.xtext.example.mydsl.myDsl.Condition;
+import org.xtext.example.mydsl.myDsl.Delete;
 import org.xtext.example.mydsl.myDsl.DoAll;
 import org.xtext.example.mydsl.myDsl.DoWait;
+import org.xtext.example.mydsl.myDsl.Execute;
 import org.xtext.example.mydsl.myDsl.Fill;
 import org.xtext.example.mydsl.myDsl.HTMLTYPE;
 import org.xtext.example.mydsl.myDsl.If;
@@ -27,10 +29,12 @@ import org.xtext.example.mydsl.myDsl.Main;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Navigate;
 import org.xtext.example.mydsl.myDsl.Not;
+import org.xtext.example.mydsl.myDsl.ReDefine;
 import org.xtext.example.mydsl.myDsl.Refresh;
 import org.xtext.example.mydsl.myDsl.Rickroll;
 import org.xtext.example.mydsl.myDsl.Store;
 import org.xtext.example.mydsl.myDsl.Structure;
+import org.xtext.example.mydsl.myDsl.SubProcedure;
 
 /**
  * <!-- begin-user-doc -->
@@ -131,6 +135,11 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createCollectionAdapter();
       }
       @Override
+      public Adapter caseSubProcedure(SubProcedure object)
+      {
+        return createSubProcedureAdapter();
+      }
+      @Override
       public Adapter caseRefresh(Refresh object)
       {
         return createRefreshAdapter();
@@ -144,6 +153,16 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseStore(Store object)
       {
         return createStoreAdapter();
+      }
+      @Override
+      public Adapter caseReDefine(ReDefine object)
+      {
+        return createReDefineAdapter();
+      }
+      @Override
+      public Adapter caseDelete(Delete object)
+      {
+        return createDeleteAdapter();
       }
       @Override
       public Adapter caseActionSelect(ActionSelect object)
@@ -199,6 +218,11 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseDoAll(DoAll object)
       {
         return createDoAllAdapter();
+      }
+      @Override
+      public Adapter caseExecute(Execute object)
+      {
+        return createExecuteAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -328,6 +352,21 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.SubProcedure <em>Sub Procedure</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.SubProcedure
+   * @generated
+   */
+  public Adapter createSubProcedureAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Refresh <em>Refresh</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -368,6 +407,36 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStoreAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.ReDefine <em>Re Define</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.ReDefine
+   * @generated
+   */
+  public Adapter createReDefineAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Delete <em>Delete</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.Delete
+   * @generated
+   */
+  public Adapter createDeleteAdapter()
   {
     return null;
   }
@@ -533,6 +602,21 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDoAllAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Execute <em>Execute</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.Execute
+   * @generated
+   */
+  public Adapter createExecuteAdapter()
   {
     return null;
   }

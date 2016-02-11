@@ -11,16 +11,21 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.xtext.example.mydsl.myDsl.*;
 import org.xtext.example.mydsl.myDsl.Object;
 
+import selpluginproj.memory.ObjectsMemory;
+
 
 
 public class Interpretor {
 
 	private static  WebDriver SEL_DRIVER = null;
+	private static ObjectsMemory OBJECTS_MEMORY = null;
 
 	public Interpretor(){}
 
 	public void execute(Main main){		
 		System.out.println("Let's execute "+main.getFileName()+" !!! ");
+		
+		OBJECTS_MEMORY = new ObjectsMemory();
 
 		//which browser should we use ?
 		switch (main.getBrowserName()) {
@@ -59,6 +64,14 @@ public class Interpretor {
 		
 		else if (e instanceof Store){
 			store((Store)e);
+		}
+		
+		else if (e instanceof ReDefine){
+			redefine((ReDefine)e);
+		}
+		
+		else if (e instanceof Delete){
+			delete((Delete)e);
 		}
 		
 		else if(e instanceof ActionSelect){
@@ -107,6 +120,10 @@ public class Interpretor {
 			DoAll i = (DoAll)e;
 			structureDoAll(i.getColl(),i.getTodo());
 		}
+		
+		else if (e instanceof Execute){
+			executeSubProcedure(((Execute)e).getSubProcedureName());
+		}
 
 	}
 
@@ -114,10 +131,10 @@ public class Interpretor {
 
 	
 
+
 	/////////////////////////////////  ACTIONS  /////////////////////////////////////
 
 	
-
 
 
 
@@ -128,16 +145,46 @@ public class Interpretor {
 	
 	
 
-	/**
+	/** 
 	 * Trouve un webElement selon les parametres de l'objet de e.
-	 * Place cet élément dans une hashmap initialisée à lecture du fichier,
-	 * en lui donnant pour clé le nom ObjName en attribu de e
+	 * Place cet élément dans OBJECTS_MEMORY,
+	 * en lui donnant pour clé le nom ObjName en attribu de e.
+	 * 
+	 * Si le paramètre est un subprocedure, l'élément est à placer dans
+	 * SUBPROC_MEMORY
+	 * 
 	 * @param e
 	 */
 	private void store(Store e) {
+		
+		if(e.getObj() instanceof SubProcedure){
+			if(OBJECTS_MEMORY.keySet().contains(e.getObjName())){
+				System.out.println("this name is already taken ! ");
+			}
+			else{			
+				OBJECTS_MEMORY.put(e.getObjName(), (SubProcedure)e.getObj());
+			}
+		}
+		else{
+			WebElement we = null;
+			//TODO trouver l'élément à partir de e.getObj()
+			//TODO vérifier que la clé n'est pas utilisée avant le put
+			
+			OBJECTS_MEMORY.put(e.getObjName(), we );
+		}
+
+		
+	}
+	
+
+
+	private void delete(Delete e) {
 		// TODO Auto-generated method stub
-		e.getObj();
-		e.getObjName();
+		
+	}
+
+	private void redefine(ReDefine e) {
+		// TODO Auto-generated method stub
 		
 	}
 	
@@ -187,7 +234,8 @@ public class Interpretor {
 	}
 	
 	private void rickRoll() {
-		navigateTo("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+		String url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+		SEL_DRIVER.get(url);
 		
 	}
 
@@ -197,7 +245,7 @@ public class Interpretor {
 	 * @param millisec
 	 */
 	private void waitFor(int millisec) {
-		// TODO Auto-generated method stub
+		// TODO 
 		
 	}
 
@@ -261,6 +309,7 @@ public class Interpretor {
 		}
 	}
 
+	
 	/**
 	 * Un while, capable d'attendre entre deux executions
 	 * @param cond
@@ -279,6 +328,23 @@ public class Interpretor {
 	 */
 	private void structureDoAll(Collection coll, EList<EObject> todo) {
 		// TODO Auto-generated method stub
+		
+	}
+	
+	/**
+	 * Gets subProcedure by its name and execute all actions and structures in it
+	 * @param subProcedureName
+	 */
+	private void executeSubProcedure(String subProcedureName) {
+		SubProcedure sp = OBJECTS_MEMORY.getSubProcedure(subProcedureName);
+		if(sp!=null && sp instanceof SubProcedure){
+			for(EObject e : sp.getActions()){
+				execute(e);
+			}
+		}
+		else{
+			System.out.println("Procedure "+subProcedureName+" is not defined or is not a procedure.");
+		}
 		
 	}
 

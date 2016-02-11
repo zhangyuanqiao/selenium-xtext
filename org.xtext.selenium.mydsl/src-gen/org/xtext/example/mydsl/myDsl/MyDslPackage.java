@@ -263,6 +263,61 @@ public interface MyDslPackage extends EPackage
   int COLLECTION_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.SubProcedureImpl <em>Sub Procedure</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.SubProcedureImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getSubProcedure()
+   * @generated
+   */
+  int SUB_PROCEDURE = 7;
+
+  /**
+   * The feature id for the '<em><b>Body</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUB_PROCEDURE__BODY = OBJECT__BODY;
+
+  /**
+   * The feature id for the '<em><b>Htmltype</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUB_PROCEDURE__HTMLTYPE = OBJECT__HTMLTYPE;
+
+  /**
+   * The feature id for the '<em><b>Object Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUB_PROCEDURE__OBJECT_NAME = OBJECT__OBJECT_NAME;
+
+  /**
+   * The feature id for the '<em><b>Actions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUB_PROCEDURE__ACTIONS = OBJECT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Sub Procedure</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUB_PROCEDURE_FEATURE_COUNT = OBJECT_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.RefreshImpl <em>Refresh</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -270,7 +325,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getRefresh()
    * @generated
    */
-  int REFRESH = 7;
+  int REFRESH = 8;
 
   /**
    * The number of structural features of the '<em>Refresh</em>' class.
@@ -289,7 +344,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getNavigate()
    * @generated
    */
-  int NAVIGATE = 8;
+  int NAVIGATE = 9;
 
   /**
    * The feature id for the '<em><b>Url</b></em>' attribute.
@@ -317,16 +372,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getStore()
    * @generated
    */
-  int STORE = 9;
-
-  /**
-   * The feature id for the '<em><b>Obj</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STORE__OBJ = ACTION_FEATURE_COUNT + 0;
+  int STORE = 10;
 
   /**
    * The feature id for the '<em><b>Obj Name</b></em>' attribute.
@@ -335,7 +381,16 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STORE__OBJ_NAME = ACTION_FEATURE_COUNT + 1;
+  int STORE__OBJ_NAME = ACTION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Obj</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STORE__OBJ = ACTION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Store</em>' class.
@@ -347,6 +402,71 @@ public interface MyDslPackage extends EPackage
   int STORE_FEATURE_COUNT = ACTION_FEATURE_COUNT + 2;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ReDefineImpl <em>Re Define</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.ReDefineImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReDefine()
+   * @generated
+   */
+  int RE_DEFINE = 11;
+
+  /**
+   * The feature id for the '<em><b>Obj Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RE_DEFINE__OBJ_NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Obj</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RE_DEFINE__OBJ = 1;
+
+  /**
+   * The number of structural features of the '<em>Re Define</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RE_DEFINE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.DeleteImpl <em>Delete</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.DeleteImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getDelete()
+   * @generated
+   */
+  int DELETE = 12;
+
+  /**
+   * The feature id for the '<em><b>Obj Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELETE__OBJ_NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Delete</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELETE_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ActionSelectImpl <em>Action Select</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -354,7 +474,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getActionSelect()
    * @generated
    */
-  int ACTION_SELECT = 10;
+  int ACTION_SELECT = 13;
 
   /**
    * The feature id for the '<em><b>Option</b></em>' attribute.
@@ -391,7 +511,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getClick()
    * @generated
    */
-  int CLICK = 11;
+  int CLICK = 14;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -419,7 +539,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getFill()
    * @generated
    */
-  int FILL = 12;
+  int FILL = 15;
 
   /**
    * The feature id for the '<em><b>Nametag</b></em>' attribute.
@@ -456,7 +576,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCheckBox()
    * @generated
    */
-  int CHECK_BOX = 13;
+  int CHECK_BOX = 16;
 
   /**
    * The feature id for the '<em><b>Nametag</b></em>' attribute.
@@ -493,7 +613,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getRickroll()
    * @generated
    */
-  int RICKROLL = 14;
+  int RICKROLL = 17;
 
   /**
    * The number of structural features of the '<em>Rickroll</em>' class.
@@ -512,7 +632,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getDoWait()
    * @generated
    */
-  int DO_WAIT = 15;
+  int DO_WAIT = 18;
 
   /**
    * The feature id for the '<em><b>Millisec</b></em>' attribute.
@@ -540,7 +660,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getIsIn()
    * @generated
    */
-  int IS_IN = 16;
+  int IS_IN = 19;
 
   /**
    * The feature id for the '<em><b>Obj</b></em>' containment reference.
@@ -577,7 +697,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getNot()
    * @generated
    */
-  int NOT = 17;
+  int NOT = 20;
 
   /**
    * The feature id for the '<em><b>Cond</b></em>' containment reference.
@@ -605,7 +725,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getIf()
    * @generated
    */
-  int IF = 18;
+  int IF = 21;
 
   /**
    * The feature id for the '<em><b>Cond</b></em>' containment reference.
@@ -651,7 +771,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLoop()
    * @generated
    */
-  int LOOP = 19;
+  int LOOP = 22;
 
   /**
    * The feature id for the '<em><b>Cond</b></em>' containment reference.
@@ -697,7 +817,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getDoAll()
    * @generated
    */
-  int DO_ALL = 20;
+  int DO_ALL = 23;
 
   /**
    * The feature id for the '<em><b>Coll</b></em>' containment reference.
@@ -725,6 +845,34 @@ public interface MyDslPackage extends EPackage
    * @ordered
    */
   int DO_ALL_FEATURE_COUNT = STRUCTURE_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ExecuteImpl <em>Execute</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.ExecuteImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExecute()
+   * @generated
+   */
+  int EXECUTE = 24;
+
+  /**
+   * The feature id for the '<em><b>Sub Procedure Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXECUTE__SUB_PROCEDURE_NAME = STRUCTURE_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Execute</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXECUTE_FEATURE_COUNT = STRUCTURE_FEATURE_COUNT + 1;
 
 
   /**
@@ -886,6 +1034,27 @@ public interface MyDslPackage extends EPackage
   EReference getCollection_Obj();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.SubProcedure <em>Sub Procedure</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Sub Procedure</em>'.
+   * @see org.xtext.example.mydsl.myDsl.SubProcedure
+   * @generated
+   */
+  EClass getSubProcedure();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.SubProcedure#getActions <em>Actions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Actions</em>'.
+   * @see org.xtext.example.mydsl.myDsl.SubProcedure#getActions()
+   * @see #getSubProcedure()
+   * @generated
+   */
+  EReference getSubProcedure_Actions();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Refresh <em>Refresh</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -927,6 +1096,17 @@ public interface MyDslPackage extends EPackage
   EClass getStore();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Store#getObjName <em>Obj Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Obj Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Store#getObjName()
+   * @see #getStore()
+   * @generated
+   */
+  EAttribute getStore_ObjName();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Store#getObj <em>Obj</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -938,15 +1118,57 @@ public interface MyDslPackage extends EPackage
   EReference getStore_Obj();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Store#getObjName <em>Obj Name</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ReDefine <em>Re Define</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Re Define</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReDefine
+   * @generated
+   */
+  EClass getReDefine();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.ReDefine#getObjName <em>Obj Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Obj Name</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Store#getObjName()
-   * @see #getStore()
+   * @see org.xtext.example.mydsl.myDsl.ReDefine#getObjName()
+   * @see #getReDefine()
    * @generated
    */
-  EAttribute getStore_ObjName();
+  EAttribute getReDefine_ObjName();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.ReDefine#getObj <em>Obj</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Obj</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReDefine#getObj()
+   * @see #getReDefine()
+   * @generated
+   */
+  EReference getReDefine_Obj();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Delete <em>Delete</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Delete</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Delete
+   * @generated
+   */
+  EClass getDelete();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Delete#getObjName <em>Obj Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Obj Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Delete#getObjName()
+   * @see #getDelete()
+   * @generated
+   */
+  EAttribute getDelete_ObjName();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ActionSelect <em>Action Select</em>}'.
@@ -1268,6 +1490,27 @@ public interface MyDslPackage extends EPackage
   EReference getDoAll_Todo();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Execute <em>Execute</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Execute</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Execute
+   * @generated
+   */
+  EClass getExecute();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Execute#getSubProcedureName <em>Sub Procedure Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Sub Procedure Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Execute#getSubProcedureName()
+   * @see #getExecute()
+   * @generated
+   */
+  EAttribute getExecute_SubProcedureName();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1425,6 +1668,24 @@ public interface MyDslPackage extends EPackage
     EReference COLLECTION__OBJ = eINSTANCE.getCollection_Obj();
 
     /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.SubProcedureImpl <em>Sub Procedure</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.SubProcedureImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getSubProcedure()
+     * @generated
+     */
+    EClass SUB_PROCEDURE = eINSTANCE.getSubProcedure();
+
+    /**
+     * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SUB_PROCEDURE__ACTIONS = eINSTANCE.getSubProcedure_Actions();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.RefreshImpl <em>Refresh</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1463,6 +1724,14 @@ public interface MyDslPackage extends EPackage
     EClass STORE = eINSTANCE.getStore();
 
     /**
+     * The meta object literal for the '<em><b>Obj Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STORE__OBJ_NAME = eINSTANCE.getStore_ObjName();
+
+    /**
      * The meta object literal for the '<em><b>Obj</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1471,12 +1740,48 @@ public interface MyDslPackage extends EPackage
     EReference STORE__OBJ = eINSTANCE.getStore_Obj();
 
     /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ReDefineImpl <em>Re Define</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.ReDefineImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReDefine()
+     * @generated
+     */
+    EClass RE_DEFINE = eINSTANCE.getReDefine();
+
+    /**
      * The meta object literal for the '<em><b>Obj Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute STORE__OBJ_NAME = eINSTANCE.getStore_ObjName();
+    EAttribute RE_DEFINE__OBJ_NAME = eINSTANCE.getReDefine_ObjName();
+
+    /**
+     * The meta object literal for the '<em><b>Obj</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RE_DEFINE__OBJ = eINSTANCE.getReDefine_Obj();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.DeleteImpl <em>Delete</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.DeleteImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getDelete()
+     * @generated
+     */
+    EClass DELETE = eINSTANCE.getDelete();
+
+    /**
+     * The meta object literal for the '<em><b>Obj Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DELETE__OBJ_NAME = eINSTANCE.getDelete_ObjName();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ActionSelectImpl <em>Action Select</em>}' class.
@@ -1739,6 +2044,24 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EReference DO_ALL__TODO = eINSTANCE.getDoAll_Todo();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ExecuteImpl <em>Execute</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.ExecuteImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExecute()
+     * @generated
+     */
+    EClass EXECUTE = eINSTANCE.getExecute();
+
+    /**
+     * The meta object literal for the '<em><b>Sub Procedure Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXECUTE__SUB_PROCEDURE_NAME = eINSTANCE.getExecute_SubProcedureName();
 
   }
 

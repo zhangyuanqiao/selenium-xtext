@@ -25,13 +25,23 @@
     <genClasses ecoreClass="MyDsl.ecore#//Collection">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Collection/obj"/>
     </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//SubProcedure">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//SubProcedure/actions"/>
+    </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Refresh"/>
     <genClasses ecoreClass="MyDsl.ecore#//Navigate">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Navigate/url"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Store">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Store/obj"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Store/objName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Store/obj"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ReDefine">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ReDefine/objName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ReDefine/obj"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Delete">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Delete/objName"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//ActionSelect">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ActionSelect/option"/>
@@ -72,6 +82,9 @@
     <genClasses ecoreClass="MyDsl.ecore#//DoAll">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//DoAll/coll"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//DoAll/todo"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Execute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Execute/subProcedureName"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
