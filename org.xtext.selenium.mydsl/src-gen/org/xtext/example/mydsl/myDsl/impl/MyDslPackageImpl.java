@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.xtext.example.mydsl.myDsl.Action;
 import org.xtext.example.mydsl.myDsl.ActionSelect;
-import org.xtext.example.mydsl.myDsl.Alert;
 import org.xtext.example.mydsl.myDsl.CheckBox;
 import org.xtext.example.mydsl.myDsl.Click;
 import org.xtext.example.mydsl.myDsl.Collection;
@@ -89,13 +88,6 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   private EClass collectionEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass alertEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -406,26 +398,6 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
   public EReference getCollection_Obj()
   {
     return (EReference)collectionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getAlert()
-  {
-    return alertEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getAlert_Text()
-  {
-    return (EAttribute)alertEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -840,9 +812,6 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     collectionEClass = createEClass(COLLECTION);
     createEReference(collectionEClass, COLLECTION__OBJ);
 
-    alertEClass = createEClass(ALERT);
-    createEAttribute(alertEClass, ALERT__TEXT);
-
     refreshEClass = createEClass(REFRESH);
 
     navigateEClass = createEClass(NAVIGATE);
@@ -923,7 +892,6 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    alertEClass.getESuperTypes().add(this.getAction());
     refreshEClass.getESuperTypes().add(this.getAction());
     navigateEClass.getESuperTypes().add(this.getAction());
     storeEClass.getESuperTypes().add(this.getAction());
@@ -961,9 +929,6 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     initEClass(collectionEClass, Collection.class, "Collection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCollection_Obj(), this.getObject(), null, "obj", null, 0, -1, Collection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(alertEClass, Alert.class, "Alert", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAlert_Text(), ecorePackage.getEString(), "text", null, 0, 1, Alert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(refreshEClass, Refresh.class, "Refresh", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1013,7 +978,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     initEClass(doAllEClass, DoAll.class, "DoAll", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDoAll_Coll(), this.getCollection(), null, "coll", null, 0, 1, DoAll.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDoAll_Todo(), ecorePackage.getEObject(), null, "todo", null, 0, 1, DoAll.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDoAll_Todo(), ecorePackage.getEObject(), null, "todo", null, 0, -1, DoAll.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

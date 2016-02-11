@@ -6,11 +6,16 @@ package org.xtext.example.mydsl.myDsl.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.mydsl.myDsl.Collection;
 import org.xtext.example.mydsl.myDsl.DoAll;
@@ -43,14 +48,14 @@ public class DoAllImpl extends StructureImpl implements DoAll
   protected Collection coll;
 
   /**
-   * The cached value of the '{@link #getTodo() <em>Todo</em>}' containment reference.
+   * The cached value of the '{@link #getTodo() <em>Todo</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getTodo()
    * @generated
    * @ordered
    */
-  protected EObject todo;
+  protected EList<EObject> todo;
 
   /**
    * <!-- begin-user-doc -->
@@ -126,47 +131,13 @@ public class DoAllImpl extends StructureImpl implements DoAll
    * <!-- end-user-doc -->
    * @generated
    */
-  public EObject getTodo()
+  public EList<EObject> getTodo()
   {
+    if (todo == null)
+    {
+      todo = new EObjectContainmentEList<EObject>(EObject.class, this, MyDslPackage.DO_ALL__TODO);
+    }
     return todo;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetTodo(EObject newTodo, NotificationChain msgs)
-  {
-    EObject oldTodo = todo;
-    todo = newTodo;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.DO_ALL__TODO, oldTodo, newTodo);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setTodo(EObject newTodo)
-  {
-    if (newTodo != todo)
-    {
-      NotificationChain msgs = null;
-      if (todo != null)
-        msgs = ((InternalEObject)todo).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.DO_ALL__TODO, null, msgs);
-      if (newTodo != null)
-        msgs = ((InternalEObject)newTodo).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.DO_ALL__TODO, null, msgs);
-      msgs = basicSetTodo(newTodo, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.DO_ALL__TODO, newTodo, newTodo));
   }
 
   /**
@@ -182,7 +153,7 @@ public class DoAllImpl extends StructureImpl implements DoAll
       case MyDslPackage.DO_ALL__COLL:
         return basicSetColl(null, msgs);
       case MyDslPackage.DO_ALL__TODO:
-        return basicSetTodo(null, msgs);
+        return ((InternalEList<?>)getTodo()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -210,6 +181,7 @@ public class DoAllImpl extends StructureImpl implements DoAll
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -219,7 +191,8 @@ public class DoAllImpl extends StructureImpl implements DoAll
         setColl((Collection)newValue);
         return;
       case MyDslPackage.DO_ALL__TODO:
-        setTodo((EObject)newValue);
+        getTodo().clear();
+        getTodo().addAll((java.util.Collection<? extends EObject>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -239,7 +212,7 @@ public class DoAllImpl extends StructureImpl implements DoAll
         setColl((Collection)null);
         return;
       case MyDslPackage.DO_ALL__TODO:
-        setTodo((EObject)null);
+        getTodo().clear();
         return;
     }
     super.eUnset(featureID);
@@ -258,7 +231,7 @@ public class DoAllImpl extends StructureImpl implements DoAll
       case MyDslPackage.DO_ALL__COLL:
         return coll != null;
       case MyDslPackage.DO_ALL__TODO:
-        return todo != null;
+        return todo != null && !todo.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -42,11 +42,10 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getObjectAccess().getAlternatives(), "rule__Object__Alternatives");
 					put(grammarAccess.getHTMLTYPEAccess().getTypeAlternatives_0(), "rule__HTMLTYPE__TypeAlternatives_0");
 					put(grammarAccess.getCheckBoxAccess().getNewValueAlternatives_2_1_0(), "rule__CheckBox__NewValueAlternatives_2_1_0");
-					put(grammarAccess.getDoAllAccess().getTodoAlternatives_6_0(), "rule__DoAll__TodoAlternatives_6_0");
+					put(grammarAccess.getDoAllAccess().getTodoAlternatives_7_0(), "rule__DoAll__TodoAlternatives_7_0");
 					put(grammarAccess.getMainAccess().getGroup(), "rule__Main__Group__0");
 					put(grammarAccess.getObjectAccess().getGroup_1(), "rule__Object__Group_1__0");
 					put(grammarAccess.getObjectAccess().getGroup_1_1(), "rule__Object__Group_1_1__0");
-					put(grammarAccess.getAlertAccess().getGroup(), "rule__Alert__Group__0");
 					put(grammarAccess.getRefreshAccess().getGroup(), "rule__Refresh__Group__0");
 					put(grammarAccess.getNavigateAccess().getGroup(), "rule__Navigate__Group__0");
 					put(grammarAccess.getStoreAccess().getGroup(), "rule__Store__Group__0");
@@ -71,7 +70,6 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getObjectAccess().getObjectNameAssignment_1_1_1(), "rule__Object__ObjectNameAssignment_1_1_1");
 					put(grammarAccess.getHTMLTYPEAccess().getTypeAssignment(), "rule__HTMLTYPE__TypeAssignment");
 					put(grammarAccess.getCollectionAccess().getObjAssignment(), "rule__Collection__ObjAssignment");
-					put(grammarAccess.getAlertAccess().getTextAssignment_1(), "rule__Alert__TextAssignment_1");
 					put(grammarAccess.getNavigateAccess().getUrlAssignment_1(), "rule__Navigate__UrlAssignment_1");
 					put(grammarAccess.getStoreAccess().getObjAssignment_1(), "rule__Store__ObjAssignment_1");
 					put(grammarAccess.getStoreAccess().getObjNameAssignment_3(), "rule__Store__ObjNameAssignment_3");
@@ -93,7 +91,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLoopAccess().getMillisecondsAssignment_7(), "rule__Loop__MillisecondsAssignment_7");
 					put(grammarAccess.getLoopAccess().getActionsAssignment_11(), "rule__Loop__ActionsAssignment_11");
 					put(grammarAccess.getDoAllAccess().getCollAssignment_3(), "rule__DoAll__CollAssignment_3");
-					put(grammarAccess.getDoAllAccess().getTodoAssignment_6(), "rule__DoAll__TodoAssignment_6");
+					put(grammarAccess.getDoAllAccess().getTodoAssignment_7(), "rule__DoAll__TodoAssignment_7");
 				}
 			};
 		}

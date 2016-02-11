@@ -23,9 +23,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="obj" upperBound="-1" eType="#//Object"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Alert" eSuperTypes="#//Action">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Refresh" eSuperTypes="#//Action"/>
   <eClassifiers xsi:type="ecore:EClass" name="Navigate" eSuperTypes="#//Action">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -81,7 +78,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="DoAll" eSuperTypes="#//Structure">
     <eStructuralFeatures xsi:type="ecore:EReference" name="coll" eType="#//Collection"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="todo" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="todo" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

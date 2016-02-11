@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.EObject;
 
 import org.xtext.example.mydsl.myDsl.Action;
 import org.xtext.example.mydsl.myDsl.ActionSelect;
-import org.xtext.example.mydsl.myDsl.Alert;
 import org.xtext.example.mydsl.myDsl.CheckBox;
 import org.xtext.example.mydsl.myDsl.Click;
 import org.xtext.example.mydsl.myDsl.Collection;
@@ -130,11 +129,6 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseCollection(Collection object)
       {
         return createCollectionAdapter();
-      }
-      @Override
-      public Adapter caseAlert(Alert object)
-      {
-        return createAlertAdapter();
       }
       @Override
       public Adapter caseRefresh(Refresh object)
@@ -329,21 +323,6 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createCollectionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Alert <em>Alert</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Alert
-   * @generated
-   */
-  public Adapter createAlertAdapter()
   {
     return null;
   }

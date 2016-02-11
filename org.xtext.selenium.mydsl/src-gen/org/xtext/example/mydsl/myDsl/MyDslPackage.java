@@ -263,34 +263,6 @@ public interface MyDslPackage extends EPackage
   int COLLECTION_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.AlertImpl <em>Alert</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.AlertImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getAlert()
-   * @generated
-   */
-  int ALERT = 7;
-
-  /**
-   * The feature id for the '<em><b>Text</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ALERT__TEXT = ACTION_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Alert</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ALERT_FEATURE_COUNT = ACTION_FEATURE_COUNT + 1;
-
-  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.RefreshImpl <em>Refresh</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -298,7 +270,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getRefresh()
    * @generated
    */
-  int REFRESH = 8;
+  int REFRESH = 7;
 
   /**
    * The number of structural features of the '<em>Refresh</em>' class.
@@ -317,7 +289,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getNavigate()
    * @generated
    */
-  int NAVIGATE = 9;
+  int NAVIGATE = 8;
 
   /**
    * The feature id for the '<em><b>Url</b></em>' attribute.
@@ -345,7 +317,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getStore()
    * @generated
    */
-  int STORE = 10;
+  int STORE = 9;
 
   /**
    * The feature id for the '<em><b>Obj</b></em>' containment reference.
@@ -382,7 +354,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getActionSelect()
    * @generated
    */
-  int ACTION_SELECT = 11;
+  int ACTION_SELECT = 10;
 
   /**
    * The feature id for the '<em><b>Option</b></em>' attribute.
@@ -419,7 +391,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getClick()
    * @generated
    */
-  int CLICK = 12;
+  int CLICK = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -447,7 +419,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getFill()
    * @generated
    */
-  int FILL = 13;
+  int FILL = 12;
 
   /**
    * The feature id for the '<em><b>Nametag</b></em>' attribute.
@@ -484,7 +456,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCheckBox()
    * @generated
    */
-  int CHECK_BOX = 14;
+  int CHECK_BOX = 13;
 
   /**
    * The feature id for the '<em><b>Nametag</b></em>' attribute.
@@ -521,7 +493,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getRickroll()
    * @generated
    */
-  int RICKROLL = 15;
+  int RICKROLL = 14;
 
   /**
    * The number of structural features of the '<em>Rickroll</em>' class.
@@ -540,7 +512,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getDoWait()
    * @generated
    */
-  int DO_WAIT = 16;
+  int DO_WAIT = 15;
 
   /**
    * The feature id for the '<em><b>Millisec</b></em>' attribute.
@@ -568,7 +540,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getIsIn()
    * @generated
    */
-  int IS_IN = 17;
+  int IS_IN = 16;
 
   /**
    * The feature id for the '<em><b>Obj</b></em>' containment reference.
@@ -605,7 +577,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getNot()
    * @generated
    */
-  int NOT = 18;
+  int NOT = 17;
 
   /**
    * The feature id for the '<em><b>Cond</b></em>' containment reference.
@@ -633,7 +605,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getIf()
    * @generated
    */
-  int IF = 19;
+  int IF = 18;
 
   /**
    * The feature id for the '<em><b>Cond</b></em>' containment reference.
@@ -679,7 +651,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLoop()
    * @generated
    */
-  int LOOP = 20;
+  int LOOP = 19;
 
   /**
    * The feature id for the '<em><b>Cond</b></em>' containment reference.
@@ -725,7 +697,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getDoAll()
    * @generated
    */
-  int DO_ALL = 21;
+  int DO_ALL = 20;
 
   /**
    * The feature id for the '<em><b>Coll</b></em>' containment reference.
@@ -737,7 +709,7 @@ public interface MyDslPackage extends EPackage
   int DO_ALL__COLL = STRUCTURE_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Todo</b></em>' containment reference.
+   * The feature id for the '<em><b>Todo</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -912,27 +884,6 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EReference getCollection_Obj();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Alert <em>Alert</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Alert</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Alert
-   * @generated
-   */
-  EClass getAlert();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Alert#getText <em>Text</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Text</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Alert#getText()
-   * @see #getAlert()
-   * @generated
-   */
-  EAttribute getAlert_Text();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Refresh <em>Refresh</em>}'.
@@ -1306,10 +1257,10 @@ public interface MyDslPackage extends EPackage
   EReference getDoAll_Coll();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.DoAll#getTodo <em>Todo</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.DoAll#getTodo <em>Todo</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Todo</em>'.
+   * @return the meta object for the containment reference list '<em>Todo</em>'.
    * @see org.xtext.example.mydsl.myDsl.DoAll#getTodo()
    * @see #getDoAll()
    * @generated
@@ -1472,24 +1423,6 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EReference COLLECTION__OBJ = eINSTANCE.getCollection_Obj();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.AlertImpl <em>Alert</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.AlertImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getAlert()
-     * @generated
-     */
-    EClass ALERT = eINSTANCE.getAlert();
-
-    /**
-     * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ALERT__TEXT = eINSTANCE.getAlert_Text();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.RefreshImpl <em>Refresh</em>}' class.
@@ -1800,7 +1733,7 @@ public interface MyDslPackage extends EPackage
     EReference DO_ALL__COLL = eINSTANCE.getDoAll_Coll();
 
     /**
-     * The meta object literal for the '<em><b>Todo</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Todo</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated

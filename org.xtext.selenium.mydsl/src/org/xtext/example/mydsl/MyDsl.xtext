@@ -10,7 +10,7 @@ Main :
 	orders+=(Action|Structure)*
 ;
 
-Action : Navigate|Click|Fill|CheckBox|Refresh|Alert|ActionSelect|Store|Rickroll|DoWait;
+Action : Navigate|Click|Fill|CheckBox|Refresh|ActionSelect|Store|Rickroll|DoWait;
 
 Structure : If | Loop |DoAll ;
 
@@ -28,8 +28,6 @@ HTMLTYPE : type=('title'|'class'|'id'|'name'|'CSS Selector'|'XPath');
 Collection : obj+=Object;
 
 //ACTIONS
-
-Alert: 'Alert' text=STRING;
 
 Refresh: {Refresh}'Refresh';
 	
@@ -74,12 +72,12 @@ Loop :
 	'Loop' ':'
 	'Condition' ':' cond=Condition
 	'Interval' ':' milliseconds=INT
-	'Do' ':' '{' actions+=Action '}'
+	'Do' ':' '{' actions+=Action* '}'
 ;
 
 
 DoAll : 
-	'For' 'all' 'in' coll=Collection 'do' ':' todo=(Action|Structure)
+	'For' 'all' 'in' coll=Collection 'do' ':' '{' todo+=(Action|Structure)* '}'
 	
 ;
 

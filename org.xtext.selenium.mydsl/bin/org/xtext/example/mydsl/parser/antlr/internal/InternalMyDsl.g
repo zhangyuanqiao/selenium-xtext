@@ -230,47 +230,38 @@ ruleAction returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getActionAccess().getAlertParserRuleCall_5());
+			newCompositeNode(grammarAccess.getActionAccess().getActionSelectParserRuleCall_5());
 		}
-		this_Alert_5=ruleAlert
+		this_ActionSelect_5=ruleActionSelect
 		{
-			$current = $this_Alert_5.current;
+			$current = $this_ActionSelect_5.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getActionAccess().getActionSelectParserRuleCall_6());
+			newCompositeNode(grammarAccess.getActionAccess().getStoreParserRuleCall_6());
 		}
-		this_ActionSelect_6=ruleActionSelect
+		this_Store_6=ruleStore
 		{
-			$current = $this_ActionSelect_6.current;
+			$current = $this_Store_6.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getActionAccess().getStoreParserRuleCall_7());
+			newCompositeNode(grammarAccess.getActionAccess().getRickrollParserRuleCall_7());
 		}
-		this_Store_7=ruleStore
+		this_Rickroll_7=ruleRickroll
 		{
-			$current = $this_Store_7.current;
+			$current = $this_Rickroll_7.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getActionAccess().getRickrollParserRuleCall_8());
+			newCompositeNode(grammarAccess.getActionAccess().getDoWaitParserRuleCall_8());
 		}
-		this_Rickroll_8=ruleRickroll
+		this_DoWait_8=ruleDoWait
 		{
-			$current = $this_Rickroll_8.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getActionAccess().getDoWaitParserRuleCall_9());
-		}
-		this_DoWait_9=ruleDoWait
-		{
-			$current = $this_DoWait_9.current;
+			$current = $this_DoWait_8.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -560,47 +551,6 @@ ruleCollection returns [EObject current=null]
 					"org.xtext.example.mydsl.MyDsl.Object");
 				afterParserOrEnumRuleCall();
 			}
-		)
-	)
-;
-
-// Entry rule entryRuleAlert
-entryRuleAlert returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getAlertRule()); }
-	iv_ruleAlert=ruleAlert
-	{ $current=$iv_ruleAlert.current; }
-	EOF;
-
-// Rule Alert
-ruleAlert returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='Alert'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getAlertAccess().getAlertKeyword_0());
-		}
-		(
-			(
-				lv_text_1_0=RULE_STRING
-				{
-					newLeafNode(lv_text_1_0, grammarAccess.getAlertAccess().getTextSTRINGTerminalRuleCall_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getAlertRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"text",
-						lv_text_1_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
-				}
-			)
 		)
 	)
 ;
@@ -1387,7 +1337,7 @@ ruleLoop returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)
+		)*
 		otherlv_12='}'
 		{
 			newLeafNode(otherlv_12, grammarAccess.getLoopAccess().getRightCurlyBracketKeyword_12());
@@ -1450,43 +1400,51 @@ ruleDoAll returns [EObject current=null]
 		{
 			newLeafNode(otherlv_5, grammarAccess.getDoAllAccess().getColonKeyword_5());
 		}
+		otherlv_6='{'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getDoAllAccess().getLeftCurlyBracketKeyword_6());
+		}
 		(
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDoAllAccess().getTodoActionParserRuleCall_6_0_0());
+						newCompositeNode(grammarAccess.getDoAllAccess().getTodoActionParserRuleCall_7_0_0());
 					}
-					lv_todo_6_1=ruleAction
+					lv_todo_7_1=ruleAction
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDoAllRule());
 						}
-						set(
+						add(
 							$current,
 							"todo",
-							lv_todo_6_1,
+							lv_todo_7_1,
 							"org.xtext.example.mydsl.MyDsl.Action");
 						afterParserOrEnumRuleCall();
 					}
 					    |
 					{
-						newCompositeNode(grammarAccess.getDoAllAccess().getTodoStructureParserRuleCall_6_0_1());
+						newCompositeNode(grammarAccess.getDoAllAccess().getTodoStructureParserRuleCall_7_0_1());
 					}
-					lv_todo_6_2=ruleStructure
+					lv_todo_7_2=ruleStructure
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDoAllRule());
 						}
-						set(
+						add(
 							$current,
 							"todo",
-							lv_todo_6_2,
+							lv_todo_7_2,
 							"org.xtext.example.mydsl.MyDsl.Structure");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-		)
+		)*
+		otherlv_8='}'
+		{
+			newLeafNode(otherlv_8, grammarAccess.getDoAllAccess().getRightCurlyBracketKeyword_8());
+		}
 	)
 ;
 

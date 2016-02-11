@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.util.Switch;
 
 import org.xtext.example.mydsl.myDsl.Action;
 import org.xtext.example.mydsl.myDsl.ActionSelect;
-import org.xtext.example.mydsl.myDsl.Alert;
 import org.xtext.example.mydsl.myDsl.CheckBox;
 import org.xtext.example.mydsl.myDsl.Click;
 import org.xtext.example.mydsl.myDsl.Collection;
@@ -140,14 +139,6 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         Collection collection = (Collection)theEObject;
         T result = caseCollection(collection);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.ALERT:
-      {
-        Alert alert = (Alert)theEObject;
-        T result = caseAlert(alert);
-        if (result == null) result = caseAction(alert);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -375,22 +366,6 @@ public class MyDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseCollection(Collection object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Alert</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Alert</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAlert(Alert object)
   {
     return null;
   }

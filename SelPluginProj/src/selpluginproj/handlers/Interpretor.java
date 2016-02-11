@@ -27,6 +27,12 @@ public class Interpretor {
 		case "Firefox":
 			SEL_DRIVER = new FirefoxDriver();
 			break;
+		case "Chrome":
+			System.out.println("Sorry, this borwser is not available yet");
+			SEL_DRIVER = new FirefoxDriver();
+		case "Internet Explorer" : 
+			System.out.println("Sorry, this borwser is not available yet");
+			SEL_DRIVER = new FirefoxDriver();
 		default:
 			SEL_DRIVER = new FirefoxDriver();
 			break;
@@ -37,33 +43,46 @@ public class Interpretor {
 	}
 
 	/**
-	 *  switch case for ALL orders  TODO : implement all orders
-	 * @param e the EObject which is an unknown 
+	 *  switch case for ALL orders 
+	 * @param e the EObject w'd like to know more about 
 	 */
 	private void execute(EObject e) {
-		if(e instanceof Navigate){
-			String url = ((Navigate)e).getUrl();
-			navigateTo(url);
+		
+		if(e instanceof Refresh){
+			refresh();
 		}
-		else if(e instanceof Refresh){
-			SEL_DRIVER.get(SEL_DRIVER.getCurrentUrl());
+		
+		else if(e instanceof Navigate){
+			
+			navigateTo(((Navigate)e).getUrl());
 		}
-
-		else if (e instanceof Rickroll){
-			navigateTo("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
-		}
-		else if(e instanceof Fill){
-			fillWith(((Fill)e).getNametag(), ((Fill)e).getContent());
-		}
-		else if(e instanceof Click){
-			click(((Click)e).getName());
-		}
-		else if(e instanceof CheckBox){
-			tickBox((CheckBox)e);
+		
+		else if (e instanceof Store){
+			store((Store)e);
 		}
 		
 		else if(e instanceof ActionSelect){
 			select((ActionSelect)e);
+		}
+		
+		else if(e instanceof Click){
+			click(((Click)e).getName());
+		}
+		
+		else if(e instanceof Fill){
+			fillWith(((Fill)e).getNametag(), ((Fill)e).getContent());
+		}
+		
+		else if(e instanceof CheckBox){
+			tickBox((CheckBox)e);
+		}
+
+		else if (e instanceof Rickroll){
+			rickRoll();
+		}	
+		
+		else if (e instanceof DoWait){
+			waitFor(((DoWait)e).getMillisec());
 		}
 
 		
@@ -72,46 +91,72 @@ public class Interpretor {
 			eval((Condition)e);
 		}
 		
-
+		//structures
 		else if (e instanceof If){
 			If i = ((If)e);
 			structureIf(i.getCond(),i.getActionThen(),i.getActionElse());
 		}
+		
+		else if(e instanceof Loop){
+			Loop i = (Loop)e;
+			structureLoop(i.getCond(),i.getMilliseconds(),i.getActions());
+			
+		}
+		
+		else if (e instanceof DoAll){
+			DoAll i = (DoAll)e;
+			structureDoAll(i.getColl(),i.getTodo());
+		}
 
 	}
 
 
-	/////////////////////////////// STRUCTURES ///////////////////////////////////////
-
-
 
 	
-	
-	
-
-	private void structureIf(Condition cond, EList<Action> actionThen, EList<Action> actionElse) {
-		if(eval(cond)){
-			System.out.println("Then ! ");
-			for(Action e : actionThen){execute(e);}
-		}
-		else{
-			System.out.println("Else ! ");
-			for(Action e : actionElse){execute(e);}
-		}
-	}
-
-
-
-
 
 	/////////////////////////////////  ACTIONS  /////////////////////////////////////
 
 	
 
-	private static void click(String name) {fineElementFinder(name).click();}
 
+
+
+
+	private void refresh() {SEL_DRIVER.get(SEL_DRIVER.getCurrentUrl());}
 
 	private static void navigateTo(String url){SEL_DRIVER.get(url);}
+	
+	
+
+	/**
+	 * Trouve un webElement selon les parametres de l'objet de e.
+	 * Place cet élément dans une hashmap initialisée à lecture du fichier,
+	 * en lui donnant pour clé le nom ObjName en attribu de e
+	 * @param e
+	 */
+	private void store(Store e) {
+		// TODO Auto-generated method stub
+		e.getObj();
+		e.getObjName();
+		
+	}
+	
+	private static void select(ActionSelect actionSelect) {
+		try{
+			
+			String selector = actionSelect.getXpath()+"/option[contains(text(),'"+actionSelect.getOption()+"')]";
+			Select seleniumSelect = new Select(SEL_DRIVER.findElement(By.xpath(actionSelect.getXpath())));
+			seleniumSelect.selectByVisibleText(SEL_DRIVER.findElement(By.xpath(selector)).getText());
+
+		}catch(Exception e){
+			System.out.println("option was not selected by select... \n");
+			e.printStackTrace();
+		
+		}
+		
+	}
+	
+	private static void click(String name) {fineElementFinder(name).click();}
 
 
 	private static void fillWith(String field,String value){ fineElementFinder(field).sendKeys(value);}
@@ -141,23 +186,20 @@ public class Interpretor {
 		
 	}
 	
-	private static void select(ActionSelect actionSelect) {
-		try{
-			
-			String selector = actionSelect.getXpath()+"/option[contains(text(),'"+actionSelect.getOption()+"')]";
-			System.out.println(selector);//TODO delete
-			Select seleniumSelect = new Select(SEL_DRIVER.findElement(By.xpath(actionSelect.getXpath())));
-			seleniumSelect.selectByVisibleText(SEL_DRIVER.findElement(By.xpath(selector)).getText());
-
-		}catch(Exception e){
-			System.out.println("option was not selected by select... \n");
-			e.printStackTrace();
-		
-		}
+	private void rickRoll() {
+		navigateTo("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
 		
 	}
 
 
+	/**
+	 * Permet d'attendre avant la reprise de l'execution du script
+	 * @param millisec
+	 */
+	private void waitFor(int millisec) {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 
@@ -165,7 +207,13 @@ public class Interpretor {
 	
 	private boolean not(Condition cond) {return eval(cond);}
 	
-	
+	/**
+	 * Cherche un texte dans un objet de la page
+	 * (déjà implémenté si l'objet est la page toute entière)
+	 * @param text
+	 * @param object
+	 * @return
+	 */
 	private boolean lookFor(String text, Object object) {
 		System.out.println(object.getBody().toString());
 		System.out.println(object.getBody().toString().equals("body"));
@@ -190,15 +238,67 @@ public class Interpretor {
 		}
 
 	}
+	
+	
+	
+	
+	/////////////////////////////// STRUCTURES ///////////////////////////////////////
+
+
+
+	
+	
+	
+
+	private void structureIf(Condition cond, EList<Action> actionThen, EList<Action> actionElse) {
+		if(eval(cond)){
+			System.out.println("Then ! ");
+			for(Action e : actionThen){execute(e);}
+		}
+		else{
+			System.out.println("Else ! ");
+			for(Action e : actionElse){execute(e);}
+		}
+	}
+
+	/**
+	 * Un while, capable d'attendre entre deux executions
+	 * @param cond
+	 * @param milliseconds
+	 * @param actions
+	 */
+	private void structureLoop(Condition cond, int milliseconds, EList<Action> actions) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	/**
+	 * Applique une suite d'actions sur tous les éléments d'une collection
+	 * @param coll
+	 * @param todo
+	 */
+	private void structureDoAll(Collection coll, EList<EObject> todo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
 
 
 	/////////////////////////////////////  UTILITIES  /////////////////////////////////////////
 
 
+	/**
+	 * Permet de trouver un élément dans une page avec un minimum d'effort pour l'utilisateur
+	 * Pour l'instant c'est hyper brouillon, faut repasser dessus
+	 * @param clue
+	 * @return
+	 */
 	private static WebElement fineElementFinder(String clue){
 		WebElement ret = null;
 		Exception e = null;
-		try{ //TODO Keep adding some if function is not powerful enough !
+		try{ //TODO Make this stuff smarter by proper use of xpath
 			ret = SEL_DRIVER.findElement(By.name(clue));   //find element using tag 'name'
 		}catch(Exception e0){e = e0;
 		try{ ret = SEL_DRIVER.findElement(By.linkText(clue)); }

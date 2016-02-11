@@ -87,15 +87,6 @@ public interface MyDslFactory extends EFactory
   Collection createCollection();
 
   /**
-   * Returns a new object of class '<em>Alert</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Alert</em>'.
-   * @generated
-   */
-  Alert createAlert();
-
-  /**
    * Returns a new object of class '<em>Refresh</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

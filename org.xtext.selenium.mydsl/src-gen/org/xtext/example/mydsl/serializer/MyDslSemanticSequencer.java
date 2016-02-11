@@ -15,7 +15,6 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.example.mydsl.myDsl.ActionSelect;
-import org.xtext.example.mydsl.myDsl.Alert;
 import org.xtext.example.mydsl.myDsl.CheckBox;
 import org.xtext.example.mydsl.myDsl.Click;
 import org.xtext.example.mydsl.myDsl.Collection;
@@ -51,9 +50,6 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			switch (semanticObject.eClass().getClassifierID()) {
 			case MyDslPackage.ACTION_SELECT:
 				sequence_ActionSelect(context, (ActionSelect) semanticObject); 
-				return; 
-			case MyDslPackage.ALERT:
-				sequence_Alert(context, (Alert) semanticObject); 
 				return; 
 			case MyDslPackage.CHECK_BOX:
 				sequence_CheckBox(context, (CheckBox) semanticObject); 
@@ -135,25 +131,6 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Action returns Alert
-	 *     Alert returns Alert
-	 *
-	 * Constraint:
-	 *     text=STRING
-	 */
-	protected void sequence_Alert(ISerializationContext context, Alert semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.ALERT__TEXT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.ALERT__TEXT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAlertAccess().getTextSTRINGTerminalRuleCall_1_0(), semanticObject.getText());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Action returns CheckBox
 	 *     CheckBox returns CheckBox
 	 *
@@ -202,7 +179,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     DoAll returns DoAll
 	 *
 	 * Constraint:
-	 *     (coll=Collection (todo=Action | todo=Structure))
+	 *     (coll=Collection (todo+=Action | todo+=Structure)*)
 	 */
 	protected void sequence_DoAll(ISerializationContext context, DoAll semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -310,7 +287,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Loop returns Loop
 	 *
 	 * Constraint:
-	 *     (cond=Condition milliseconds=INT actions+=Action)
+	 *     (cond=Condition milliseconds=INT actions+=Action*)
 	 */
 	protected void sequence_Loop(ISerializationContext context, Loop semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

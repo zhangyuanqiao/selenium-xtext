@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import org.xtext.example.mydsl.myDsl.Action;
 import org.xtext.example.mydsl.myDsl.ActionSelect;
-import org.xtext.example.mydsl.myDsl.Alert;
 import org.xtext.example.mydsl.myDsl.CheckBox;
 import org.xtext.example.mydsl.myDsl.Click;
 import org.xtext.example.mydsl.myDsl.Collection;
@@ -94,7 +93,6 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.OBJECT: return createObject();
       case MyDslPackage.HTMLTYPE: return createHTMLTYPE();
       case MyDslPackage.COLLECTION: return createCollection();
-      case MyDslPackage.ALERT: return createAlert();
       case MyDslPackage.REFRESH: return createRefresh();
       case MyDslPackage.NAVIGATE: return createNavigate();
       case MyDslPackage.STORE: return createStore();
@@ -189,17 +187,6 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     CollectionImpl collection = new CollectionImpl();
     return collection;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Alert createAlert()
-  {
-    AlertImpl alert = new AlertImpl();
-    return alert;
   }
 
   /**
