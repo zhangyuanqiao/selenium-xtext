@@ -171,13 +171,13 @@ public interface MyDslPackage extends EPackage
   int OBJECT = 4;
 
   /**
-   * The feature id for the '<em><b>Body</b></em>' attribute.
+   * The feature id for the '<em><b>Obj Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OBJECT__BODY = 0;
+  int OBJECT__OBJ_NAME = 0;
 
   /**
    * The feature id for the '<em><b>Htmltype</b></em>' containment reference.
@@ -189,13 +189,13 @@ public interface MyDslPackage extends EPackage
   int OBJECT__HTMLTYPE = 1;
 
   /**
-   * The feature id for the '<em><b>Object Name</b></em>' attribute.
+   * The feature id for the '<em><b>Object Def</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OBJECT__OBJECT_NAME = 2;
+  int OBJECT__OBJECT_DEF = 2;
 
   /**
    * The number of structural features of the '<em>Object</em>' class.
@@ -254,13 +254,31 @@ public interface MyDslPackage extends EPackage
   int COLLECTION__OBJ = 0;
 
   /**
+   * The feature id for the '<em><b>Htmltype</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLLECTION__HTMLTYPE = 1;
+
+  /**
+   * The feature id for the '<em><b>Object Rule</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLLECTION__OBJECT_RULE = 2;
+
+  /**
    * The number of structural features of the '<em>Collection</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COLLECTION_FEATURE_COUNT = 1;
+  int COLLECTION_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.SubProcedureImpl <em>Sub Procedure</em>}' class.
@@ -273,13 +291,13 @@ public interface MyDslPackage extends EPackage
   int SUB_PROCEDURE = 7;
 
   /**
-   * The feature id for the '<em><b>Body</b></em>' attribute.
+   * The feature id for the '<em><b>Obj Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SUB_PROCEDURE__BODY = OBJECT__BODY;
+  int SUB_PROCEDURE__OBJ_NAME = OBJECT__OBJ_NAME;
 
   /**
    * The feature id for the '<em><b>Htmltype</b></em>' containment reference.
@@ -291,13 +309,13 @@ public interface MyDslPackage extends EPackage
   int SUB_PROCEDURE__HTMLTYPE = OBJECT__HTMLTYPE;
 
   /**
-   * The feature id for the '<em><b>Object Name</b></em>' attribute.
+   * The feature id for the '<em><b>Object Def</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SUB_PROCEDURE__OBJECT_NAME = OBJECT__OBJECT_NAME;
+  int SUB_PROCEDURE__OBJECT_DEF = OBJECT__OBJECT_DEF;
 
   /**
    * The feature id for the '<em><b>Actions</b></em>' containment reference list.
@@ -418,7 +436,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RE_DEFINE__OBJ_NAME = 0;
+  int RE_DEFINE__OBJ_NAME = ACTION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Obj</b></em>' containment reference.
@@ -427,7 +445,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RE_DEFINE__OBJ = 1;
+  int RE_DEFINE__OBJ = ACTION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Re Define</em>' class.
@@ -436,7 +454,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RE_DEFINE_FEATURE_COUNT = 2;
+  int RE_DEFINE_FEATURE_COUNT = ACTION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.DeleteImpl <em>Delete</em>}' class.
@@ -455,7 +473,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DELETE__OBJ_NAME = 0;
+  int DELETE__OBJ_NAME = ACTION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Delete</em>' class.
@@ -464,7 +482,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DELETE_FEATURE_COUNT = 1;
+  int DELETE_FEATURE_COUNT = ACTION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ActionSelectImpl <em>Action Select</em>}' class.
@@ -514,13 +532,13 @@ public interface MyDslPackage extends EPackage
   int CLICK = 14;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Object</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLICK__NAME = ACTION_FEATURE_COUNT + 0;
+  int CLICK__OBJECT = ACTION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Click</em>' class.
@@ -672,13 +690,22 @@ public interface MyDslPackage extends EPackage
   int IS_IN__OBJ = CONDITION_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Body</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IS_IN__BODY = CONDITION_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Text</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IS_IN__TEXT = CONDITION_FEATURE_COUNT + 1;
+  int IS_IN__TEXT = CONDITION_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Is In</em>' class.
@@ -687,7 +714,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IS_IN_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 2;
+  int IS_IN_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.NotImpl <em>Not</em>}' class.
@@ -959,15 +986,15 @@ public interface MyDslPackage extends EPackage
   EClass getObject();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Object#getBody <em>Body</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Object#getObjName <em>Obj Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Body</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Object#getBody()
+   * @return the meta object for the attribute '<em>Obj Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Object#getObjName()
    * @see #getObject()
    * @generated
    */
-  EAttribute getObject_Body();
+  EAttribute getObject_ObjName();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Object#getHtmltype <em>Htmltype</em>}'.
@@ -981,15 +1008,15 @@ public interface MyDslPackage extends EPackage
   EReference getObject_Htmltype();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Object#getObjectName <em>Object Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Object#getObjectDef <em>Object Def</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Object Name</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Object#getObjectName()
+   * @return the meta object for the attribute '<em>Object Def</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Object#getObjectDef()
    * @see #getObject()
    * @generated
    */
-  EAttribute getObject_ObjectName();
+  EAttribute getObject_ObjectDef();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.HTMLTYPE <em>HTMLTYPE</em>}'.
@@ -1032,6 +1059,28 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EReference getCollection_Obj();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Collection#getHtmltype <em>Htmltype</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Htmltype</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Collection#getHtmltype()
+   * @see #getCollection()
+   * @generated
+   */
+  EReference getCollection_Htmltype();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Collection#getObjectRule <em>Object Rule</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Object Rule</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Collection#getObjectRule()
+   * @see #getCollection()
+   * @generated
+   */
+  EAttribute getCollection_ObjectRule();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.SubProcedure <em>Sub Procedure</em>}'.
@@ -1213,15 +1262,15 @@ public interface MyDslPackage extends EPackage
   EClass getClick();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Click#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Click#getObject <em>Object</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Click#getName()
+   * @return the meta object for the containment reference '<em>Object</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Click#getObject()
    * @see #getClick()
    * @generated
    */
-  EAttribute getClick_Name();
+  EReference getClick_Object();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Fill <em>Fill</em>}'.
@@ -1338,6 +1387,17 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EReference getIsIn_Obj();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.IsIn#getBody <em>Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Body</em>'.
+   * @see org.xtext.example.mydsl.myDsl.IsIn#getBody()
+   * @see #getIsIn()
+   * @generated
+   */
+  EAttribute getIsIn_Body();
 
   /**
    * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.IsIn#getText <em>Text</em>}'.
@@ -1608,12 +1668,12 @@ public interface MyDslPackage extends EPackage
     EClass OBJECT = eINSTANCE.getObject();
 
     /**
-     * The meta object literal for the '<em><b>Body</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Obj Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute OBJECT__BODY = eINSTANCE.getObject_Body();
+    EAttribute OBJECT__OBJ_NAME = eINSTANCE.getObject_ObjName();
 
     /**
      * The meta object literal for the '<em><b>Htmltype</b></em>' containment reference feature.
@@ -1624,12 +1684,12 @@ public interface MyDslPackage extends EPackage
     EReference OBJECT__HTMLTYPE = eINSTANCE.getObject_Htmltype();
 
     /**
-     * The meta object literal for the '<em><b>Object Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Object Def</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute OBJECT__OBJECT_NAME = eINSTANCE.getObject_ObjectName();
+    EAttribute OBJECT__OBJECT_DEF = eINSTANCE.getObject_ObjectDef();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.HTMLTYPEImpl <em>HTMLTYPE</em>}' class.
@@ -1666,6 +1726,22 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EReference COLLECTION__OBJ = eINSTANCE.getCollection_Obj();
+
+    /**
+     * The meta object literal for the '<em><b>Htmltype</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COLLECTION__HTMLTYPE = eINSTANCE.getCollection_Htmltype();
+
+    /**
+     * The meta object literal for the '<em><b>Object Rule</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COLLECTION__OBJECT_RULE = eINSTANCE.getCollection_ObjectRule();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.SubProcedureImpl <em>Sub Procedure</em>}' class.
@@ -1820,12 +1896,12 @@ public interface MyDslPackage extends EPackage
     EClass CLICK = eINSTANCE.getClick();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Object</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CLICK__NAME = eINSTANCE.getClick_Name();
+    EReference CLICK__OBJECT = eINSTANCE.getClick_Object();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.FillImpl <em>Fill</em>}' class.
@@ -1924,6 +2000,14 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EReference IS_IN__OBJ = eINSTANCE.getIsIn_Obj();
+
+    /**
+     * The meta object literal for the '<em><b>Body</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IS_IN__BODY = eINSTANCE.getIsIn_Body();
 
     /**
      * The meta object literal for the '<em><b>Text</b></em>' attribute feature.

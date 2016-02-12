@@ -13,7 +13,7 @@ package org.xtext.example.mydsl.myDsl;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Click#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Click#getObject <em>Object</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getClick()
@@ -23,29 +23,29 @@ package org.xtext.example.mydsl.myDsl;
 public interface Click extends Action
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Object</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Object</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getClick_Name()
-   * @model
+   * @return the value of the '<em>Object</em>' containment reference.
+   * @see #setObject(org.xtext.example.mydsl.myDsl.Object)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getClick_Object()
+   * @model containment="true"
    * @generated
    */
-  String getName();
+  org.xtext.example.mydsl.myDsl.Object getObject();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Click#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Click#getObject <em>Object</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Object</em>' containment reference.
+   * @see #getObject()
    * @generated
    */
-  void setName(String value);
+  void setObject(org.xtext.example.mydsl.myDsl.Object value);
 
 } // Click

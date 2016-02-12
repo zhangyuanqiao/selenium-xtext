@@ -23,9 +23,9 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ObjectImpl#getBody <em>Body</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ObjectImpl#getObjName <em>Obj Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ObjectImpl#getHtmltype <em>Htmltype</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ObjectImpl#getObjectName <em>Object Name</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ObjectImpl#getObjectDef <em>Object Def</em>}</li>
  * </ul>
  *
  * @generated
@@ -33,24 +33,24 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
 public class ObjectImpl extends MinimalEObjectImpl.Container implements org.xtext.example.mydsl.myDsl.Object
 {
   /**
-   * The default value of the '{@link #getBody() <em>Body</em>}' attribute.
+   * The default value of the '{@link #getObjName() <em>Obj Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBody()
+   * @see #getObjName()
    * @generated
    * @ordered
    */
-  protected static final String BODY_EDEFAULT = null;
+  protected static final String OBJ_NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getBody() <em>Body</em>}' attribute.
+   * The cached value of the '{@link #getObjName() <em>Obj Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBody()
+   * @see #getObjName()
    * @generated
    * @ordered
    */
-  protected String body = BODY_EDEFAULT;
+  protected String objName = OBJ_NAME_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getHtmltype() <em>Htmltype</em>}' containment reference.
@@ -63,24 +63,24 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements org.xtex
   protected HTMLTYPE htmltype;
 
   /**
-   * The default value of the '{@link #getObjectName() <em>Object Name</em>}' attribute.
+   * The default value of the '{@link #getObjectDef() <em>Object Def</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getObjectName()
+   * @see #getObjectDef()
    * @generated
    * @ordered
    */
-  protected static final String OBJECT_NAME_EDEFAULT = null;
+  protected static final String OBJECT_DEF_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getObjectName() <em>Object Name</em>}' attribute.
+   * The cached value of the '{@link #getObjectDef() <em>Object Def</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getObjectName()
+   * @see #getObjectDef()
    * @generated
    * @ordered
    */
-  protected String objectName = OBJECT_NAME_EDEFAULT;
+  protected String objectDef = OBJECT_DEF_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -108,9 +108,9 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements org.xtex
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getBody()
+  public String getObjName()
   {
-    return body;
+    return objName;
   }
 
   /**
@@ -118,12 +118,12 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements org.xtex
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBody(String newBody)
+  public void setObjName(String newObjName)
   {
-    String oldBody = body;
-    body = newBody;
+    String oldObjName = objName;
+    objName = newObjName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.OBJECT__BODY, oldBody, body));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.OBJECT__OBJ_NAME, oldObjName, objName));
   }
 
   /**
@@ -179,9 +179,9 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements org.xtex
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getObjectName()
+  public String getObjectDef()
   {
-    return objectName;
+    return objectDef;
   }
 
   /**
@@ -189,12 +189,12 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements org.xtex
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setObjectName(String newObjectName)
+  public void setObjectDef(String newObjectDef)
   {
-    String oldObjectName = objectName;
-    objectName = newObjectName;
+    String oldObjectDef = objectDef;
+    objectDef = newObjectDef;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.OBJECT__OBJECT_NAME, oldObjectName, objectName));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.OBJECT__OBJECT_DEF, oldObjectDef, objectDef));
   }
 
   /**
@@ -223,12 +223,12 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements org.xtex
   {
     switch (featureID)
     {
-      case MyDslPackage.OBJECT__BODY:
-        return getBody();
+      case MyDslPackage.OBJECT__OBJ_NAME:
+        return getObjName();
       case MyDslPackage.OBJECT__HTMLTYPE:
         return getHtmltype();
-      case MyDslPackage.OBJECT__OBJECT_NAME:
-        return getObjectName();
+      case MyDslPackage.OBJECT__OBJECT_DEF:
+        return getObjectDef();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -243,14 +243,14 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements org.xtex
   {
     switch (featureID)
     {
-      case MyDslPackage.OBJECT__BODY:
-        setBody((String)newValue);
+      case MyDslPackage.OBJECT__OBJ_NAME:
+        setObjName((String)newValue);
         return;
       case MyDslPackage.OBJECT__HTMLTYPE:
         setHtmltype((HTMLTYPE)newValue);
         return;
-      case MyDslPackage.OBJECT__OBJECT_NAME:
-        setObjectName((String)newValue);
+      case MyDslPackage.OBJECT__OBJECT_DEF:
+        setObjectDef((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -266,14 +266,14 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements org.xtex
   {
     switch (featureID)
     {
-      case MyDslPackage.OBJECT__BODY:
-        setBody(BODY_EDEFAULT);
+      case MyDslPackage.OBJECT__OBJ_NAME:
+        setObjName(OBJ_NAME_EDEFAULT);
         return;
       case MyDslPackage.OBJECT__HTMLTYPE:
         setHtmltype((HTMLTYPE)null);
         return;
-      case MyDslPackage.OBJECT__OBJECT_NAME:
-        setObjectName(OBJECT_NAME_EDEFAULT);
+      case MyDslPackage.OBJECT__OBJECT_DEF:
+        setObjectDef(OBJECT_DEF_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -289,12 +289,12 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements org.xtex
   {
     switch (featureID)
     {
-      case MyDslPackage.OBJECT__BODY:
-        return BODY_EDEFAULT == null ? body != null : !BODY_EDEFAULT.equals(body);
+      case MyDslPackage.OBJECT__OBJ_NAME:
+        return OBJ_NAME_EDEFAULT == null ? objName != null : !OBJ_NAME_EDEFAULT.equals(objName);
       case MyDslPackage.OBJECT__HTMLTYPE:
         return htmltype != null;
-      case MyDslPackage.OBJECT__OBJECT_NAME:
-        return OBJECT_NAME_EDEFAULT == null ? objectName != null : !OBJECT_NAME_EDEFAULT.equals(objectName);
+      case MyDslPackage.OBJECT__OBJECT_DEF:
+        return OBJECT_DEF_EDEFAULT == null ? objectDef != null : !OBJECT_DEF_EDEFAULT.equals(objectDef);
     }
     return super.eIsSet(featureID);
   }
@@ -310,10 +310,10 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements org.xtex
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (body: ");
-    result.append(body);
-    result.append(", objectName: ");
-    result.append(objectName);
+    result.append(" (objName: ");
+    result.append(objName);
+    result.append(", objectDef: ");
+    result.append(objectDef);
     result.append(')');
     return result.toString();
   }

@@ -14,9 +14,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Object#getBody <em>Body</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Object#getObjName <em>Obj Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Object#getHtmltype <em>Htmltype</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Object#getObjectName <em>Object Name</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Object#getObjectDef <em>Object Def</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getObject()
@@ -26,30 +26,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface Object extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Body</b></em>' attribute.
+   * Returns the value of the '<em><b>Obj Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Body</em>' attribute isn't clear,
+   * If the meaning of the '<em>Obj Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Body</em>' attribute.
-   * @see #setBody(String)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getObject_Body()
+   * @return the value of the '<em>Obj Name</em>' attribute.
+   * @see #setObjName(String)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getObject_ObjName()
    * @model
    * @generated
    */
-  String getBody();
+  String getObjName();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Object#getBody <em>Body</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Object#getObjName <em>Obj Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Body</em>' attribute.
-   * @see #getBody()
+   * @param value the new value of the '<em>Obj Name</em>' attribute.
+   * @see #getObjName()
    * @generated
    */
-  void setBody(String value);
+  void setObjName(String value);
 
   /**
    * Returns the value of the '<em><b>Htmltype</b></em>' containment reference.
@@ -78,29 +78,29 @@ public interface Object extends EObject
   void setHtmltype(HTMLTYPE value);
 
   /**
-   * Returns the value of the '<em><b>Object Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Object Def</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Object Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Object Def</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Object Name</em>' attribute.
-   * @see #setObjectName(String)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getObject_ObjectName()
+   * @return the value of the '<em>Object Def</em>' attribute.
+   * @see #setObjectDef(String)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getObject_ObjectDef()
    * @model
    * @generated
    */
-  String getObjectName();
+  String getObjectDef();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Object#getObjectName <em>Object Name</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Object#getObjectDef <em>Object Def</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Object Name</em>' attribute.
-   * @see #getObjectName()
+   * @param value the new value of the '<em>Object Def</em>' attribute.
+   * @see #getObjectDef()
    * @generated
    */
-  void setObjectName(String value);
+  void setObjectDef(String value);
 
 } // Object

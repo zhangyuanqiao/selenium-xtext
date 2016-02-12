@@ -10,7 +10,7 @@ Main :
 	orders+=(Action|Structure)*
 ;
 
-Action : Navigate|Click|Fill|CheckBox|Refresh|ActionSelect|Store|Rickroll|DoWait;
+Action : Navigate|Click|Fill|CheckBox|Refresh|ActionSelect|Store|ReDefine|Delete|Rickroll|DoWait;
 
 Structure : If | Loop |DoAll | Execute ;
 
@@ -21,11 +21,13 @@ Condition : (IsIn|Not) ;
 
 //OBJECTS
 
-Object : SubProcedure|(body='body')| '['(htmltype=HTMLTYPE objectName=STRING) ']';
+Object : objName=STRING | SubProcedure| (htmltype=HTMLTYPE objectDef=STRING); 
+//URL should be added, but it would clash with guess
+//Collection should be added
 
-HTMLTYPE : type=('title'|'class'|'id'|'name'|'CSS Selector'|'XPath');
+HTMLTYPE : type=('guess'|'title'|'class'|'id'|'name'|'CSS Selector'|'XPath');
 
-Collection : obj+=Object;
+Collection : 'Collection' ( '{'obj+=Object*'}'  |  ( 'of' 'all' htmltype=HTMLTYPE objectRule=STRING));
 
 SubProcedure : 'Subprocedure' '{' actions+=(Action|Structure)* '}';
 
@@ -33,17 +35,17 @@ SubProcedure : 'Subprocedure' '{' actions+=(Action|Structure)* '}';
 
 Refresh: {Refresh}'Refresh';
 	
-Navigate : 'Navigate' url=STRING;
+Navigate : 'Navigate' url=STRING; //object should be added as url should be objects
 
 Store : 'var' objName=STRING '=' obj=Object ;
 
-ReDefine : 'Redefine' objName=STRING '=' obj=Object ;	
+ReDefine : 'Redefine' objName=STRING 'as' obj=Object ;	
 
 Delete : 'Delete' objName=STRING;
 
 ActionSelect : 'Select' option=STRING 'from' xpath=STRING;
 
-Click : 'Click' name=STRING;
+Click : 'Click' object=Object;
 	
 Fill : 'Fill' nametag=STRING 'with' content=STRING;
 	
@@ -59,7 +61,7 @@ DoWait : 'Wait' 'for' millisec=INT 'milliseconds';
 
 //CONDITION
 	
-IsIn :  obj=Object 'contains' text=STRING ;
+IsIn :  (obj=Object|body="body") 'contains' text=STRING ;
 
 Not : 'Not' cond=Condition;
 
@@ -84,7 +86,7 @@ Loop :
 
 
 DoAll : 
-	'For' 'all' 'in' coll=Collection 'do' ':' '{' todo+=(Action|Structure)* '}'	
+	'For' 'all' 'in' (coll=Collection) 'do' ':' '{' todo+=(Action|Structure)* '}'	
 ;
 
 

@@ -8,7 +8,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.myDsl.Delete;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
@@ -26,7 +25,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  *
  * @generated
  */
-public class DeleteImpl extends MinimalEObjectImpl.Container implements Delete
+public class DeleteImpl extends ActionImpl implements Delete
 {
   /**
    * The default value of the '{@link #getObjName() <em>Obj Name</em>}' attribute.

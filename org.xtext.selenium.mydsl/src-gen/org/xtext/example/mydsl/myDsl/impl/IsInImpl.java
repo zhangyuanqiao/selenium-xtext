@@ -23,6 +23,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.IsInImpl#getObj <em>Obj</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.IsInImpl#getBody <em>Body</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.IsInImpl#getText <em>Text</em>}</li>
  * </ul>
  *
@@ -39,6 +40,26 @@ public class IsInImpl extends ConditionImpl implements IsIn
    * @ordered
    */
   protected org.xtext.example.mydsl.myDsl.Object obj;
+
+  /**
+   * The default value of the '{@link #getBody() <em>Body</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBody()
+   * @generated
+   * @ordered
+   */
+  protected static final String BODY_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getBody() <em>Body</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBody()
+   * @generated
+   * @ordered
+   */
+  protected String body = BODY_EDEFAULT;
 
   /**
    * The default value of the '{@link #getText() <em>Text</em>}' attribute.
@@ -134,6 +155,29 @@ public class IsInImpl extends ConditionImpl implements IsIn
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getBody()
+  {
+    return body;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBody(String newBody)
+  {
+    String oldBody = body;
+    body = newBody;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.IS_IN__BODY, oldBody, body));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getText()
   {
     return text;
@@ -180,6 +224,8 @@ public class IsInImpl extends ConditionImpl implements IsIn
     {
       case MyDslPackage.IS_IN__OBJ:
         return getObj();
+      case MyDslPackage.IS_IN__BODY:
+        return getBody();
       case MyDslPackage.IS_IN__TEXT:
         return getText();
     }
@@ -198,6 +244,9 @@ public class IsInImpl extends ConditionImpl implements IsIn
     {
       case MyDslPackage.IS_IN__OBJ:
         setObj((org.xtext.example.mydsl.myDsl.Object)newValue);
+        return;
+      case MyDslPackage.IS_IN__BODY:
+        setBody((String)newValue);
         return;
       case MyDslPackage.IS_IN__TEXT:
         setText((String)newValue);
@@ -219,6 +268,9 @@ public class IsInImpl extends ConditionImpl implements IsIn
       case MyDslPackage.IS_IN__OBJ:
         setObj((org.xtext.example.mydsl.myDsl.Object)null);
         return;
+      case MyDslPackage.IS_IN__BODY:
+        setBody(BODY_EDEFAULT);
+        return;
       case MyDslPackage.IS_IN__TEXT:
         setText(TEXT_EDEFAULT);
         return;
@@ -238,6 +290,8 @@ public class IsInImpl extends ConditionImpl implements IsIn
     {
       case MyDslPackage.IS_IN__OBJ:
         return obj != null;
+      case MyDslPackage.IS_IN__BODY:
+        return BODY_EDEFAULT == null ? body != null : !BODY_EDEFAULT.equals(body);
       case MyDslPackage.IS_IN__TEXT:
         return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
     }
@@ -255,7 +309,9 @@ public class IsInImpl extends ConditionImpl implements IsIn
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (text: ");
+    result.append(" (body: ");
+    result.append(body);
+    result.append(", text: ");
     result.append(text);
     result.append(')');
     return result.toString();

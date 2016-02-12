@@ -15,15 +15,17 @@
     <genClasses ecoreClass="MyDsl.ecore#//Structure"/>
     <genClasses ecoreClass="MyDsl.ecore#//Condition"/>
     <genClasses ecoreClass="MyDsl.ecore#//Object">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Object/body"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Object/objName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Object/htmltype"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Object/objectName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Object/objectDef"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//HTMLTYPE">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//HTMLTYPE/type"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Collection">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Collection/obj"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Collection/htmltype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Collection/objectRule"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//SubProcedure">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//SubProcedure/actions"/>
@@ -48,7 +50,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ActionSelect/xpath"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Click">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Click/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Click/object"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Fill">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Fill/nametag"/>
@@ -64,6 +66,7 @@
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//IsIn">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//IsIn/obj"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//IsIn/body"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//IsIn/text"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Not">

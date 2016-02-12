@@ -14,6 +14,7 @@ package org.xtext.example.mydsl.myDsl;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.IsIn#getObj <em>Obj</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.IsIn#getBody <em>Body</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.IsIn#getText <em>Text</em>}</li>
  * </ul>
  *
@@ -48,6 +49,32 @@ public interface IsIn extends Condition
    * @generated
    */
   void setObj(org.xtext.example.mydsl.myDsl.Object value);
+
+  /**
+   * Returns the value of the '<em><b>Body</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Body</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Body</em>' attribute.
+   * @see #setBody(String)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getIsIn_Body()
+   * @model
+   * @generated
+   */
+  String getBody();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.IsIn#getBody <em>Body</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Body</em>' attribute.
+   * @see #getBody()
+   * @generated
+   */
+  void setBody(String value);
 
   /**
    * Returns the value of the '<em><b>Text</b></em>' attribute.

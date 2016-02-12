@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Collection#getObj <em>Obj</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Collection#getHtmltype <em>Htmltype</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Collection#getObjectRule <em>Object Rule</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCollection()
@@ -40,5 +42,57 @@ public interface Collection extends EObject
    * @generated
    */
   EList<org.xtext.example.mydsl.myDsl.Object> getObj();
+
+  /**
+   * Returns the value of the '<em><b>Htmltype</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Htmltype</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Htmltype</em>' containment reference.
+   * @see #setHtmltype(HTMLTYPE)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCollection_Htmltype()
+   * @model containment="true"
+   * @generated
+   */
+  HTMLTYPE getHtmltype();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Collection#getHtmltype <em>Htmltype</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Htmltype</em>' containment reference.
+   * @see #getHtmltype()
+   * @generated
+   */
+  void setHtmltype(HTMLTYPE value);
+
+  /**
+   * Returns the value of the '<em><b>Object Rule</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Object Rule</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Object Rule</em>' attribute.
+   * @see #setObjectRule(String)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCollection_ObjectRule()
+   * @model
+   * @generated
+   */
+  String getObjectRule();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Collection#getObjectRule <em>Object Rule</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Object Rule</em>' attribute.
+   * @see #getObjectRule()
+   * @generated
+   */
+  void setObjectRule(String value);
 
 } // Collection

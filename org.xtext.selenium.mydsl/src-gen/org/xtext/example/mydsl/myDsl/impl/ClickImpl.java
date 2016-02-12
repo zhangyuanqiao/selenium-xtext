@@ -4,8 +4,10 @@
 package org.xtext.example.mydsl.myDsl.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -20,7 +22,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ClickImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ClickImpl#getObject <em>Object</em>}</li>
  * </ul>
  *
  * @generated
@@ -28,24 +30,14 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
 public class ClickImpl extends ActionImpl implements Click
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getObject() <em>Object</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getObject()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected org.xtext.example.mydsl.myDsl.Object object;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,9 +65,9 @@ public class ClickImpl extends ActionImpl implements Click
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public org.xtext.example.mydsl.myDsl.Object getObject()
   {
-    return name;
+    return object;
   }
 
   /**
@@ -83,12 +75,53 @@ public class ClickImpl extends ActionImpl implements Click
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public NotificationChain basicSetObject(org.xtext.example.mydsl.myDsl.Object newObject, NotificationChain msgs)
   {
-    String oldName = name;
-    name = newName;
+    org.xtext.example.mydsl.myDsl.Object oldObject = object;
+    object = newObject;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.CLICK__NAME, oldName, name));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.CLICK__OBJECT, oldObject, newObject);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setObject(org.xtext.example.mydsl.myDsl.Object newObject)
+  {
+    if (newObject != object)
+    {
+      NotificationChain msgs = null;
+      if (object != null)
+        msgs = ((InternalEObject)object).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.CLICK__OBJECT, null, msgs);
+      if (newObject != null)
+        msgs = ((InternalEObject)newObject).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.CLICK__OBJECT, null, msgs);
+      msgs = basicSetObject(newObject, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.CLICK__OBJECT, newObject, newObject));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case MyDslPackage.CLICK__OBJECT:
+        return basicSetObject(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -101,8 +134,8 @@ public class ClickImpl extends ActionImpl implements Click
   {
     switch (featureID)
     {
-      case MyDslPackage.CLICK__NAME:
-        return getName();
+      case MyDslPackage.CLICK__OBJECT:
+        return getObject();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,8 +150,8 @@ public class ClickImpl extends ActionImpl implements Click
   {
     switch (featureID)
     {
-      case MyDslPackage.CLICK__NAME:
-        setName((String)newValue);
+      case MyDslPackage.CLICK__OBJECT:
+        setObject((org.xtext.example.mydsl.myDsl.Object)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +167,8 @@ public class ClickImpl extends ActionImpl implements Click
   {
     switch (featureID)
     {
-      case MyDslPackage.CLICK__NAME:
-        setName(NAME_EDEFAULT);
+      case MyDslPackage.CLICK__OBJECT:
+        setObject((org.xtext.example.mydsl.myDsl.Object)null);
         return;
     }
     super.eUnset(featureID);
@@ -151,27 +184,10 @@ public class ClickImpl extends ActionImpl implements Click
   {
     switch (featureID)
     {
-      case MyDslPackage.CLICK__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case MyDslPackage.CLICK__OBJECT:
+        return object != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //ClickImpl

@@ -182,6 +182,7 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         ReDefine reDefine = (ReDefine)theEObject;
         T result = caseReDefine(reDefine);
+        if (result == null) result = caseAction(reDefine);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -189,6 +190,7 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         Delete delete = (Delete)theEObject;
         T result = caseDelete(delete);
+        if (result == null) result = caseAction(delete);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

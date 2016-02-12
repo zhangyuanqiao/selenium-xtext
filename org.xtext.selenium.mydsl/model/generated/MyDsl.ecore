@@ -11,10 +11,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="Structure"/>
   <eClassifiers xsi:type="ecore:EClass" name="Condition"/>
   <eClassifiers xsi:type="ecore:EClass" name="Object">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="objName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="htmltype" eType="#//HTMLTYPE"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="objectName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="objectDef" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HTMLTYPE">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -22,6 +22,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="Collection">
     <eStructuralFeatures xsi:type="ecore:EReference" name="obj" upperBound="-1" eType="#//Object"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="htmltype" eType="#//HTMLTYPE"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="objectRule" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SubProcedure" eSuperTypes="#//Object">
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
@@ -36,12 +39,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="obj" eType="#//Object"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ReDefine">
+  <eClassifiers xsi:type="ecore:EClass" name="ReDefine" eSuperTypes="#//Action">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="objName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="obj" eType="#//Object"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Delete">
+  <eClassifiers xsi:type="ecore:EClass" name="Delete" eSuperTypes="#//Action">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="objName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActionSelect" eSuperTypes="#//Action">
@@ -49,7 +52,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="xpath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Click" eSuperTypes="#//Action">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="object" eType="#//Object"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Fill" eSuperTypes="#//Action">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nametag" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -66,6 +70,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="IsIn" eSuperTypes="#//Condition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="obj" eType="#//Object"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Not" eSuperTypes="#//Condition">

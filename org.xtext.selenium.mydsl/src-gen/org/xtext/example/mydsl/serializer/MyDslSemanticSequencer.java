@@ -164,15 +164,15 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Click returns Click
 	 *
 	 * Constraint:
-	 *     name=STRING
+	 *     object=Object
 	 */
 	protected void sequence_Click(ISerializationContext context, Click semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.CLICK__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.CLICK__NAME));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.CLICK__OBJECT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.CLICK__OBJECT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getClickAccess().getNameSTRINGTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getClickAccess().getObjectObjectParserRuleCall_1_0(), semanticObject.getObject());
 		feeder.finish();
 	}
 	
@@ -182,7 +182,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Collection returns Collection
 	 *
 	 * Constraint:
-	 *     obj+=Object
+	 *     (obj+=Object+ | (htmltype=HTMLTYPE objectRule=STRING))
 	 */
 	protected void sequence_Collection(ISerializationContext context, Collection semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -191,6 +191,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Action returns Delete
 	 *     Delete returns Delete
 	 *
 	 * Constraint:
@@ -286,6 +287,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *
 	 * Constraint:
 	 *     (
+	 *         type='guess' | 
 	 *         type='title' | 
 	 *         type='class' | 
 	 *         type='id' | 
@@ -318,19 +320,10 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     IsIn returns IsIn
 	 *
 	 * Constraint:
-	 *     (obj=Object text=STRING)
+	 *     ((obj=Object | body='body') text=STRING)
 	 */
 	protected void sequence_IsIn(ISerializationContext context, IsIn semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.IS_IN__OBJ) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.IS_IN__OBJ));
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.IS_IN__TEXT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.IS_IN__TEXT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getIsInAccess().getObjObjectParserRuleCall_0_0(), semanticObject.getObj());
-		feeder.accept(grammarAccess.getIsInAccess().getTextSTRINGTerminalRuleCall_2_0(), semanticObject.getText());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -402,7 +395,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Object returns Object
 	 *
 	 * Constraint:
-	 *     (body='body' | (htmltype=HTMLTYPE objectName=STRING))
+	 *     (objName=STRING | (htmltype=HTMLTYPE objectDef=STRING))
 	 */
 	protected void sequence_Object(ISerializationContext context, org.xtext.example.mydsl.myDsl.Object semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -411,6 +404,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Action returns ReDefine
 	 *     ReDefine returns ReDefine
 	 *
 	 * Constraint:

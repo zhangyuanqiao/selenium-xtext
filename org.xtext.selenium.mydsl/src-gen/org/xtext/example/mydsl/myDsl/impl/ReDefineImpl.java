@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.ReDefine;
@@ -29,7 +28,7 @@ import org.xtext.example.mydsl.myDsl.ReDefine;
  *
  * @generated
  */
-public class ReDefineImpl extends MinimalEObjectImpl.Container implements ReDefine
+public class ReDefineImpl extends ActionImpl implements ReDefine
 {
   /**
    * The default value of the '{@link #getObjName() <em>Obj Name</em>}' attribute.

@@ -3,6 +3,7 @@
  */
 package org.xtext.example.mydsl.myDsl.impl;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -10,12 +11,14 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.mydsl.myDsl.Collection;
+import org.xtext.example.mydsl.myDsl.HTMLTYPE;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 
 /**
@@ -27,6 +30,8 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CollectionImpl#getObj <em>Obj</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CollectionImpl#getHtmltype <em>Htmltype</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CollectionImpl#getObjectRule <em>Object Rule</em>}</li>
  * </ul>
  *
  * @generated
@@ -42,6 +47,36 @@ public class CollectionImpl extends MinimalEObjectImpl.Container implements Coll
    * @ordered
    */
   protected EList<org.xtext.example.mydsl.myDsl.Object> obj;
+
+  /**
+   * The cached value of the '{@link #getHtmltype() <em>Htmltype</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getHtmltype()
+   * @generated
+   * @ordered
+   */
+  protected HTMLTYPE htmltype;
+
+  /**
+   * The default value of the '{@link #getObjectRule() <em>Object Rule</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getObjectRule()
+   * @generated
+   * @ordered
+   */
+  protected static final String OBJECT_RULE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getObjectRule() <em>Object Rule</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getObjectRule()
+   * @generated
+   * @ordered
+   */
+  protected String objectRule = OBJECT_RULE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -83,6 +118,77 @@ public class CollectionImpl extends MinimalEObjectImpl.Container implements Coll
    * <!-- end-user-doc -->
    * @generated
    */
+  public HTMLTYPE getHtmltype()
+  {
+    return htmltype;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetHtmltype(HTMLTYPE newHtmltype, NotificationChain msgs)
+  {
+    HTMLTYPE oldHtmltype = htmltype;
+    htmltype = newHtmltype;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.COLLECTION__HTMLTYPE, oldHtmltype, newHtmltype);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setHtmltype(HTMLTYPE newHtmltype)
+  {
+    if (newHtmltype != htmltype)
+    {
+      NotificationChain msgs = null;
+      if (htmltype != null)
+        msgs = ((InternalEObject)htmltype).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COLLECTION__HTMLTYPE, null, msgs);
+      if (newHtmltype != null)
+        msgs = ((InternalEObject)newHtmltype).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COLLECTION__HTMLTYPE, null, msgs);
+      msgs = basicSetHtmltype(newHtmltype, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.COLLECTION__HTMLTYPE, newHtmltype, newHtmltype));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getObjectRule()
+  {
+    return objectRule;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setObjectRule(String newObjectRule)
+  {
+    String oldObjectRule = objectRule;
+    objectRule = newObjectRule;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.COLLECTION__OBJECT_RULE, oldObjectRule, objectRule));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -90,6 +196,8 @@ public class CollectionImpl extends MinimalEObjectImpl.Container implements Coll
     {
       case MyDslPackage.COLLECTION__OBJ:
         return ((InternalEList<?>)getObj()).basicRemove(otherEnd, msgs);
+      case MyDslPackage.COLLECTION__HTMLTYPE:
+        return basicSetHtmltype(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -106,6 +214,10 @@ public class CollectionImpl extends MinimalEObjectImpl.Container implements Coll
     {
       case MyDslPackage.COLLECTION__OBJ:
         return getObj();
+      case MyDslPackage.COLLECTION__HTMLTYPE:
+        return getHtmltype();
+      case MyDslPackage.COLLECTION__OBJECT_RULE:
+        return getObjectRule();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -125,6 +237,12 @@ public class CollectionImpl extends MinimalEObjectImpl.Container implements Coll
         getObj().clear();
         getObj().addAll((java.util.Collection<? extends org.xtext.example.mydsl.myDsl.Object>)newValue);
         return;
+      case MyDslPackage.COLLECTION__HTMLTYPE:
+        setHtmltype((HTMLTYPE)newValue);
+        return;
+      case MyDslPackage.COLLECTION__OBJECT_RULE:
+        setObjectRule((String)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -142,6 +260,12 @@ public class CollectionImpl extends MinimalEObjectImpl.Container implements Coll
       case MyDslPackage.COLLECTION__OBJ:
         getObj().clear();
         return;
+      case MyDslPackage.COLLECTION__HTMLTYPE:
+        setHtmltype((HTMLTYPE)null);
+        return;
+      case MyDslPackage.COLLECTION__OBJECT_RULE:
+        setObjectRule(OBJECT_RULE_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -158,8 +282,29 @@ public class CollectionImpl extends MinimalEObjectImpl.Container implements Coll
     {
       case MyDslPackage.COLLECTION__OBJ:
         return obj != null && !obj.isEmpty();
+      case MyDslPackage.COLLECTION__HTMLTYPE:
+        return htmltype != null;
+      case MyDslPackage.COLLECTION__OBJECT_RULE:
+        return OBJECT_RULE_EDEFAULT == null ? objectRule != null : !OBJECT_RULE_EDEFAULT.equals(objectRule);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (objectRule: ");
+    result.append(objectRule);
+    result.append(')');
+    return result.toString();
   }
 
 } //CollectionImpl
