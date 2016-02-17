@@ -4,13 +4,16 @@
 package org.xtext.example.mydsl.myDsl.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.example.mydsl.myDsl.Execute;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
+import org.xtext.example.mydsl.myDsl.SubProcedure;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,6 +24,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExecuteImpl#getSubProcedureName <em>Sub Procedure Name</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExecuteImpl#getSubprocedure <em>Subprocedure</em>}</li>
  * </ul>
  *
  * @generated
@@ -46,6 +50,16 @@ public class ExecuteImpl extends StructureImpl implements Execute
    * @ordered
    */
   protected String subProcedureName = SUB_PROCEDURE_NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getSubprocedure() <em>Subprocedure</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSubprocedure()
+   * @generated
+   * @ordered
+   */
+  protected SubProcedure subprocedure;
 
   /**
    * <!-- begin-user-doc -->
@@ -96,6 +110,70 @@ public class ExecuteImpl extends StructureImpl implements Execute
    * <!-- end-user-doc -->
    * @generated
    */
+  public SubProcedure getSubprocedure()
+  {
+    return subprocedure;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSubprocedure(SubProcedure newSubprocedure, NotificationChain msgs)
+  {
+    SubProcedure oldSubprocedure = subprocedure;
+    subprocedure = newSubprocedure;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.EXECUTE__SUBPROCEDURE, oldSubprocedure, newSubprocedure);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSubprocedure(SubProcedure newSubprocedure)
+  {
+    if (newSubprocedure != subprocedure)
+    {
+      NotificationChain msgs = null;
+      if (subprocedure != null)
+        msgs = ((InternalEObject)subprocedure).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXECUTE__SUBPROCEDURE, null, msgs);
+      if (newSubprocedure != null)
+        msgs = ((InternalEObject)newSubprocedure).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXECUTE__SUBPROCEDURE, null, msgs);
+      msgs = basicSetSubprocedure(newSubprocedure, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.EXECUTE__SUBPROCEDURE, newSubprocedure, newSubprocedure));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case MyDslPackage.EXECUTE__SUBPROCEDURE:
+        return basicSetSubprocedure(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -103,6 +181,8 @@ public class ExecuteImpl extends StructureImpl implements Execute
     {
       case MyDslPackage.EXECUTE__SUB_PROCEDURE_NAME:
         return getSubProcedureName();
+      case MyDslPackage.EXECUTE__SUBPROCEDURE:
+        return getSubprocedure();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,6 +199,9 @@ public class ExecuteImpl extends StructureImpl implements Execute
     {
       case MyDslPackage.EXECUTE__SUB_PROCEDURE_NAME:
         setSubProcedureName((String)newValue);
+        return;
+      case MyDslPackage.EXECUTE__SUBPROCEDURE:
+        setSubprocedure((SubProcedure)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,6 +220,9 @@ public class ExecuteImpl extends StructureImpl implements Execute
       case MyDslPackage.EXECUTE__SUB_PROCEDURE_NAME:
         setSubProcedureName(SUB_PROCEDURE_NAME_EDEFAULT);
         return;
+      case MyDslPackage.EXECUTE__SUBPROCEDURE:
+        setSubprocedure((SubProcedure)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -153,6 +239,8 @@ public class ExecuteImpl extends StructureImpl implements Execute
     {
       case MyDslPackage.EXECUTE__SUB_PROCEDURE_NAME:
         return SUB_PROCEDURE_NAME_EDEFAULT == null ? subProcedureName != null : !SUB_PROCEDURE_NAME_EDEFAULT.equals(subProcedureName);
+      case MyDslPackage.EXECUTE__SUBPROCEDURE:
+        return subprocedure != null;
     }
     return super.eIsSet(featureID);
   }

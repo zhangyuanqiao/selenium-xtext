@@ -46,6 +46,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCheckBoxAccess().getNewValueAlternatives_2_1_0(), "rule__CheckBox__NewValueAlternatives_2_1_0");
 					put(grammarAccess.getIsInAccess().getAlternatives_0(), "rule__IsIn__Alternatives_0");
 					put(grammarAccess.getDoAllAccess().getTodoAlternatives_7_0(), "rule__DoAll__TodoAlternatives_7_0");
+					put(grammarAccess.getExecuteAccess().getAlternatives(), "rule__Execute__Alternatives");
 					put(grammarAccess.getMainAccess().getGroup(), "rule__Main__Group__0");
 					put(grammarAccess.getObjectAccess().getGroup_2(), "rule__Object__Group_2__0");
 					put(grammarAccess.getCollectionAccess().getGroup(), "rule__Collection__Group__0");
@@ -70,7 +71,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIfAccess().getGroup_8(), "rule__If__Group_8__0");
 					put(grammarAccess.getLoopAccess().getGroup(), "rule__Loop__Group__0");
 					put(grammarAccess.getDoAllAccess().getGroup(), "rule__DoAll__Group__0");
-					put(grammarAccess.getExecuteAccess().getGroup(), "rule__Execute__Group__0");
+					put(grammarAccess.getExecuteAccess().getGroup_0(), "rule__Execute__Group_0__0");
 					put(grammarAccess.getMainAccess().getFileNameAssignment_1(), "rule__Main__FileNameAssignment_1");
 					put(grammarAccess.getMainAccess().getBrowserNameAssignment_4(), "rule__Main__BrowserNameAssignment_4");
 					put(grammarAccess.getMainAccess().getOrdersAssignment_6(), "rule__Main__OrdersAssignment_6");
@@ -108,7 +109,8 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLoopAccess().getActionsAssignment_11(), "rule__Loop__ActionsAssignment_11");
 					put(grammarAccess.getDoAllAccess().getCollAssignment_3(), "rule__DoAll__CollAssignment_3");
 					put(grammarAccess.getDoAllAccess().getTodoAssignment_7(), "rule__DoAll__TodoAssignment_7");
-					put(grammarAccess.getExecuteAccess().getSubProcedureNameAssignment_1(), "rule__Execute__SubProcedureNameAssignment_1");
+					put(grammarAccess.getExecuteAccess().getSubProcedureNameAssignment_0_1(), "rule__Execute__SubProcedureNameAssignment_0_1");
+					put(grammarAccess.getExecuteAccess().getSubprocedureAssignment_1(), "rule__Execute__SubprocedureAssignment_1");
 				}
 			};
 		}

@@ -393,9 +393,9 @@ ruleObject returns [EObject current=null]
 	(
 		(
 			(
-				lv_objName_0_0=RULE_STRING
+				lv_objName_0_0=RULE_ID
 				{
-					newLeafNode(lv_objName_0_0, grammarAccess.getObjectAccess().getObjNameSTRINGTerminalRuleCall_0_0());
+					newLeafNode(lv_objName_0_0, grammarAccess.getObjectAccess().getObjNameIDTerminalRuleCall_0_0());
 				}
 				{
 					if ($current==null) {
@@ -405,7 +405,7 @@ ruleObject returns [EObject current=null]
 						$current,
 						"objName",
 						lv_objName_0_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
@@ -823,9 +823,9 @@ ruleStore returns [EObject current=null]
 		}
 		(
 			(
-				lv_objName_1_0=RULE_STRING
+				lv_objName_1_0=RULE_ID
 				{
-					newLeafNode(lv_objName_1_0, grammarAccess.getStoreAccess().getObjNameSTRINGTerminalRuleCall_1_0());
+					newLeafNode(lv_objName_1_0, grammarAccess.getStoreAccess().getObjNameIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -835,7 +835,7 @@ ruleStore returns [EObject current=null]
 						$current,
 						"objName",
 						lv_objName_1_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
@@ -887,9 +887,9 @@ ruleReDefine returns [EObject current=null]
 		}
 		(
 			(
-				lv_objName_1_0=RULE_STRING
+				lv_objName_1_0=RULE_ID
 				{
-					newLeafNode(lv_objName_1_0, grammarAccess.getReDefineAccess().getObjNameSTRINGTerminalRuleCall_1_0());
+					newLeafNode(lv_objName_1_0, grammarAccess.getReDefineAccess().getObjNameIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -899,7 +899,7 @@ ruleReDefine returns [EObject current=null]
 						$current,
 						"objName",
 						lv_objName_1_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
@@ -951,9 +951,9 @@ ruleDelete returns [EObject current=null]
 		}
 		(
 			(
-				lv_objName_1_0=RULE_STRING
+				lv_objName_1_0=RULE_ID
 				{
-					newLeafNode(lv_objName_1_0, grammarAccess.getDeleteAccess().getObjNameSTRINGTerminalRuleCall_1_0());
+					newLeafNode(lv_objName_1_0, grammarAccess.getDeleteAccess().getObjNameIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -963,7 +963,7 @@ ruleDelete returns [EObject current=null]
 						$current,
 						"objName",
 						lv_objName_1_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
@@ -1762,25 +1762,47 @@ ruleExecute returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='Execute'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getExecuteAccess().getExecuteKeyword_0());
-		}
+		(
+			otherlv_0='Execute'
+			{
+				newLeafNode(otherlv_0, grammarAccess.getExecuteAccess().getExecuteKeyword_0_0());
+			}
+			(
+				(
+					lv_subProcedureName_1_0=RULE_ID
+					{
+						newLeafNode(lv_subProcedureName_1_0, grammarAccess.getExecuteAccess().getSubProcedureNameIDTerminalRuleCall_0_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getExecuteRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"subProcedureName",
+							lv_subProcedureName_1_0,
+							"org.eclipse.xtext.common.Terminals.ID");
+					}
+				)
+			)
+		)
+		    |
 		(
 			(
-				lv_subProcedureName_1_0=RULE_STRING
 				{
-					newLeafNode(lv_subProcedureName_1_0, grammarAccess.getExecuteAccess().getSubProcedureNameSTRINGTerminalRuleCall_1_0());
+					newCompositeNode(grammarAccess.getExecuteAccess().getSubprocedureSubProcedureParserRuleCall_1_0());
 				}
+				lv_subprocedure_2_0=ruleSubProcedure
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getExecuteRule());
+						$current = createModelElementForParent(grammarAccess.getExecuteRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
-						"subProcedureName",
-						lv_subProcedureName_1_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
+						"subprocedure",
+						lv_subprocedure_2_0,
+						"org.xtext.example.mydsl.MyDsl.SubProcedure");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)

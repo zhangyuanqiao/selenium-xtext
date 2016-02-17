@@ -195,7 +195,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Delete returns Delete
 	 *
 	 * Constraint:
-	 *     objName=STRING
+	 *     objName=ID
 	 */
 	protected void sequence_Delete(ISerializationContext context, Delete semanticObject) {
 		if (errorAcceptor != null) {
@@ -203,7 +203,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.DELETE__OBJ_NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDeleteAccess().getObjNameSTRINGTerminalRuleCall_1_0(), semanticObject.getObjName());
+		feeder.accept(grammarAccess.getDeleteAccess().getObjNameIDTerminalRuleCall_1_0(), semanticObject.getObjName());
 		feeder.finish();
 	}
 	
@@ -246,16 +246,10 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Execute returns Execute
 	 *
 	 * Constraint:
-	 *     subProcedureName=STRING
+	 *     (subProcedureName=ID | subprocedure=SubProcedure)
 	 */
 	protected void sequence_Execute(ISerializationContext context, Execute semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.EXECUTE__SUB_PROCEDURE_NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.EXECUTE__SUB_PROCEDURE_NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExecuteAccess().getSubProcedureNameSTRINGTerminalRuleCall_1_0(), semanticObject.getSubProcedureName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -395,7 +389,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Object returns Object
 	 *
 	 * Constraint:
-	 *     (objName=STRING | (htmltype=HTMLTYPE objectDef=STRING))
+	 *     (objName=ID | (htmltype=HTMLTYPE objectDef=STRING))
 	 */
 	protected void sequence_Object(ISerializationContext context, org.xtext.example.mydsl.myDsl.Object semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -408,7 +402,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     ReDefine returns ReDefine
 	 *
 	 * Constraint:
-	 *     (objName=STRING obj=Object)
+	 *     (objName=ID obj=Object)
 	 */
 	protected void sequence_ReDefine(ISerializationContext context, ReDefine semanticObject) {
 		if (errorAcceptor != null) {
@@ -418,7 +412,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.RE_DEFINE__OBJ));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getReDefineAccess().getObjNameSTRINGTerminalRuleCall_1_0(), semanticObject.getObjName());
+		feeder.accept(grammarAccess.getReDefineAccess().getObjNameIDTerminalRuleCall_1_0(), semanticObject.getObjName());
 		feeder.accept(grammarAccess.getReDefineAccess().getObjObjectParserRuleCall_3_0(), semanticObject.getObj());
 		feeder.finish();
 	}
@@ -456,7 +450,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Store returns Store
 	 *
 	 * Constraint:
-	 *     (objName=STRING obj=Object)
+	 *     (objName=ID obj=Object)
 	 */
 	protected void sequence_Store(ISerializationContext context, Store semanticObject) {
 		if (errorAcceptor != null) {
@@ -466,7 +460,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.STORE__OBJ));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getStoreAccess().getObjNameSTRINGTerminalRuleCall_1_0(), semanticObject.getObjName());
+		feeder.accept(grammarAccess.getStoreAccess().getObjNameIDTerminalRuleCall_1_0(), semanticObject.getObjName());
 		feeder.accept(grammarAccess.getStoreAccess().getObjObjectParserRuleCall_3_0(), semanticObject.getObj());
 		feeder.finish();
 	}

@@ -665,9 +665,9 @@ ruleExecute
 	}
 	:
 	(
-		{ before(grammarAccess.getExecuteAccess().getGroup()); }
-		(rule__Execute__Group__0)
-		{ after(grammarAccess.getExecuteAccess().getGroup()); }
+		{ before(grammarAccess.getExecuteAccess().getAlternatives()); }
+		(rule__Execute__Alternatives)
+		{ after(grammarAccess.getExecuteAccess().getAlternatives()); }
 	)
 ;
 finally {
@@ -1001,6 +1001,27 @@ rule__DoAll__TodoAlternatives_7_0
 		{ before(grammarAccess.getDoAllAccess().getTodoStructureParserRuleCall_7_0_1()); }
 		ruleStructure
 		{ after(grammarAccess.getDoAllAccess().getTodoStructureParserRuleCall_7_0_1()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Execute__Alternatives
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getExecuteAccess().getGroup_0()); }
+		(rule__Execute__Group_0__0)
+		{ after(grammarAccess.getExecuteAccess().getGroup_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getExecuteAccess().getSubprocedureAssignment_1()); }
+		(rule__Execute__SubprocedureAssignment_1)
+		{ after(grammarAccess.getExecuteAccess().getSubprocedureAssignment_1()); }
 	)
 ;
 finally {
@@ -3653,53 +3674,53 @@ finally {
 }
 
 
-rule__Execute__Group__0
+rule__Execute__Group_0__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__Execute__Group__0__Impl
-	rule__Execute__Group__1
+	rule__Execute__Group_0__0__Impl
+	rule__Execute__Group_0__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Execute__Group__0__Impl
+rule__Execute__Group_0__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getExecuteAccess().getExecuteKeyword_0()); }
+	{ before(grammarAccess.getExecuteAccess().getExecuteKeyword_0_0()); }
 	'Execute'
-	{ after(grammarAccess.getExecuteAccess().getExecuteKeyword_0()); }
+	{ after(grammarAccess.getExecuteAccess().getExecuteKeyword_0_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Execute__Group__1
+rule__Execute__Group_0__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__Execute__Group__1__Impl
+	rule__Execute__Group_0__1__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Execute__Group__1__Impl
+rule__Execute__Group_0__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getExecuteAccess().getSubProcedureNameAssignment_1()); }
-	(rule__Execute__SubProcedureNameAssignment_1)
-	{ after(grammarAccess.getExecuteAccess().getSubProcedureNameAssignment_1()); }
+	{ before(grammarAccess.getExecuteAccess().getSubProcedureNameAssignment_0_1()); }
+	(rule__Execute__SubProcedureNameAssignment_0_1)
+	{ after(grammarAccess.getExecuteAccess().getSubProcedureNameAssignment_0_1()); }
 )
 ;
 finally {
@@ -3758,9 +3779,9 @@ rule__Object__ObjNameAssignment_0
 	}
 :
 	(
-		{ before(grammarAccess.getObjectAccess().getObjNameSTRINGTerminalRuleCall_0_0()); }
-		RULE_STRING
-		{ after(grammarAccess.getObjectAccess().getObjNameSTRINGTerminalRuleCall_0_0()); }
+		{ before(grammarAccess.getObjectAccess().getObjNameIDTerminalRuleCall_0_0()); }
+		RULE_ID
+		{ after(grammarAccess.getObjectAccess().getObjNameIDTerminalRuleCall_0_0()); }
 	)
 ;
 finally {
@@ -3893,9 +3914,9 @@ rule__Store__ObjNameAssignment_1
 	}
 :
 	(
-		{ before(grammarAccess.getStoreAccess().getObjNameSTRINGTerminalRuleCall_1_0()); }
-		RULE_STRING
-		{ after(grammarAccess.getStoreAccess().getObjNameSTRINGTerminalRuleCall_1_0()); }
+		{ before(grammarAccess.getStoreAccess().getObjNameIDTerminalRuleCall_1_0()); }
+		RULE_ID
+		{ after(grammarAccess.getStoreAccess().getObjNameIDTerminalRuleCall_1_0()); }
 	)
 ;
 finally {
@@ -3923,9 +3944,9 @@ rule__ReDefine__ObjNameAssignment_1
 	}
 :
 	(
-		{ before(grammarAccess.getReDefineAccess().getObjNameSTRINGTerminalRuleCall_1_0()); }
-		RULE_STRING
-		{ after(grammarAccess.getReDefineAccess().getObjNameSTRINGTerminalRuleCall_1_0()); }
+		{ before(grammarAccess.getReDefineAccess().getObjNameIDTerminalRuleCall_1_0()); }
+		RULE_ID
+		{ after(grammarAccess.getReDefineAccess().getObjNameIDTerminalRuleCall_1_0()); }
 	)
 ;
 finally {
@@ -3953,9 +3974,9 @@ rule__Delete__ObjNameAssignment_1
 	}
 :
 	(
-		{ before(grammarAccess.getDeleteAccess().getObjNameSTRINGTerminalRuleCall_1_0()); }
-		RULE_STRING
-		{ after(grammarAccess.getDeleteAccess().getObjNameSTRINGTerminalRuleCall_1_0()); }
+		{ before(grammarAccess.getDeleteAccess().getObjNameIDTerminalRuleCall_1_0()); }
+		RULE_ID
+		{ after(grammarAccess.getDeleteAccess().getObjNameIDTerminalRuleCall_1_0()); }
 	)
 ;
 finally {
@@ -4266,15 +4287,30 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Execute__SubProcedureNameAssignment_1
+rule__Execute__SubProcedureNameAssignment_0_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getExecuteAccess().getSubProcedureNameSTRINGTerminalRuleCall_1_0()); }
-		RULE_STRING
-		{ after(grammarAccess.getExecuteAccess().getSubProcedureNameSTRINGTerminalRuleCall_1_0()); }
+		{ before(grammarAccess.getExecuteAccess().getSubProcedureNameIDTerminalRuleCall_0_1_0()); }
+		RULE_ID
+		{ after(grammarAccess.getExecuteAccess().getSubProcedureNameIDTerminalRuleCall_0_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Execute__SubprocedureAssignment_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getExecuteAccess().getSubprocedureSubProcedureParserRuleCall_1_0()); }
+		ruleSubProcedure
+		{ after(grammarAccess.getExecuteAccess().getSubprocedureSubProcedureParserRuleCall_1_0()); }
 	)
 ;
 finally {

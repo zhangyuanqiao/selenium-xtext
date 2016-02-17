@@ -21,7 +21,7 @@ Condition : (IsIn|Not) ;
 
 //OBJECTS
 
-Object : objName=STRING | SubProcedure| (htmltype=HTMLTYPE objectDef=STRING); 
+Object : objName=ID | SubProcedure| (htmltype=HTMLTYPE objectDef=STRING); 
 //URL should be added, but it would clash with guess
 //Collection should be added
 
@@ -37,11 +37,11 @@ Refresh: {Refresh}'Refresh';
 	
 Navigate : 'Navigate' url=STRING; //object should be added as url should be objects
 
-Store : 'var' objName=STRING '=' obj=Object ;
+Store : 'var' objName=ID '=' obj=Object ;
 
-ReDefine : 'Redefine' objName=STRING 'as' obj=Object ;	
+ReDefine : 'Redefine' objName=ID 'as' obj=Object ;	
 
-Delete : 'Delete' objName=STRING;
+Delete : 'Delete' objName=ID;
 
 ActionSelect : 'Select' option=STRING 'from' xpath=STRING;
 
@@ -90,6 +90,6 @@ DoAll :
 ;
 
 
-Execute : 'Execute' subProcedureName=STRING
+Execute : 'Execute' subProcedureName=ID | subprocedure=SubProcedure
 ;
 

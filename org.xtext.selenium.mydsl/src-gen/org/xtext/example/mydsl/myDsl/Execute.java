@@ -14,6 +14,7 @@ package org.xtext.example.mydsl.myDsl;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Execute#getSubProcedureName <em>Sub Procedure Name</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Execute#getSubprocedure <em>Subprocedure</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getExecute()
@@ -47,5 +48,31 @@ public interface Execute extends Structure
    * @generated
    */
   void setSubProcedureName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Subprocedure</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Subprocedure</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Subprocedure</em>' containment reference.
+   * @see #setSubprocedure(SubProcedure)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getExecute_Subprocedure()
+   * @model containment="true"
+   * @generated
+   */
+  SubProcedure getSubprocedure();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Execute#getSubprocedure <em>Subprocedure</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Subprocedure</em>' containment reference.
+   * @see #getSubprocedure()
+   * @generated
+   */
+  void setSubprocedure(SubProcedure value);
 
 } // Execute

@@ -917,6 +917,16 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getExecute_Subprocedure()
+  {
+    return (EReference)executeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public MyDslFactory getMyDslFactory()
   {
     return (MyDslFactory)getEFactoryInstance();
@@ -1029,6 +1039,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     executeEClass = createEClass(EXECUTE);
     createEAttribute(executeEClass, EXECUTE__SUB_PROCEDURE_NAME);
+    createEReference(executeEClass, EXECUTE__SUBPROCEDURE);
   }
 
   /**
@@ -1167,6 +1178,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     initEClass(executeEClass, Execute.class, "Execute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getExecute_SubProcedureName(), ecorePackage.getEString(), "subProcedureName", null, 0, 1, Execute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExecute_Subprocedure(), this.getSubProcedure(), null, "subprocedure", null, 0, 1, Execute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

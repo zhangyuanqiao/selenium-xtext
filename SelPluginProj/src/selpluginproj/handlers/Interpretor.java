@@ -127,7 +127,8 @@ public class Interpretor {
 		}
 
 		else if (e instanceof Execute){
-			executeSubProcedure(((Execute)e).getSubProcedureName());
+
+			execute(e);
 		}
 
 	}
@@ -190,7 +191,7 @@ public class Interpretor {
 		else OBJECTS_MEMORY.redefine(e.getObjName(), we);
 	}
 
-	
+
 	private static void select(ActionSelect actionSelect) {
 		try{
 
@@ -248,11 +249,13 @@ public class Interpretor {
 	 * @param millisec
 	 */
 	private void waitFor(int millisec) {
-		// TODO 
-
+		try {
+			Thread.sleep(millisec);
+		} catch (InterruptedException e) {
+			System.out.println("For some reason I don't feel sleepy");
+			e.printStackTrace();
+		}
 	}
-
-
 
 	/////////////// CONDITIONS ///////////////////
 
@@ -269,7 +272,7 @@ public class Interpretor {
 		String text = i.getText();
 		if(i.getBody().equals("body")){
 			try {
-				
+
 				SEL_DRIVER.findElement(By.xpath("//*[contains(., '"+text+"')]"));
 				return true;
 			} catch (Exception e) {
@@ -298,11 +301,9 @@ public class Interpretor {
 
 	private void structureIf(Condition cond, EList<Action> actionThen, EList<Action> actionElse) {
 		if(eval(cond)){
-			System.out.println("Then ! ");
 			for(Action e : actionThen){execute(e);}
 		}
 		else{
-			System.out.println("Else ! ");
 			for(Action e : actionElse){execute(e);}
 		}
 	}
@@ -318,11 +319,11 @@ public class Interpretor {
 		while(eval(cond)){
 			for(Action a : actions){
 				execute(a);
-				
+
 			}
 			waitFor(milliseconds);
 		}
-		
+
 
 	}
 
@@ -340,15 +341,26 @@ public class Interpretor {
 	 * Gets subProcedure by its name and execute all actions and structures in it
 	 * @param subProcedureName
 	 */
-	private void executeSubProcedure(String subProcedureName) {
-		SubProcedure sp = OBJECTS_MEMORY.getSubProcedure(subProcedureName);
-		if(sp!=null && sp instanceof SubProcedure){
-			for(EObject e : sp.getActions()){
-				execute(e);
+	private void executeSubProcedure(Execute execute) {
+
+
+
+		String subProcedureName = execute.getSubProcedureName();
+		if(subProcedureName!=null){
+			SubProcedure sp = OBJECTS_MEMORY.getSubProcedure(subProcedureName);
+			if(sp!=null && sp instanceof SubProcedure){
+				for(EObject e : sp.getActions()){
+					execute(e);
+				}
+			}
+			else{
+				System.out.println("Procedure "+subProcedureName+" is not defined or is not a procedure.");
 			}
 		}
 		else{
-			System.out.println("Procedure "+subProcedureName+" is not defined or is not a procedure.");
+			for(EObject e : execute.getSubprocedure().getActions()){
+				execute(e);
+			}
 		}
 
 	}
@@ -371,8 +383,8 @@ public class Interpretor {
 		return false;
 
 	}
-	
-	
+
+
 
 	private static WebElement findObject(Object obj) {
 		if(obj.getObjName()!=null){ //memorized
@@ -389,7 +401,7 @@ public class Interpretor {
 			case "title":		return null; //TODO flemme
 			default: System.out.println("Did not recognize this type of object"); return null;
 			}
-			
+
 		}
 		System.out.println("You make no sense... did you try to call a procedure instead of an element ?");
 		return null;

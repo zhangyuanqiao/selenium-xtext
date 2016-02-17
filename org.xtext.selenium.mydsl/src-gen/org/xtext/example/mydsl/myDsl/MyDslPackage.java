@@ -893,13 +893,22 @@ public interface MyDslPackage extends EPackage
   int EXECUTE__SUB_PROCEDURE_NAME = STRUCTURE_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Subprocedure</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXECUTE__SUBPROCEDURE = STRUCTURE_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Execute</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXECUTE_FEATURE_COUNT = STRUCTURE_FEATURE_COUNT + 1;
+  int EXECUTE_FEATURE_COUNT = STRUCTURE_FEATURE_COUNT + 2;
 
 
   /**
@@ -1571,6 +1580,17 @@ public interface MyDslPackage extends EPackage
   EAttribute getExecute_SubProcedureName();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Execute#getSubprocedure <em>Subprocedure</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Subprocedure</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Execute#getSubprocedure()
+   * @see #getExecute()
+   * @generated
+   */
+  EReference getExecute_Subprocedure();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2146,6 +2166,14 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EAttribute EXECUTE__SUB_PROCEDURE_NAME = eINSTANCE.getExecute_SubProcedureName();
+
+    /**
+     * The meta object literal for the '<em><b>Subprocedure</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXECUTE__SUBPROCEDURE = eINSTANCE.getExecute_Subprocedure();
 
   }
 
