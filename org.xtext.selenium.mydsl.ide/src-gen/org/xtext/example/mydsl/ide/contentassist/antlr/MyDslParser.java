@@ -37,6 +37,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getMainAccess().getOrdersAlternatives_6_0(), "rule__Main__OrdersAlternatives_6_0");
 					put(grammarAccess.getActionAccess().getAlternatives(), "rule__Action__Alternatives");
+					put(grammarAccess.getActionWithObjectAccess().getAlternatives_0(), "rule__ActionWithObject__Alternatives_0");
 					put(grammarAccess.getStructureAccess().getAlternatives(), "rule__Structure__Alternatives");
 					put(grammarAccess.getConditionAccess().getAlternatives(), "rule__Condition__Alternatives");
 					put(grammarAccess.getObjectAccess().getAlternatives(), "rule__Object__Alternatives");
@@ -48,6 +49,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDoAllAccess().getTodoAlternatives_7_0(), "rule__DoAll__TodoAlternatives_7_0");
 					put(grammarAccess.getExecuteAccess().getAlternatives(), "rule__Execute__Alternatives");
 					put(grammarAccess.getMainAccess().getGroup(), "rule__Main__Group__0");
+					put(grammarAccess.getActionWithObjectAccess().getGroup(), "rule__ActionWithObject__Group__0");
 					put(grammarAccess.getObjectAccess().getGroup_2(), "rule__Object__Group_2__0");
 					put(grammarAccess.getCollectionAccess().getGroup(), "rule__Collection__Group__0");
 					put(grammarAccess.getCollectionAccess().getGroup_1_0(), "rule__Collection__Group_1_0__0");
@@ -75,6 +77,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMainAccess().getFileNameAssignment_1(), "rule__Main__FileNameAssignment_1");
 					put(grammarAccess.getMainAccess().getBrowserNameAssignment_4(), "rule__Main__BrowserNameAssignment_4");
 					put(grammarAccess.getMainAccess().getOrdersAssignment_6(), "rule__Main__OrdersAssignment_6");
+					put(grammarAccess.getActionWithObjectAccess().getObjectAssignment_1(), "rule__ActionWithObject__ObjectAssignment_1");
 					put(grammarAccess.getObjectAccess().getObjNameAssignment_0(), "rule__Object__ObjNameAssignment_0");
 					put(grammarAccess.getObjectAccess().getHtmltypeAssignment_2_0(), "rule__Object__HtmltypeAssignment_2_0");
 					put(grammarAccess.getObjectAccess().getObjectDefAssignment_2_1(), "rule__Object__ObjectDefAssignment_2_1");
@@ -91,9 +94,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDeleteAccess().getObjNameAssignment_1(), "rule__Delete__ObjNameAssignment_1");
 					put(grammarAccess.getActionSelectAccess().getOptionAssignment_1(), "rule__ActionSelect__OptionAssignment_1");
 					put(grammarAccess.getActionSelectAccess().getXpathAssignment_3(), "rule__ActionSelect__XpathAssignment_3");
-					put(grammarAccess.getClickAccess().getObjectAssignment_1(), "rule__Click__ObjectAssignment_1");
-					put(grammarAccess.getFillAccess().getNametagAssignment_1(), "rule__Fill__NametagAssignment_1");
-					put(grammarAccess.getFillAccess().getContentAssignment_3(), "rule__Fill__ContentAssignment_3");
+					put(grammarAccess.getFillAccess().getContentAssignment_1(), "rule__Fill__ContentAssignment_1");
 					put(grammarAccess.getCheckBoxAccess().getNametagAssignment_1(), "rule__CheckBox__NametagAssignment_1");
 					put(grammarAccess.getCheckBoxAccess().getNewValueAssignment_2_1(), "rule__CheckBox__NewValueAssignment_2_1");
 					put(grammarAccess.getDoWaitAccess().getMillisecAssignment_2(), "rule__DoWait__MillisecAssignment_2");

@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.util.Switch;
 
 import org.xtext.example.mydsl.myDsl.Action;
 import org.xtext.example.mydsl.myDsl.ActionSelect;
+import org.xtext.example.mydsl.myDsl.ActionWithObject;
 import org.xtext.example.mydsl.myDsl.CheckBox;
 import org.xtext.example.mydsl.myDsl.Click;
 import org.xtext.example.mydsl.myDsl.Collection;
@@ -111,6 +112,14 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MyDslPackage.ACTION_WITH_OBJECT:
+      {
+        ActionWithObject actionWithObject = (ActionWithObject)theEObject;
+        T result = caseActionWithObject(actionWithObject);
+        if (result == null) result = caseAction(actionWithObject);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MyDslPackage.STRUCTURE:
       {
         Structure structure = (Structure)theEObject;
@@ -206,6 +215,7 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         Click click = (Click)theEObject;
         T result = caseClick(click);
+        if (result == null) result = caseActionWithObject(click);
         if (result == null) result = caseAction(click);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -214,6 +224,7 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         Fill fill = (Fill)theEObject;
         T result = caseFill(fill);
+        if (result == null) result = caseActionWithObject(fill);
         if (result == null) result = caseAction(fill);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -322,6 +333,22 @@ public class MyDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAction(Action object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Action With Object</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Action With Object</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseActionWithObject(ActionWithObject object)
   {
     return null;
   }

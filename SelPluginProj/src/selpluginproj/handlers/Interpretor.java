@@ -12,6 +12,8 @@ import org.openqa.selenium.By.ByLinkText;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.xtext.example.mydsl.myDsl.*;
 import org.xtext.example.mydsl.myDsl.Object;
+import org.xtext.example.mydsl.myDsl.impl.ObjectImpl;
+import org.xtext.example.mydsl.services.MyDslGrammarAccess.ObjectElements;
 
 import selpluginproj.memory.ObjectsMemory;
 
@@ -83,12 +85,9 @@ public class Interpretor {
 			select((ActionSelect)e);
 		}
 
-		else if(e instanceof Click){
-			click(((Click)e).getObject());
-		}
-
-		else if(e instanceof Fill){
-			fillWith(((Fill)e).getNametag(), ((Fill)e).getContent());
+		else if(e instanceof ActionWithObject){
+			ActionWithObject awo = (ActionWithObject)e;
+			execute(awo.getObject(),awo);
 		}
 
 		else if(e instanceof CheckBox){
@@ -128,7 +127,7 @@ public class Interpretor {
 
 		else if (e instanceof Execute){
 
-			execute(e);
+			executeSubProcedure((Execute)e);
 		}
 
 	}
@@ -140,6 +139,22 @@ public class Interpretor {
 
 	/////////////////////////////////  ACTIONS  /////////////////////////////////////
 
+	/**
+	 * Executes ActionWithObject
+	 * @param object
+	 * @param action
+	 */
+	private void execute(Object object, ActionWithObject action) {
+		if(action instanceof Click){
+			System.out.println("clicking "+object.toString());
+			click(object);
+		}
+
+		else if(action instanceof Fill){
+			fillWith(object,((Fill)action).getContent());
+		}
+
+	}
 
 	private void refresh() {SEL_DRIVER.get(SEL_DRIVER.getCurrentUrl());}
 
@@ -210,7 +225,7 @@ public class Interpretor {
 	private static void click(Object object) {findObject(object).click();}
 
 
-	private static void fillWith(String field,String value){ fineElementFinder(field).sendKeys(value);}
+	private static void fillWith(Object obj,String content){ findObject(obj).sendKeys(content);}
 
 	private static void tickBox(CheckBox checkBox) {
 		WebElement element = null;
@@ -333,18 +348,49 @@ public class Interpretor {
 	 * @param todo
 	 */
 	private void structureDoAll(Collection coll, EList<EObject> todo) {
-		// TODO Auto-generated method stub
+		if(coll.getObj()!=null){
+			for(Object o : coll.getObj()){
+				for(EObject action : todo){
+					if(ActionWithObject.class.isAssignableFrom(action.getClass())) {
+						ActionWithObject awo = (ActionWithObject)action;
+						awo.setObject(o);
+						execute(awo);
+					}
+					else{
+						execute(action);
+					}
+				}		
+			}
+		}
+
+		else{ 
+			
+			List<WebElement> list = findCollection(coll);
+			for(WebElement we : list){
+				for(EObject action: todo){
+					if(ActionWithObject.class.isAssignableFrom(action.getClass())) {
+						ActionWithObject awo = (ActionWithObject)action;				
+					//	awo.setObject(); //TODO set awo object with a web element...
+						execute(awo);
+					}
+					else{
+						execute(action);
+					}
+				}
+			}
+
+
+
+		}
 
 	}
+
 
 	/**
 	 * Gets subProcedure by its name and execute all actions and structures in it
 	 * @param subProcedureName
 	 */
 	private void executeSubProcedure(Execute execute) {
-
-
-
 		String subProcedureName = execute.getSubProcedureName();
 		if(subProcedureName!=null){
 			SubProcedure sp = OBJECTS_MEMORY.getSubProcedure(subProcedureName);
@@ -398,7 +444,9 @@ public class Interpretor {
 			case "XPath": 		return SEL_DRIVER.findElement(By.xpath(obj.getObjectDef())); 
 			case "id" : 		return SEL_DRIVER.findElement(By.id(obj.getObjectDef()));
 			case "name":		return SEL_DRIVER.findElement(By.name(obj.getObjectDef()));
-			case "title":		return null; //TODO flemme
+			case "title":		return null; 
+			case "class":		return SEL_DRIVER.findElement(By.xpath("//*[contains(@class, '"+obj.getObjectDef()+"')]"));
+			//TODO vérifier s'il en manque
 			default: System.out.println("Did not recognize this type of object"); return null;
 			}
 
@@ -410,22 +458,18 @@ public class Interpretor {
 	}
 
 	private static List<WebElement> findCollection(Collection coll){
-		if(coll.getHtmltype().toString().equals("null")){
-			//TODO for each in getobj...
-			return null;
+
+		System.out.println(coll.getHtmltype().toString());
+		switch (coll.getHtmltype().toString()) {
+		case "CSS Selector":return SEL_DRIVER.findElements(By.cssSelector(coll.getObjectRule()));
+		case "XPath":		return SEL_DRIVER.findElements(By.xpath(coll.getObjectRule())); 
+		case "id" :		 	return SEL_DRIVER.findElements(By.id(coll.getObjectRule()));
+		case "name":		return SEL_DRIVER.findElements(By.name(coll.getObjectRule()));
+		case "title":		return null; //TODO flemme
+		default: System.out.println("Did not recognize this type of object"); break;
 		}
-		else{
-			System.out.println(coll.getHtmltype().toString());
-			switch (coll.getHtmltype().toString()) {
-			case "CSS Selector":return SEL_DRIVER.findElements(By.cssSelector(coll.getObjectRule()));
-			case "XPath":		return SEL_DRIVER.findElements(By.xpath(coll.getObjectRule())); 
-			case "id" :		 	return SEL_DRIVER.findElements(By.id(coll.getObjectRule()));
-			case "name":		return SEL_DRIVER.findElements(By.name(coll.getObjectRule()));
-			case "title":		return null; //TODO flemme
-			default: System.out.println("Did not recognize this type of object"); break;
-			}
-			return null;
-		}
+		return null;
+
 
 	}
 

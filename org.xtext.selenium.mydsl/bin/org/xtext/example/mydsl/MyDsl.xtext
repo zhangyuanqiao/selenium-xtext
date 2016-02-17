@@ -10,13 +10,13 @@ Main :
 	orders+=(Action|Structure)*
 ;
 
-Action : Navigate|Click|Fill|CheckBox|Refresh|ActionSelect|Store|ReDefine|Delete|Rickroll|DoWait;
+Action : Navigate|Refresh|ActionSelect|Rickroll|DoWait|Store|ReDefine|Delete|ActionWithObject|CheckBox;
 
-Structure : If | Loop |DoAll | Execute ;
+ActionWithObject: (Click|Fill) object=Object;
+
+Structure : If|Loop|DoAll|Execute ;
 
 Condition : (IsIn|Not) ;
-
-
 
 
 //OBJECTS
@@ -25,11 +25,13 @@ Object : objName=ID | SubProcedure| (htmltype=HTMLTYPE objectDef=STRING);
 //URL should be added, but it would clash with guess
 //Collection should be added
 
-HTMLTYPE : type=('guess'|'title'|'class'|'id'|'name'|'CSS Selector'|'XPath');
+HTMLTYPE : type=('guess'|'nameTag'|'class'|'id'|'name'|'CSS Selector'|'XPath');
 
 Collection : 'Collection' ( '{'obj+=Object*'}'  |  ( 'of' 'all' htmltype=HTMLTYPE objectRule=STRING));
 
 SubProcedure : 'Subprocedure' '{' actions+=(Action|Structure)* '}';
+
+
 
 //ACTIONS
 
@@ -45,9 +47,9 @@ Delete : 'Delete' objName=ID;
 
 ActionSelect : 'Select' option=STRING 'from' xpath=STRING;
 
-Click : 'Click' object=Object;
+Click :{Click} 'Click';
 	
-Fill : 'Fill' nametag=STRING 'with' content=STRING;
+Fill : 'Write' content=STRING 'inside' ;
 	
 CheckBox : 'CheckBox' nametag=STRING ('to' newValue=('true'|'false'))?;
 

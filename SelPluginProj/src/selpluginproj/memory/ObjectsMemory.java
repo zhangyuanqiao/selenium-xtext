@@ -49,7 +49,5 @@ public class ObjectsMemory  {
 		subprocedures.remove(key);
 		return ret;
 	}
-	
-	
 
 }

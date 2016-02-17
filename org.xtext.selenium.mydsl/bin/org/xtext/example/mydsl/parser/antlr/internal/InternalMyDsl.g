@@ -194,94 +194,142 @@ ruleAction returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getActionAccess().getClickParserRuleCall_1());
+			newCompositeNode(grammarAccess.getActionAccess().getRefreshParserRuleCall_1());
 		}
-		this_Click_1=ruleClick
+		this_Refresh_1=ruleRefresh
 		{
-			$current = $this_Click_1.current;
+			$current = $this_Refresh_1.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getActionAccess().getFillParserRuleCall_2());
+			newCompositeNode(grammarAccess.getActionAccess().getActionSelectParserRuleCall_2());
 		}
-		this_Fill_2=ruleFill
+		this_ActionSelect_2=ruleActionSelect
 		{
-			$current = $this_Fill_2.current;
+			$current = $this_ActionSelect_2.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getActionAccess().getCheckBoxParserRuleCall_3());
+			newCompositeNode(grammarAccess.getActionAccess().getRickrollParserRuleCall_3());
 		}
-		this_CheckBox_3=ruleCheckBox
+		this_Rickroll_3=ruleRickroll
 		{
-			$current = $this_CheckBox_3.current;
+			$current = $this_Rickroll_3.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getActionAccess().getRefreshParserRuleCall_4());
+			newCompositeNode(grammarAccess.getActionAccess().getDoWaitParserRuleCall_4());
 		}
-		this_Refresh_4=ruleRefresh
+		this_DoWait_4=ruleDoWait
 		{
-			$current = $this_Refresh_4.current;
+			$current = $this_DoWait_4.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getActionAccess().getActionSelectParserRuleCall_5());
+			newCompositeNode(grammarAccess.getActionAccess().getStoreParserRuleCall_5());
 		}
-		this_ActionSelect_5=ruleActionSelect
+		this_Store_5=ruleStore
 		{
-			$current = $this_ActionSelect_5.current;
+			$current = $this_Store_5.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getActionAccess().getStoreParserRuleCall_6());
+			newCompositeNode(grammarAccess.getActionAccess().getReDefineParserRuleCall_6());
 		}
-		this_Store_6=ruleStore
+		this_ReDefine_6=ruleReDefine
 		{
-			$current = $this_Store_6.current;
+			$current = $this_ReDefine_6.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getActionAccess().getReDefineParserRuleCall_7());
+			newCompositeNode(grammarAccess.getActionAccess().getDeleteParserRuleCall_7());
 		}
-		this_ReDefine_7=ruleReDefine
+		this_Delete_7=ruleDelete
 		{
-			$current = $this_ReDefine_7.current;
+			$current = $this_Delete_7.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getActionAccess().getDeleteParserRuleCall_8());
+			newCompositeNode(grammarAccess.getActionAccess().getActionWithObjectParserRuleCall_8());
 		}
-		this_Delete_8=ruleDelete
+		this_ActionWithObject_8=ruleActionWithObject
 		{
-			$current = $this_Delete_8.current;
+			$current = $this_ActionWithObject_8.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getActionAccess().getRickrollParserRuleCall_9());
+			newCompositeNode(grammarAccess.getActionAccess().getCheckBoxParserRuleCall_9());
 		}
-		this_Rickroll_9=ruleRickroll
+		this_CheckBox_9=ruleCheckBox
 		{
-			$current = $this_Rickroll_9.current;
+			$current = $this_CheckBox_9.current;
 			afterParserOrEnumRuleCall();
 		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getActionAccess().getDoWaitParserRuleCall_10());
-		}
-		this_DoWait_10=ruleDoWait
-		{
-			$current = $this_DoWait_10.current;
-			afterParserOrEnumRuleCall();
-		}
+	)
+;
+
+// Entry rule entryRuleActionWithObject
+entryRuleActionWithObject returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getActionWithObjectRule()); }
+	iv_ruleActionWithObject=ruleActionWithObject
+	{ $current=$iv_ruleActionWithObject.current; }
+	EOF;
+
+// Rule ActionWithObject
+ruleActionWithObject returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				newCompositeNode(grammarAccess.getActionWithObjectAccess().getClickParserRuleCall_0_0());
+			}
+			this_Click_0=ruleClick
+			{
+				$current = $this_Click_0.current;
+				afterParserOrEnumRuleCall();
+			}
+			    |
+			{
+				newCompositeNode(grammarAccess.getActionWithObjectAccess().getFillParserRuleCall_0_1());
+			}
+			this_Fill_1=ruleFill
+			{
+				$current = $this_Fill_1.current;
+				afterParserOrEnumRuleCall();
+			}
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getActionWithObjectAccess().getObjectObjectParserRuleCall_1_0());
+				}
+				lv_object_2_0=ruleObject
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getActionWithObjectRule());
+					}
+					set(
+						$current,
+						"object",
+						lv_object_2_0,
+						"org.xtext.example.mydsl.MyDsl.Object");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 	)
 ;
 
@@ -490,9 +538,9 @@ ruleHTMLTYPE returns [EObject current=null]
 					setWithLastConsumed($current, "type", lv_type_0_1, null);
 				}
 				    |
-				lv_type_0_2='title'
+				lv_type_0_2='nameTag'
 				{
-					newLeafNode(lv_type_0_2, grammarAccess.getHTMLTYPEAccess().getTypeTitleKeyword_0_1());
+					newLeafNode(lv_type_0_2, grammarAccess.getHTMLTYPEAccess().getTypeNameTagKeyword_0_1());
 				}
 				{
 					if ($current==null) {
@@ -1049,29 +1097,17 @@ ruleClick returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='Click'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getClickAccess().getClickKeyword_0());
-		}
 		(
-			(
-				{
-					newCompositeNode(grammarAccess.getClickAccess().getObjectObjectParserRuleCall_1_0());
-				}
-				lv_object_1_0=ruleObject
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getClickRule());
-					}
-					set(
-						$current,
-						"object",
-						lv_object_1_0,
-						"org.xtext.example.mydsl.MyDsl.Object");
-					afterParserOrEnumRuleCall();
-				}
-			)
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getClickAccess().getClickAction_0(),
+					$current);
+			}
 		)
+		otherlv_1='Click'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getClickAccess().getClickKeyword_1());
+		}
 	)
 ;
 
@@ -1091,37 +1127,15 @@ ruleFill returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='Fill'
+		otherlv_0='Write'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getFillAccess().getFillKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getFillAccess().getWriteKeyword_0());
 		}
 		(
 			(
-				lv_nametag_1_0=RULE_STRING
+				lv_content_1_0=RULE_STRING
 				{
-					newLeafNode(lv_nametag_1_0, grammarAccess.getFillAccess().getNametagSTRINGTerminalRuleCall_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getFillRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"nametag",
-						lv_nametag_1_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
-				}
-			)
-		)
-		otherlv_2='with'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getFillAccess().getWithKeyword_2());
-		}
-		(
-			(
-				lv_content_3_0=RULE_STRING
-				{
-					newLeafNode(lv_content_3_0, grammarAccess.getFillAccess().getContentSTRINGTerminalRuleCall_3_0());
+					newLeafNode(lv_content_1_0, grammarAccess.getFillAccess().getContentSTRINGTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -1130,11 +1144,15 @@ ruleFill returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"content",
-						lv_content_3_0,
+						lv_content_1_0,
 						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)
+		otherlv_2='inside'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getFillAccess().getInsideKeyword_2());
+		}
 	)
 ;
 

@@ -42,6 +42,15 @@ public interface MyDslFactory extends EFactory
   Action createAction();
 
   /**
+   * Returns a new object of class '<em>Action With Object</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Action With Object</em>'.
+   * @generated
+   */
+  ActionWithObject createActionWithObject();
+
+  /**
    * Returns a new object of class '<em>Structure</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -12,6 +12,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Main/orders"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Action"/>
+    <genClasses ecoreClass="MyDsl.ecore#//ActionWithObject">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ActionWithObject/object"/>
+    </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Structure"/>
     <genClasses ecoreClass="MyDsl.ecore#//Condition"/>
     <genClasses ecoreClass="MyDsl.ecore#//Object">
@@ -49,11 +52,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ActionSelect/option"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ActionSelect/xpath"/>
     </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//Click">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Click/object"/>
-    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Click"/>
     <genClasses ecoreClass="MyDsl.ecore#//Fill">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Fill/nametag"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Fill/content"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//CheckBox">

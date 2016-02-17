@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import org.xtext.example.mydsl.myDsl.Action;
 import org.xtext.example.mydsl.myDsl.ActionSelect;
+import org.xtext.example.mydsl.myDsl.ActionWithObject;
 import org.xtext.example.mydsl.myDsl.CheckBox;
 import org.xtext.example.mydsl.myDsl.Click;
 import org.xtext.example.mydsl.myDsl.Collection;
@@ -92,6 +93,7 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
     {
       case MyDslPackage.MAIN: return createMain();
       case MyDslPackage.ACTION: return createAction();
+      case MyDslPackage.ACTION_WITH_OBJECT: return createActionWithObject();
       case MyDslPackage.STRUCTURE: return createStructure();
       case MyDslPackage.CONDITION: return createCondition();
       case MyDslPackage.OBJECT: return createObject();
@@ -140,6 +142,17 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     ActionImpl action = new ActionImpl();
     return action;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ActionWithObject createActionWithObject()
+  {
+    ActionWithObjectImpl actionWithObject = new ActionWithObjectImpl();
+    return actionWithObject;
   }
 
   /**

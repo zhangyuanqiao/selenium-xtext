@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.xtext.example.mydsl.myDsl.Action;
 import org.xtext.example.mydsl.myDsl.ActionSelect;
+import org.xtext.example.mydsl.myDsl.ActionWithObject;
 import org.xtext.example.mydsl.myDsl.CheckBox;
 import org.xtext.example.mydsl.myDsl.Click;
 import org.xtext.example.mydsl.myDsl.Collection;
@@ -57,6 +58,13 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   private EClass actionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass actionWithObjectEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -330,6 +338,26 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
   public EClass getAction()
   {
     return actionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getActionWithObject()
+  {
+    return actionWithObjectEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getActionWithObject_Object()
+  {
+    return (EReference)actionWithObjectEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -627,16 +655,6 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getClick_Object()
-  {
-    return (EReference)clickEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getFill()
   {
     return fillEClass;
@@ -647,19 +665,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFill_Nametag()
-  {
-    return (EAttribute)fillEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getFill_Content()
   {
-    return (EAttribute)fillEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)fillEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -959,6 +967,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     actionEClass = createEClass(ACTION);
 
+    actionWithObjectEClass = createEClass(ACTION_WITH_OBJECT);
+    createEReference(actionWithObjectEClass, ACTION_WITH_OBJECT__OBJECT);
+
     structureEClass = createEClass(STRUCTURE);
 
     conditionEClass = createEClass(CONDITION);
@@ -1000,10 +1011,8 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEAttribute(actionSelectEClass, ACTION_SELECT__XPATH);
 
     clickEClass = createEClass(CLICK);
-    createEReference(clickEClass, CLICK__OBJECT);
 
     fillEClass = createEClass(FILL);
-    createEAttribute(fillEClass, FILL__NAMETAG);
     createEAttribute(fillEClass, FILL__CONTENT);
 
     checkBoxEClass = createEClass(CHECK_BOX);
@@ -1071,6 +1080,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    actionWithObjectEClass.getESuperTypes().add(this.getAction());
     subProcedureEClass.getESuperTypes().add(this.getObject());
     refreshEClass.getESuperTypes().add(this.getAction());
     navigateEClass.getESuperTypes().add(this.getAction());
@@ -1078,8 +1088,8 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     reDefineEClass.getESuperTypes().add(this.getAction());
     deleteEClass.getESuperTypes().add(this.getAction());
     actionSelectEClass.getESuperTypes().add(this.getAction());
-    clickEClass.getESuperTypes().add(this.getAction());
-    fillEClass.getESuperTypes().add(this.getAction());
+    clickEClass.getESuperTypes().add(this.getActionWithObject());
+    fillEClass.getESuperTypes().add(this.getActionWithObject());
     checkBoxEClass.getESuperTypes().add(this.getAction());
     rickrollEClass.getESuperTypes().add(this.getAction());
     doWaitEClass.getESuperTypes().add(this.getAction());
@@ -1097,6 +1107,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEReference(getMain_Orders(), ecorePackage.getEObject(), null, "orders", null, 0, -1, Main.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(actionWithObjectEClass, ActionWithObject.class, "ActionWithObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getActionWithObject_Object(), this.getObject(), null, "object", null, 0, 1, ActionWithObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(structureEClass, Structure.class, "Structure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1139,10 +1152,8 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEAttribute(getActionSelect_Xpath(), ecorePackage.getEString(), "xpath", null, 0, 1, ActionSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(clickEClass, Click.class, "Click", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getClick_Object(), this.getObject(), null, "object", null, 0, 1, Click.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(fillEClass, Fill.class, "Fill", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getFill_Nametag(), ecorePackage.getEString(), "nametag", null, 0, 1, Fill.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFill_Content(), ecorePackage.getEString(), "content", null, 0, 1, Fill.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(checkBoxEClass, CheckBox.class, "CheckBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

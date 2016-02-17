@@ -20,34 +20,13 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.FillImpl#getNametag <em>Nametag</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.FillImpl#getContent <em>Content</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class FillImpl extends ActionImpl implements Fill
+public class FillImpl extends ActionWithObjectImpl implements Fill
 {
-  /**
-   * The default value of the '{@link #getNametag() <em>Nametag</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getNametag()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAMETAG_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getNametag() <em>Nametag</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getNametag()
-   * @generated
-   * @ordered
-   */
-  protected String nametag = NAMETAG_EDEFAULT;
-
   /**
    * The default value of the '{@link #getContent() <em>Content</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -94,29 +73,6 @@ public class FillImpl extends ActionImpl implements Fill
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getNametag()
-  {
-    return nametag;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setNametag(String newNametag)
-  {
-    String oldNametag = nametag;
-    nametag = newNametag;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.FILL__NAMETAG, oldNametag, nametag));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getContent()
   {
     return content;
@@ -145,8 +101,6 @@ public class FillImpl extends ActionImpl implements Fill
   {
     switch (featureID)
     {
-      case MyDslPackage.FILL__NAMETAG:
-        return getNametag();
       case MyDslPackage.FILL__CONTENT:
         return getContent();
     }
@@ -163,9 +117,6 @@ public class FillImpl extends ActionImpl implements Fill
   {
     switch (featureID)
     {
-      case MyDslPackage.FILL__NAMETAG:
-        setNametag((String)newValue);
-        return;
       case MyDslPackage.FILL__CONTENT:
         setContent((String)newValue);
         return;
@@ -183,9 +134,6 @@ public class FillImpl extends ActionImpl implements Fill
   {
     switch (featureID)
     {
-      case MyDslPackage.FILL__NAMETAG:
-        setNametag(NAMETAG_EDEFAULT);
-        return;
       case MyDslPackage.FILL__CONTENT:
         setContent(CONTENT_EDEFAULT);
         return;
@@ -203,8 +151,6 @@ public class FillImpl extends ActionImpl implements Fill
   {
     switch (featureID)
     {
-      case MyDslPackage.FILL__NAMETAG:
-        return NAMETAG_EDEFAULT == null ? nametag != null : !NAMETAG_EDEFAULT.equals(nametag);
       case MyDslPackage.FILL__CONTENT:
         return CONTENT_EDEFAULT == null ? content != null : !CONTENT_EDEFAULT.equals(content);
     }
@@ -222,9 +168,7 @@ public class FillImpl extends ActionImpl implements Fill
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (nametag: ");
-    result.append(nametag);
-    result.append(", content: ");
+    result.append(" (content: ");
     result.append(content);
     result.append(')');
     return result.toString();
