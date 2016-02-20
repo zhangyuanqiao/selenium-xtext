@@ -465,7 +465,10 @@ public class Interpretor {
 		case "XPath":		return SEL_DRIVER.findElements(By.xpath(coll.getObjectRule())); 
 		case "id" :		 	return SEL_DRIVER.findElements(By.id(coll.getObjectRule()));
 		case "name":		return SEL_DRIVER.findElements(By.name(coll.getObjectRule()));
-		case "title":		return null; //TODO flemme
+		case "title":		return SEL_DRIVER.
+								findElements(
+									By.xpath("//*[contains(@title, '"+coll.getObjectRule()+"')]")
+									); //TODO flemme
 		default: System.out.println("Did not recognize this type of object"); break;
 		}
 		return null;
